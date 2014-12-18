@@ -6,10 +6,10 @@ Nouvelle version de Maison des ligues avec l'interface metro
 CHARTE GRAPHIQUE
 ================
 
-  Utiliser des MetroPanel à la place des Groupbox avec un borderstyle "FixedSingle"
-  Utiliser des fond blancs sur les controls
-  Pour les MaskedTextBox, utiliser la couleur "Control" pour ressembler au MetroTextBox
-  Pour les boutons normaux, utiliser "FontSize" = Medium  & "FontWeight" = Light . Pour les boutons de validation,
+  * Utiliser des MetroPanel à la place des Groupbox avec un borderstyle "FixedSingle"
+  * Utiliser des fond blancs sur les controls
+  * Pour les MaskedTextBox, utiliser la couleur "Control" pour ressembler au MetroTextBox
+  * Pour les boutons normaux, utiliser "FontSize" = Medium  & "FontWeight" = Light . Pour les boutons de validation,
   Rajouter le "Highlight" avec style = red
   
   Evidemment utilisé au max les controls Metro !
@@ -18,9 +18,9 @@ INSTALLER LE FRAMEWORK
 ======================
 
 Le dossier dlls contient :
-  Le composantNuite modifié en Metro
-  L'oracle DataAccess 4
-  Et le framework Metro
+  * Le composantNuite modifié en Metro
+  * L'oracle DataAccess 4
+  * Le framework Metro
 
 Boite à outils
 --------------
