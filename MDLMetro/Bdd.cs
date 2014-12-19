@@ -113,7 +113,7 @@ namespace BaseDeDonnees
         /// <param name="pVille">ville du participant</param>
         /// <param name="pTel">téléphone du participant</param>
         /// <param name="pMail">mail du participant</param>
-        private void ParamCommunsNouveauxParticipants(OracleCommand Cmd, String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail)
+        private void ParamCommunsNouveauxParticipants(OracleCommand Cmd, String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, byte[] pPhoto)
         {
             Cmd.Parameters.Add("pNom", OracleDbType.Varchar2, ParameterDirection.Input).Value = pNom;
             Cmd.Parameters.Add("pPrenom", OracleDbType.Varchar2, ParameterDirection.Input).Value = pPrenom;
@@ -123,6 +123,12 @@ namespace BaseDeDonnees
             Cmd.Parameters.Add("pVille", OracleDbType.Varchar2, ParameterDirection.Input).Value = pVille;
             Cmd.Parameters.Add("pTel", OracleDbType.Varchar2, ParameterDirection.Input).Value = pTel;
             Cmd.Parameters.Add("pMail", OracleDbType.Varchar2, ParameterDirection.Input).Value = pMail;
+
+            OracleParameter laPhoto = new OracleParameter();
+            laPhoto.OracleDbType = OracleDbType.Blob;
+            laPhoto.ParameterName = "pPhoto";
+            laPhoto.Value = pPhoto;
+            Cmd.Parameters.Add(laPhoto);
         }
         /// <summary>
         /// procédure qui va se charger d'invoquer la procédure stockée qui ira inscrire un participant de type bénévole
@@ -139,13 +145,13 @@ namespace BaseDeDonnees
         /// <param name="pDateNaissance">mail du bénévole</param>
         /// <param name="pNumeroLicence">numéro de licence du bénévole ou null</param>
         /// <param name="pDateBenevolat">collection des id des dates où le bénévole sera présent</param>
-        public void InscrireBenevole(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, DateTime pDateNaissance, Int64? pNumeroLicence, Collection<Int16> pDateBenevolat)
+        public void InscrireBenevole(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, DateTime pDateNaissance, Int64? pNumeroLicence, Collection<Int16> pDateBenevolat, byte[] pPhoto)
         {
             try
             {
                 UneOracleCommand = new OracleCommand("pckparticipant.nouveaubenevole", CnOracle);
                 UneOracleCommand.CommandType = CommandType.StoredProcedure;
-                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
+                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail, pPhoto);
                 UneOracleCommand.Parameters.Add("pDateNaiss", OracleDbType.Date, ParameterDirection.Input).Value = pDateNaissance;
                 UneOracleCommand.Parameters.Add("pLicence", OracleDbType.Int64, ParameterDirection.Input).Value = pNumeroLicence;
                 //UneOracleCommand.Parameters.Add("pLesDates", OracleDbType.Array, ParameterDirection.Input).Value = pDateBenevolat;
@@ -195,7 +201,7 @@ namespace BaseDeDonnees
         /// <param name="pMail">mail du participant</param>
         /// <param name="pIdAtelier"> Id de l'atelier où interviendra l'intervenant</param>
         /// <param name="pIdStatut">statut de l'intervenant pour l'atelier : animateur ou intervenant</param>
-        public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut)
+        public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut, byte[] pPhoto)
         {
             /// <remarks>
             /// procédure qui va créer :
@@ -213,7 +219,7 @@ namespace BaseDeDonnees
                 // début de la transaction Oracle il vaut mieyx gérer les transactions dans l'applicatif que dans la bd dans les procédures stockées.
                 UneOracleTransaction = this.CnOracle.BeginTransaction();
                 // on appelle la procédure ParamCommunsNouveauxParticipants pour charger les paramètres communs aux intervenants
-                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
+                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail, pPhoto);
                 // on appelle la procédure ParamsCommunsIntervenant pour charger les paramètres communs aux intervenants
                 this.ParamsSpecifiquesIntervenant(UneOracleCommand, pIdAtelier, pIdStatut);
                 //execution
@@ -258,7 +264,7 @@ namespace BaseDeDonnees
         /// <param name="pLesCategories">tableau contenant la catégorie de chambre pour chaque nuité à réserver</param>
         /// <param name="pLesHotels">tableau contenant l'hôtel pour chaque nuité à réserver</param>
         /// <param name="pLesNuits">tableau contenant l'id de la date d'arrivée pour chaque nuité à réserver</param>
-        public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut, Collection<string> pLesCategories, Collection<string> pLesHotels, Collection<Int16> pLesNuits)
+        public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut, Collection<string> pLesCategories, Collection<string> pLesHotels, Collection<Int16> pLesNuits, byte[] pPhoto)
         {
             /// <remarks>
             /// procédure qui va  :
@@ -279,7 +285,7 @@ namespace BaseDeDonnees
                 UneOracleCommand.CommandType = CommandType.StoredProcedure;
                 // début de la transaction Oracle : il vaut mieyx gérer les transactions dans l'applicatif que dans la bd.
                 UneOracleTransaction = this.CnOracle.BeginTransaction();
-                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
+                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail, pPhoto);
                 this.ParamsSpecifiquesIntervenant(UneOracleCommand, pIdAtelier, pIdStatut);
 
                 //On va créer ici les paramètres spécifiques à l'inscription d'un intervenant qui réserve des nuits d'hôtel.
