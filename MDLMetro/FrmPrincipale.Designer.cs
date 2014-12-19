@@ -209,7 +209,7 @@
             this.TabPrincipal.Controls.Add(this.TabGestionAtelierThemeVacation);
             this.TabPrincipal.Location = new System.Drawing.Point(23, 84);
             this.TabPrincipal.Name = "TabPrincipal";
-            this.TabPrincipal.SelectedIndex = 0;
+            this.TabPrincipal.SelectedIndex = 1;
             this.TabPrincipal.Size = new System.Drawing.Size(1129, 560);
             this.TabPrincipal.TabIndex = 0;
             this.TabPrincipal.UseSelectable = true;
@@ -778,8 +778,8 @@
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelRadAtelierThemeVacation);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelier);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerTheme);
-            this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelierVacation);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerVacationSuite);
+            this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelierVacation);
             this.TabGestionAtelierThemeVacation.HorizontalScrollbarBarColor = true;
             this.TabGestionAtelierThemeVacation.HorizontalScrollbarHighlightOnWheel = false;
             this.TabGestionAtelierThemeVacation.HorizontalScrollbarSize = 10;
@@ -1172,7 +1172,7 @@
             this.DateCreerAtelierCreerVacationHeureDebut1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureDebut1.Location = new System.Drawing.Point(85, 20);
             this.DateCreerAtelierCreerVacationHeureDebut1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureDebut1.Name = "DateCreerAtelierCreerVacationHeureDebut1";
             this.DateCreerAtelierCreerVacationHeureDebut1.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureDebut1.TabIndex = 7;
@@ -1184,7 +1184,7 @@
             this.DateCreerAtelierCreerVacationHeureFin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureFin1.Location = new System.Drawing.Point(85, 55);
             this.DateCreerAtelierCreerVacationHeureFin1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureFin1.Name = "DateCreerAtelierCreerVacationHeureFin1";
             this.DateCreerAtelierCreerVacationHeureFin1.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureFin1.TabIndex = 6;
@@ -1238,6 +1238,7 @@
             this.PanelCreerAtelierCreerVacation2.Controls.Add(this.metroLabel26);
             this.PanelCreerAtelierCreerVacation2.Controls.Add(this.metroLabel27);
             this.PanelCreerAtelierCreerVacation2.Controls.Add(this.metroLabel20);
+            this.PanelCreerAtelierCreerVacation2.Enabled = false;
             this.PanelCreerAtelierCreerVacation2.HorizontalScrollbarBarColor = true;
             this.PanelCreerAtelierCreerVacation2.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelCreerAtelierCreerVacation2.HorizontalScrollbarSize = 10;
@@ -1256,7 +1257,7 @@
             this.DateCreerAtelierCreerVacationHeureDebut2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureDebut2.Location = new System.Drawing.Point(85, 21);
             this.DateCreerAtelierCreerVacationHeureDebut2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureDebut2.Name = "DateCreerAtelierCreerVacationHeureDebut2";
             this.DateCreerAtelierCreerVacationHeureDebut2.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureDebut2.TabIndex = 7;
@@ -1268,7 +1269,7 @@
             this.DateCreerAtelierCreerVacationHeureFin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureFin2.Location = new System.Drawing.Point(85, 56);
             this.DateCreerAtelierCreerVacationHeureFin2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureFin2.Name = "DateCreerAtelierCreerVacationHeureFin2";
             this.DateCreerAtelierCreerVacationHeureFin2.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureFin2.TabIndex = 8;
@@ -1332,6 +1333,7 @@
             this.PanelCreerAtelierCreerVacation3.Controls.Add(this.metroLabel28);
             this.PanelCreerAtelierCreerVacation3.Controls.Add(this.metroLabel29);
             this.PanelCreerAtelierCreerVacation3.Controls.Add(this.metroLabel21);
+            this.PanelCreerAtelierCreerVacation3.Enabled = false;
             this.PanelCreerAtelierCreerVacation3.HorizontalScrollbarBarColor = true;
             this.PanelCreerAtelierCreerVacation3.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelCreerAtelierCreerVacation3.HorizontalScrollbarSize = 10;
@@ -1350,7 +1352,7 @@
             this.DateCreerAtelierCreerVacationHeureDebut3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureDebut3.Location = new System.Drawing.Point(83, 20);
             this.DateCreerAtelierCreerVacationHeureDebut3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureDebut3.Name = "DateCreerAtelierCreerVacationHeureDebut3";
             this.DateCreerAtelierCreerVacationHeureDebut3.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureDebut3.TabIndex = 7;
@@ -1362,7 +1364,7 @@
             this.DateCreerAtelierCreerVacationHeureFin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureFin3.Location = new System.Drawing.Point(83, 55);
             this.DateCreerAtelierCreerVacationHeureFin3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureFin3.Name = "DateCreerAtelierCreerVacationHeureFin3";
             this.DateCreerAtelierCreerVacationHeureFin3.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureFin3.TabIndex = 8;
@@ -1425,6 +1427,7 @@
             this.PanelCreerAtelierCreerVacation4.Controls.Add(this.metroLabel30);
             this.PanelCreerAtelierCreerVacation4.Controls.Add(this.metroLabel31);
             this.PanelCreerAtelierCreerVacation4.Controls.Add(this.metroLabel22);
+            this.PanelCreerAtelierCreerVacation4.Enabled = false;
             this.PanelCreerAtelierCreerVacation4.HorizontalScrollbarBarColor = true;
             this.PanelCreerAtelierCreerVacation4.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelCreerAtelierCreerVacation4.HorizontalScrollbarSize = 10;
@@ -1443,7 +1446,7 @@
             this.DateCreerAtelierCreerVacationHeureDebut4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureDebut4.Location = new System.Drawing.Point(81, 21);
             this.DateCreerAtelierCreerVacationHeureDebut4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureDebut4.Name = "DateCreerAtelierCreerVacationHeureDebut4";
             this.DateCreerAtelierCreerVacationHeureDebut4.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureDebut4.TabIndex = 7;
@@ -1455,7 +1458,7 @@
             this.DateCreerAtelierCreerVacationHeureFin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureFin4.Location = new System.Drawing.Point(81, 56);
             this.DateCreerAtelierCreerVacationHeureFin4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureFin4.Name = "DateCreerAtelierCreerVacationHeureFin4";
             this.DateCreerAtelierCreerVacationHeureFin4.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureFin4.TabIndex = 8;
@@ -1517,6 +1520,7 @@
             this.PanelCreerAtelierCreerVacation5.Controls.Add(this.metroLabel32);
             this.PanelCreerAtelierCreerVacation5.Controls.Add(this.metroLabel33);
             this.PanelCreerAtelierCreerVacation5.Controls.Add(this.metroLabel23);
+            this.PanelCreerAtelierCreerVacation5.Enabled = false;
             this.PanelCreerAtelierCreerVacation5.HorizontalScrollbarBarColor = true;
             this.PanelCreerAtelierCreerVacation5.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelCreerAtelierCreerVacation5.HorizontalScrollbarSize = 10;
@@ -1535,7 +1539,7 @@
             this.DateCreerAtelierCreerVacationHeureDebut5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureDebut5.Location = new System.Drawing.Point(83, 21);
             this.DateCreerAtelierCreerVacationHeureDebut5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureDebut5.Name = "DateCreerAtelierCreerVacationHeureDebut5";
             this.DateCreerAtelierCreerVacationHeureDebut5.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureDebut5.TabIndex = 7;
@@ -1547,7 +1551,7 @@
             this.DateCreerAtelierCreerVacationHeureFin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerAtelierCreerVacationHeureFin5.Location = new System.Drawing.Point(83, 56);
             this.DateCreerAtelierCreerVacationHeureFin5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerAtelierCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerAtelierCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerAtelierCreerVacationHeureFin5.Name = "DateCreerAtelierCreerVacationHeureFin5";
             this.DateCreerAtelierCreerVacationHeureFin5.Size = new System.Drawing.Size(178, 29);
             this.DateCreerAtelierCreerVacationHeureFin5.TabIndex = 8;
@@ -1646,7 +1650,7 @@
             this.DateCreerVacationHeureFin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin5.Location = new System.Drawing.Point(83, 56);
             this.DateCreerVacationHeureFin5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin5.Name = "DateCreerVacationHeureFin5";
             this.DateCreerVacationHeureFin5.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin5.TabIndex = 3;
@@ -1667,7 +1671,7 @@
             this.DateCreerVacationHeureDebut5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut5.Location = new System.Drawing.Point(83, 21);
             this.DateCreerVacationHeureDebut5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut5.Name = "DateCreerVacationHeureDebut5";
             this.DateCreerVacationHeureDebut5.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut5.TabIndex = 1;
@@ -1717,7 +1721,7 @@
             this.DateCreerVacationHeureFin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin4.Location = new System.Drawing.Point(81, 56);
             this.DateCreerVacationHeureFin4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin4.Name = "DateCreerVacationHeureFin4";
             this.DateCreerVacationHeureFin4.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin4.TabIndex = 3;
@@ -1738,7 +1742,7 @@
             this.DateCreerVacationHeureDebut4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut4.Location = new System.Drawing.Point(81, 21);
             this.DateCreerVacationHeureDebut4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut4.Name = "DateCreerVacationHeureDebut4";
             this.DateCreerVacationHeureDebut4.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut4.TabIndex = 1;
@@ -1788,7 +1792,7 @@
             this.DateCreerVacationHeureFin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin3.Location = new System.Drawing.Point(83, 55);
             this.DateCreerVacationHeureFin3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin3.Name = "DateCreerVacationHeureFin3";
             this.DateCreerVacationHeureFin3.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin3.TabIndex = 3;
@@ -1809,7 +1813,7 @@
             this.DateCreerVacationHeureDebut3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut3.Location = new System.Drawing.Point(83, 20);
             this.DateCreerVacationHeureDebut3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut3.Name = "DateCreerVacationHeureDebut3";
             this.DateCreerVacationHeureDebut3.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut3.TabIndex = 1;
@@ -1859,7 +1863,7 @@
             this.DateCreerVacationHeureFin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin2.Location = new System.Drawing.Point(85, 56);
             this.DateCreerVacationHeureFin2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin2.Name = "DateCreerVacationHeureFin2";
             this.DateCreerVacationHeureFin2.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin2.TabIndex = 3;
@@ -1880,7 +1884,7 @@
             this.DateCreerVacationHeureDebut2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut2.Location = new System.Drawing.Point(85, 21);
             this.DateCreerVacationHeureDebut2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut2.Name = "DateCreerVacationHeureDebut2";
             this.DateCreerVacationHeureDebut2.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut2.TabIndex = 1;
@@ -1930,7 +1934,7 @@
             this.DateCreerVacationHeureFin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin1.Location = new System.Drawing.Point(85, 55);
             this.DateCreerVacationHeureFin1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin1.Name = "DateCreerVacationHeureFin1";
             this.DateCreerVacationHeureFin1.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin1.TabIndex = 3;
@@ -1951,7 +1955,7 @@
             this.DateCreerVacationHeureDebut1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut1.Location = new System.Drawing.Point(85, 20);
             this.DateCreerVacationHeureDebut1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut1.Name = "DateCreerVacationHeureDebut1";
             this.DateCreerVacationHeureDebut1.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut1.TabIndex = 1;
