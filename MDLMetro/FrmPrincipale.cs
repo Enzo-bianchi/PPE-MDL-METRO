@@ -513,18 +513,18 @@ namespace MDLMetro
                     }
                     if (NuitsSelectionnes.Count == 0)
                     {
-                        MessageBox.Show("Si vous avez sélectionné que l'intervenant avait des nuités\n in faut qu'au moins une nuit soit sélectionnée");
+                        MetroMessageBox.Show(this, "Si vous avez sélectionné que l'intervenant avait des nuités, il faut qu'au moins une nuit soit sélectionnée", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes, photoByte);
-                        MessageBox.Show("Inscription intervenant effectuée");
+                        MetroMessageBox.Show(this, "Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 { // inscription sans les nuitées
                     UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
-                    MessageBox.Show("Inscription intervenant effectuée");
+                    MetroMessageBox.Show(this,"Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
 
@@ -532,10 +532,18 @@ namespace MDLMetro
             }
             catch (Exception Ex)
             {
-                MessageBox.Show(Ex.Message);
+                MetroMessageBox.Show(this,Ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// Control Openfiledialog où on va récupérer une image dont la taille en pixel ne doit pas
+        /// depasser 150x150 et ne doit pas depasser 1mo en poids
+        /// Une fois la validation faite, la photo est transformer en un tableau de byte (photobyte)
+        /// et va servir en parametre oracle Blob
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnParcourirPhotoParticipant_Click(object sender, EventArgs e)
         {
             try
@@ -554,10 +562,9 @@ namespace MDLMetro
                     else PboxApercuParticipant.Image = img;
                     LblDesignPhotoParticipant.Visible = true;
                     LblNomPhotoParticipant.Text = OfpPhotoParticipant.SafeFileName.ToString();
-                    //MessageBox.Show(OfpPhotoParticipant.FileName.ToString()); // Affiche le chemin complet
 
                     FileStream fs = new System.IO.FileStream(OfpPhotoParticipant.FileName.ToString(), FileMode.Open, FileAccess.Read);
-                    byte[] photoByte = new byte[fs.Length - 1];
+                    photoByte = new byte[fs.Length];
                     fs.Read(photoByte, 0, photoByte.Length);
                     fs.Close();
                 }
