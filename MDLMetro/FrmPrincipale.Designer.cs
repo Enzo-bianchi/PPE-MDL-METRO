@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.TabPrincipal = new MetroFramework.Controls.MetroTabControl();
             this.TabInscription = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
@@ -57,6 +56,14 @@
             this.RadBenevole = new MetroFramework.Controls.MetroRadioButton();
             this.RadLicencie = new MetroFramework.Controls.MetroRadioButton();
             this.RadIntervenant = new MetroFramework.Controls.MetroRadioButton();
+            this.PanelBenevole = new MetroFramework.Controls.MetroPanel();
+            this.PanelDispoBenevole = new MetroFramework.Controls.MetroPanel();
+            this.BtnEnregistrerBenevole = new MetroFramework.Controls.MetroButton();
+            this.TxtLicenceBenevole = new System.Windows.Forms.MaskedTextBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.TxtDateNaissance = new System.Windows.Forms.MaskedTextBox();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.PanelIntervenant = new MetroFramework.Controls.MetroPanel();
             this.BtnEnregistrerIntervenant = new MetroFramework.Controls.MetroButton();
             this.PanelFonctionIntervenant = new MetroFramework.Controls.MetroPanel();
@@ -67,14 +74,6 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.CmbAtelierIntervenant = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.PanelBenevole = new MetroFramework.Controls.MetroPanel();
-            this.PanelDispoBenevole = new MetroFramework.Controls.MetroPanel();
-            this.BtnEnregistrerBenevole = new MetroFramework.Controls.MetroButton();
-            this.TxtLicenceBenevole = new System.Windows.Forms.MaskedTextBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.TxtDateNaissance = new System.Windows.Forms.MaskedTextBox();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.TabGestionAtelierThemeVacation = new MetroFramework.Controls.MetroTabPage();
             this.PanelCreerVacation = new MetroFramework.Controls.MetroPanel();
             this.BtnCreerVacationEnregistrer = new MetroFramework.Controls.MetroButton();
@@ -176,15 +175,13 @@
             this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
             this.AideVacationAtelier = new MetroFramework.Components.MetroToolTip();
             this.BtnQuitter = new MetroFramework.Controls.MetroButton();
-            this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.TabPrincipal.SuspendLayout();
             this.TabInscription.SuspendLayout();
             this.PanelIdentite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelTypeParticipant.SuspendLayout();
-            this.PanelIntervenant.SuspendLayout();
             this.PanelBenevole.SuspendLayout();
+            this.PanelIntervenant.SuspendLayout();
             this.TabGestionAtelierThemeVacation.SuspendLayout();
             this.PanelCreerVacation.SuspendLayout();
             this.PanelCreerAtelierTheme.SuspendLayout();
@@ -204,7 +201,6 @@
             this.PanelCreerVacation3.SuspendLayout();
             this.PanelCreerVacation2.SuspendLayout();
             this.PanelCreerVacation1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // TabPrincipal
@@ -363,7 +359,7 @@
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.Location = new System.Drawing.Point(13, 164);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(31, 19);
+            this.metroLabel6.Size = new System.Drawing.Size(33, 19);
             this.metroLabel6.TabIndex = 13;
             this.metroLabel6.Text = "Tél :";
             // 
@@ -518,7 +514,7 @@
             this.LblDesign1.AutoSize = true;
             this.LblDesign1.Location = new System.Drawing.Point(63, 6);
             this.LblDesign1.Name = "LblDesign1";
-            this.LblDesign1.Size = new System.Drawing.Size(207, 19);
+            this.LblDesign1.Size = new System.Drawing.Size(206, 19);
             this.LblDesign1.TabIndex = 3;
             this.LblDesign1.Text = "Choisissez un type de participant :";
             // 
@@ -554,6 +550,100 @@
             this.RadIntervenant.Text = "Intervenant";
             this.RadIntervenant.UseSelectable = true;
             this.RadIntervenant.CheckedChanged += new System.EventHandler(this.RadTypeParticipant_CheckedChanged);
+            // 
+            // PanelBenevole
+            // 
+            this.PanelBenevole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelBenevole.Controls.Add(this.PanelDispoBenevole);
+            this.PanelBenevole.Controls.Add(this.BtnEnregistrerBenevole);
+            this.PanelBenevole.Controls.Add(this.TxtLicenceBenevole);
+            this.PanelBenevole.Controls.Add(this.metroLabel13);
+            this.PanelBenevole.Controls.Add(this.TxtDateNaissance);
+            this.PanelBenevole.Controls.Add(this.metroLabel12);
+            this.PanelBenevole.Controls.Add(this.metroLabel11);
+            this.PanelBenevole.HorizontalScrollbarBarColor = true;
+            this.PanelBenevole.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelBenevole.HorizontalScrollbarSize = 10;
+            this.PanelBenevole.Location = new System.Drawing.Point(422, 14);
+            this.PanelBenevole.Name = "PanelBenevole";
+            this.PanelBenevole.Size = new System.Drawing.Size(584, 197);
+            this.PanelBenevole.TabIndex = 5;
+            this.PanelBenevole.VerticalScrollbarBarColor = true;
+            this.PanelBenevole.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelBenevole.VerticalScrollbarSize = 10;
+            this.PanelBenevole.Visible = false;
+            // 
+            // PanelDispoBenevole
+            // 
+            this.PanelDispoBenevole.HorizontalScrollbarBarColor = true;
+            this.PanelDispoBenevole.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelDispoBenevole.HorizontalScrollbarSize = 10;
+            this.PanelDispoBenevole.Location = new System.Drawing.Point(19, 72);
+            this.PanelDispoBenevole.Name = "PanelDispoBenevole";
+            this.PanelDispoBenevole.Size = new System.Drawing.Size(477, 56);
+            this.PanelDispoBenevole.TabIndex = 12;
+            this.PanelDispoBenevole.VerticalScrollbarBarColor = true;
+            this.PanelDispoBenevole.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelDispoBenevole.VerticalScrollbarSize = 10;
+            // 
+            // BtnEnregistrerBenevole
+            // 
+            this.BtnEnregistrerBenevole.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.BtnEnregistrerBenevole.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.BtnEnregistrerBenevole.Highlight = true;
+            this.BtnEnregistrerBenevole.Location = new System.Drawing.Point(503, 33);
+            this.BtnEnregistrerBenevole.Name = "BtnEnregistrerBenevole";
+            this.BtnEnregistrerBenevole.Size = new System.Drawing.Size(75, 23);
+            this.BtnEnregistrerBenevole.Style = MetroFramework.MetroColorStyle.Red;
+            this.BtnEnregistrerBenevole.TabIndex = 11;
+            this.BtnEnregistrerBenevole.Text = "S\'inscrire !";
+            this.BtnEnregistrerBenevole.UseSelectable = true;
+            this.BtnEnregistrerBenevole.Click += new System.EventHandler(this.BtnEnregistrerBenevole_Click);
+            // 
+            // TxtLicenceBenevole
+            // 
+            this.TxtLicenceBenevole.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtLicenceBenevole.Location = new System.Drawing.Point(363, 36);
+            this.TxtLicenceBenevole.Mask = "000000000000";
+            this.TxtLicenceBenevole.Name = "TxtLicenceBenevole";
+            this.TxtLicenceBenevole.Size = new System.Drawing.Size(85, 20);
+            this.TxtLicenceBenevole.TabIndex = 9;
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(230, 37);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(127, 19);
+            this.metroLabel13.TabIndex = 8;
+            this.metroLabel13.Text = "Numéro de licence :";
+            // 
+            // TxtDateNaissance
+            // 
+            this.TxtDateNaissance.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtDateNaissance.Location = new System.Drawing.Point(145, 36);
+            this.TxtDateNaissance.Mask = "00/00/0000";
+            this.TxtDateNaissance.Name = "TxtDateNaissance";
+            this.TxtDateNaissance.Size = new System.Drawing.Size(67, 20);
+            this.TxtDateNaissance.TabIndex = 7;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(19, 37);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(120, 19);
+            this.metroLabel12.TabIndex = 6;
+            this.metroLabel12.Text = "Date de naissance :";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(3, 2);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(267, 19);
+            this.metroLabel11.TabIndex = 5;
+            this.metroLabel11.Text = "Complément de l\'inscription d\'un bénévole :";
             // 
             // PanelIntervenant
             // 
@@ -657,7 +747,7 @@
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.Location = new System.Drawing.Point(3, 2);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(279, 19);
+            this.metroLabel9.Size = new System.Drawing.Size(278, 19);
             this.metroLabel9.TabIndex = 4;
             this.metroLabel9.Text = "Complément de l\'inscription d\'un intervenant :";
             // 
@@ -679,100 +769,6 @@
             this.metroLabel8.Size = new System.Drawing.Size(54, 19);
             this.metroLabel8.TabIndex = 2;
             this.metroLabel8.Text = "Atelier :";
-            // 
-            // PanelBenevole
-            // 
-            this.PanelBenevole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelBenevole.Controls.Add(this.PanelDispoBenevole);
-            this.PanelBenevole.Controls.Add(this.BtnEnregistrerBenevole);
-            this.PanelBenevole.Controls.Add(this.TxtLicenceBenevole);
-            this.PanelBenevole.Controls.Add(this.metroLabel13);
-            this.PanelBenevole.Controls.Add(this.TxtDateNaissance);
-            this.PanelBenevole.Controls.Add(this.metroLabel12);
-            this.PanelBenevole.Controls.Add(this.metroLabel11);
-            this.PanelBenevole.HorizontalScrollbarBarColor = true;
-            this.PanelBenevole.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelBenevole.HorizontalScrollbarSize = 10;
-            this.PanelBenevole.Location = new System.Drawing.Point(422, 14);
-            this.PanelBenevole.Name = "PanelBenevole";
-            this.PanelBenevole.Size = new System.Drawing.Size(584, 197);
-            this.PanelBenevole.TabIndex = 5;
-            this.PanelBenevole.VerticalScrollbarBarColor = true;
-            this.PanelBenevole.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelBenevole.VerticalScrollbarSize = 10;
-            this.PanelBenevole.Visible = false;
-            // 
-            // PanelDispoBenevole
-            // 
-            this.PanelDispoBenevole.HorizontalScrollbarBarColor = true;
-            this.PanelDispoBenevole.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelDispoBenevole.HorizontalScrollbarSize = 10;
-            this.PanelDispoBenevole.Location = new System.Drawing.Point(19, 72);
-            this.PanelDispoBenevole.Name = "PanelDispoBenevole";
-            this.PanelDispoBenevole.Size = new System.Drawing.Size(477, 56);
-            this.PanelDispoBenevole.TabIndex = 12;
-            this.PanelDispoBenevole.VerticalScrollbarBarColor = true;
-            this.PanelDispoBenevole.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelDispoBenevole.VerticalScrollbarSize = 10;
-            // 
-            // BtnEnregistrerBenevole
-            // 
-            this.BtnEnregistrerBenevole.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.BtnEnregistrerBenevole.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.BtnEnregistrerBenevole.Highlight = true;
-            this.BtnEnregistrerBenevole.Location = new System.Drawing.Point(503, 33);
-            this.BtnEnregistrerBenevole.Name = "BtnEnregistrerBenevole";
-            this.BtnEnregistrerBenevole.Size = new System.Drawing.Size(75, 23);
-            this.BtnEnregistrerBenevole.Style = MetroFramework.MetroColorStyle.Red;
-            this.BtnEnregistrerBenevole.TabIndex = 11;
-            this.BtnEnregistrerBenevole.Text = "S\'inscrire !";
-            this.BtnEnregistrerBenevole.UseSelectable = true;
-            this.BtnEnregistrerBenevole.Click += new System.EventHandler(this.BtnEnregistrerBenevole_Click);
-            // 
-            // TxtLicenceBenevole
-            // 
-            this.TxtLicenceBenevole.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtLicenceBenevole.Location = new System.Drawing.Point(363, 36);
-            this.TxtLicenceBenevole.Mask = "000000000000";
-            this.TxtLicenceBenevole.Name = "TxtLicenceBenevole";
-            this.TxtLicenceBenevole.Size = new System.Drawing.Size(85, 20);
-            this.TxtLicenceBenevole.TabIndex = 9;
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(230, 37);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(127, 19);
-            this.metroLabel13.TabIndex = 8;
-            this.metroLabel13.Text = "Numéro de licence :";
-            // 
-            // TxtDateNaissance
-            // 
-            this.TxtDateNaissance.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtDateNaissance.Location = new System.Drawing.Point(145, 36);
-            this.TxtDateNaissance.Mask = "00/00/0000";
-            this.TxtDateNaissance.Name = "TxtDateNaissance";
-            this.TxtDateNaissance.Size = new System.Drawing.Size(67, 20);
-            this.TxtDateNaissance.TabIndex = 7;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(19, 37);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(120, 19);
-            this.metroLabel12.TabIndex = 6;
-            this.metroLabel12.Text = "Date de naissance :";
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(3, 2);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(267, 19);
-            this.metroLabel11.TabIndex = 5;
-            this.metroLabel11.Text = "Complément de l\'inscription d\'un bénévole :";
             // 
             // TabGestionAtelierThemeVacation
             // 
@@ -1228,7 +1224,7 @@
             this.metroLabel19.AutoSize = true;
             this.metroLabel19.Location = new System.Drawing.Point(1, 1);
             this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(78, 19);
+            this.metroLabel19.Size = new System.Drawing.Size(82, 19);
             this.metroLabel19.TabIndex = 2;
             this.metroLabel19.Text = "Vacation n°1";
             // 
@@ -1322,7 +1318,7 @@
             this.metroLabel20.AutoSize = true;
             this.metroLabel20.Location = new System.Drawing.Point(1, 1);
             this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel20.Size = new System.Drawing.Size(82, 19);
             this.metroLabel20.TabIndex = 3;
             this.metroLabel20.Text = "Vacation n°2";
             // 
@@ -1415,7 +1411,7 @@
             this.metroLabel21.AutoSize = true;
             this.metroLabel21.Location = new System.Drawing.Point(1, 1);
             this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel21.Size = new System.Drawing.Size(82, 19);
             this.metroLabel21.TabIndex = 3;
             this.metroLabel21.Text = "Vacation n°3";
             // 
@@ -1508,7 +1504,7 @@
             this.metroLabel22.AutoSize = true;
             this.metroLabel22.Location = new System.Drawing.Point(1, 1);
             this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel22.Size = new System.Drawing.Size(82, 19);
             this.metroLabel22.TabIndex = 3;
             this.metroLabel22.Text = "Vacation n°4";
             // 
@@ -1590,7 +1586,7 @@
             this.metroLabel23.AutoSize = true;
             this.metroLabel23.Location = new System.Drawing.Point(1, 1);
             this.metroLabel23.Name = "metroLabel23";
-            this.metroLabel23.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel23.Size = new System.Drawing.Size(82, 19);
             this.metroLabel23.TabIndex = 3;
             this.metroLabel23.Text = "Vacation n°5";
             // 
@@ -1691,7 +1687,7 @@
             this.metroLabel40.AutoSize = true;
             this.metroLabel40.Location = new System.Drawing.Point(1, 1);
             this.metroLabel40.Name = "metroLabel40";
-            this.metroLabel40.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel40.Size = new System.Drawing.Size(82, 19);
             this.metroLabel40.TabIndex = 3;
             this.metroLabel40.Text = "Vacation n°5";
             // 
@@ -1762,7 +1758,7 @@
             this.metroLabel43.AutoSize = true;
             this.metroLabel43.Location = new System.Drawing.Point(1, 1);
             this.metroLabel43.Name = "metroLabel43";
-            this.metroLabel43.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel43.Size = new System.Drawing.Size(82, 19);
             this.metroLabel43.TabIndex = 3;
             this.metroLabel43.Text = "Vacation n°4";
             // 
@@ -1833,7 +1829,7 @@
             this.metroLabel46.AutoSize = true;
             this.metroLabel46.Location = new System.Drawing.Point(1, 1);
             this.metroLabel46.Name = "metroLabel46";
-            this.metroLabel46.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel46.Size = new System.Drawing.Size(82, 19);
             this.metroLabel46.TabIndex = 3;
             this.metroLabel46.Text = "Vacation n°3";
             // 
@@ -1904,7 +1900,7 @@
             this.metroLabel49.AutoSize = true;
             this.metroLabel49.Location = new System.Drawing.Point(1, 1);
             this.metroLabel49.Name = "metroLabel49";
-            this.metroLabel49.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel49.Size = new System.Drawing.Size(82, 19);
             this.metroLabel49.TabIndex = 3;
             this.metroLabel49.Text = "Vacation n°2";
             // 
@@ -1975,7 +1971,7 @@
             this.metroLabel52.AutoSize = true;
             this.metroLabel52.Location = new System.Drawing.Point(1, 1);
             this.metroLabel52.Name = "metroLabel52";
-            this.metroLabel52.Size = new System.Drawing.Size(78, 19);
+            this.metroLabel52.Size = new System.Drawing.Size(82, 19);
             this.metroLabel52.TabIndex = 2;
             this.metroLabel52.Text = "Vacation n°1";
             // 
@@ -2002,14 +1998,6 @@
             this.BtnQuitter.UseSelectable = true;
             this.BtnQuitter.Click += new System.EventHandler(this.BtnQuitter_Click);
             // 
-            // metroStyleExtender1
-            // 
-            this.metroStyleExtender1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = this;
-            // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2033,10 +2021,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelTypeParticipant.ResumeLayout(false);
             this.PanelTypeParticipant.PerformLayout();
-            this.PanelIntervenant.ResumeLayout(false);
-            this.PanelIntervenant.PerformLayout();
             this.PanelBenevole.ResumeLayout(false);
             this.PanelBenevole.PerformLayout();
+            this.PanelIntervenant.ResumeLayout(false);
+            this.PanelIntervenant.PerformLayout();
             this.TabGestionAtelierThemeVacation.ResumeLayout(false);
             this.PanelCreerVacation.ResumeLayout(false);
             this.PanelCreerVacation.PerformLayout();
@@ -2073,7 +2061,6 @@
             this.PanelCreerVacation2.PerformLayout();
             this.PanelCreerVacation1.ResumeLayout(false);
             this.PanelCreerVacation1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2227,8 +2214,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel54;
         private MetroFramework.Controls.MetroLabel metroLabel53;
         private MetroFramework.Controls.MetroButton BtnQuitter;
-        private MetroFramework.Components.MetroStyleExtender metroStyleExtender1;
-        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }
 
