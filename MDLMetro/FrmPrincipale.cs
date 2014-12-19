@@ -11,6 +11,7 @@ using MetroFramework;
 using MetroFramework.Controls;
 using System.Collections.ObjectModel;
 using ComposantNuite;
+using System.IO;
 
 namespace MDLMetro
 {
@@ -20,6 +21,7 @@ namespace MDLMetro
         private Bdd UneConnexion;
         Collection<MetroPanel> PanelsVacations = new Collection<MetroPanel>();
         int NombreLigne = 0;
+        byte[] photoByte;
 
 
         public FrmPrincipale()
@@ -454,7 +456,7 @@ namespace MDLMetro
                     IdDatesSelectionnees.Add(System.Convert.ToInt16((UnControle.Name.Split('_'))[1]));
                 }
             }
-            UneConnexion.InscrireBenevole(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToDateTime(TxtDateNaissance.Text), NumeroLicence, IdDatesSelectionnees);
+            UneConnexion.InscrireBenevole(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToDateTime(TxtDateNaissance.Text), NumeroLicence, IdDatesSelectionnees, photoByte);
         }
 
         private void FrmPrincipale_FormClosing(object sender, FormClosingEventArgs e)
@@ -515,13 +517,13 @@ namespace MDLMetro
                     }
                     else
                     {
-                        UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes);
+                        UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes, photoByte);
                         MessageBox.Show("Inscription intervenant effectuée");
                     }
                 }
                 else
                 { // inscription sans les nuitées
-                    UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne);
+                    UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
                     MessageBox.Show("Inscription intervenant effectuée");
 
                 }
@@ -531,6 +533,39 @@ namespace MDLMetro
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void BtnParcourirPhotoParticipant_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OfpPhotoParticipant.Title = "Selectionner une photo";
+                OfpPhotoParticipant.Filter = "Images (*.jpg)|*.jpg";
+                OfpPhotoParticipant.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                DialogResult res = OfpPhotoParticipant.ShowDialog();
+
+                if (res == DialogResult.OK)
+                {
+                    System.IO.FileInfo DetailPhoto = new System.IO.FileInfo(OfpPhotoParticipant.FileName);
+                    Bitmap img = new Bitmap(OfpPhotoParticipant.FileName);
+                    if (img.Width > 150 || img.Height > 150 || DetailPhoto.Length > 1000000)
+                        throw new Exception();
+                    else PboxApercuParticipant.Image = img;
+                    LblDesignPhotoParticipant.Visible = true;
+                    LblNomPhotoParticipant.Text = OfpPhotoParticipant.SafeFileName.ToString();
+                    //MessageBox.Show(OfpPhotoParticipant.FileName.ToString()); // Affiche le chemin complet
+
+                    FileStream fs = new System.IO.FileStream(OfpPhotoParticipant.FileName.ToString(), FileMode.Open, FileAccess.Read);
+                    byte[] photoByte = new byte[fs.Length - 1];
+                    fs.Read(photoByte, 0, photoByte.Length);
+                    fs.Close();
+                }
+            }
+            catch (Exception Ex)
+            {
+                string messageComplet = "Verifier la taille de votre photo (Max. 150x150)" + Environment.NewLine + "Verifier le poid de la photo (Max. 1Mo)";
+                MetroMessageBox.Show(this, messageComplet, "Une Erreur est survenue", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
     }
