@@ -12,6 +12,7 @@ using MetroFramework.Controls;
 using System.Collections.ObjectModel;
 using ComposantNuite;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace MDLMetro
 {
@@ -22,6 +23,7 @@ namespace MDLMetro
         Collection<MetroPanel> PanelsVacations = new Collection<MetroPanel>();
         int NombreLigne = 0;
         byte[] photoByte;
+        private string ChainePropre;
 
 
         public FrmPrincipale()
@@ -212,22 +214,33 @@ namespace MDLMetro
 
         private void BtnCreerAtelierCreerThemeAjout_Click(object sender, EventArgs e)
         {
-            if (this.TxtCreerAtelierCreerTheme.Text != "")
+            if (this.TxtCreerAtelierCreerTheme.Text != string.Empty)
             {
-                this.ListeCreerAtelierCreerTheme.Items.Add(this.TxtCreerAtelierCreerTheme.Text);
-                this.TxtCreerAtelierCreerTheme.Text = "";
+                this.ListeCreerAtelierCreerTheme.Items.Add(ChainePropre);
+                this.TxtCreerAtelierCreerTheme.Text = string.Empty;
             }
         }
 
         private void TxtCreerAtelierCreerTheme_TextChanged(object sender, EventArgs e)
         {
-            if (this.TxtCreerAtelierCreerTheme.Text != "")
+            char[] CharsToTrim = { ',', '.', ';', ' ' };
+            string ChaineANettoyer = TxtCreerAtelierCreerTheme.Text;
+            Regex RegexDebutChaine = new Regex(@"^[^\s]");
+
+            if (RegexDebutChaine.IsMatch(ChaineANettoyer))
             {
-                this.BtnCreerAtelierCreerThemeAjout.Enabled = true;
+                ChainePropre = ChaineANettoyer.TrimEnd(CharsToTrim);
+                if (ChainePropre == "")
+                    this.BtnCreerAtelierCreerThemeAjout.Enabled = false;
+
+                else 
+                    this.BtnCreerAtelierCreerThemeAjout.Enabled = true;
+
             }
             else
             {
                 this.BtnCreerAtelierCreerThemeAjout.Enabled = false;
+                this.TxtCreerAtelierCreerTheme.Text = string.Empty;
             }
         }
 

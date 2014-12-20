@@ -58,14 +58,6 @@
             this.RadBenevole = new MetroFramework.Controls.MetroRadioButton();
             this.RadLicencie = new MetroFramework.Controls.MetroRadioButton();
             this.RadIntervenant = new MetroFramework.Controls.MetroRadioButton();
-            this.PanelBenevole = new MetroFramework.Controls.MetroPanel();
-            this.PanelDispoBenevole = new MetroFramework.Controls.MetroPanel();
-            this.BtnEnregistrerBenevole = new MetroFramework.Controls.MetroButton();
-            this.TxtLicenceBenevole = new System.Windows.Forms.MaskedTextBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.TxtDateNaissance = new System.Windows.Forms.MaskedTextBox();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.PanelIntervenant = new MetroFramework.Controls.MetroPanel();
             this.BtnEnregistrerIntervenant = new MetroFramework.Controls.MetroButton();
             this.PanelFonctionIntervenant = new MetroFramework.Controls.MetroPanel();
@@ -76,6 +68,14 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.CmbAtelierIntervenant = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.PanelBenevole = new MetroFramework.Controls.MetroPanel();
+            this.PanelDispoBenevole = new MetroFramework.Controls.MetroPanel();
+            this.BtnEnregistrerBenevole = new MetroFramework.Controls.MetroButton();
+            this.TxtLicenceBenevole = new System.Windows.Forms.MaskedTextBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.TxtDateNaissance = new System.Windows.Forms.MaskedTextBox();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.TabGestionAtelierThemeVacation = new MetroFramework.Controls.MetroTabPage();
             this.PanelCreerVacation = new MetroFramework.Controls.MetroPanel();
             this.BtnCreerVacationEnregistrer = new MetroFramework.Controls.MetroButton();
@@ -183,8 +183,8 @@
             this.PanelIdentite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxApercuParticipant)).BeginInit();
             this.PanelTypeParticipant.SuspendLayout();
-            this.PanelBenevole.SuspendLayout();
             this.PanelIntervenant.SuspendLayout();
+            this.PanelBenevole.SuspendLayout();
             this.TabGestionAtelierThemeVacation.SuspendLayout();
             this.PanelCreerVacation.SuspendLayout();
             this.PanelCreerAtelierTheme.SuspendLayout();
@@ -212,7 +212,7 @@
             this.TabPrincipal.Controls.Add(this.TabGestionAtelierThemeVacation);
             this.TabPrincipal.Location = new System.Drawing.Point(23, 84);
             this.TabPrincipal.Name = "TabPrincipal";
-            this.TabPrincipal.SelectedIndex = 0;
+            this.TabPrincipal.SelectedIndex = 1;
             this.TabPrincipal.Size = new System.Drawing.Size(1129, 560);
             this.TabPrincipal.TabIndex = 0;
             this.TabPrincipal.UseSelectable = true;
@@ -577,100 +577,6 @@
             this.RadIntervenant.UseSelectable = true;
             this.RadIntervenant.CheckedChanged += new System.EventHandler(this.RadTypeParticipant_CheckedChanged);
             // 
-            // PanelBenevole
-            // 
-            this.PanelBenevole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelBenevole.Controls.Add(this.PanelDispoBenevole);
-            this.PanelBenevole.Controls.Add(this.BtnEnregistrerBenevole);
-            this.PanelBenevole.Controls.Add(this.TxtLicenceBenevole);
-            this.PanelBenevole.Controls.Add(this.metroLabel13);
-            this.PanelBenevole.Controls.Add(this.TxtDateNaissance);
-            this.PanelBenevole.Controls.Add(this.metroLabel12);
-            this.PanelBenevole.Controls.Add(this.metroLabel11);
-            this.PanelBenevole.HorizontalScrollbarBarColor = true;
-            this.PanelBenevole.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelBenevole.HorizontalScrollbarSize = 10;
-            this.PanelBenevole.Location = new System.Drawing.Point(422, 14);
-            this.PanelBenevole.Name = "PanelBenevole";
-            this.PanelBenevole.Size = new System.Drawing.Size(584, 197);
-            this.PanelBenevole.TabIndex = 5;
-            this.PanelBenevole.VerticalScrollbarBarColor = true;
-            this.PanelBenevole.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelBenevole.VerticalScrollbarSize = 10;
-            this.PanelBenevole.Visible = false;
-            // 
-            // PanelDispoBenevole
-            // 
-            this.PanelDispoBenevole.HorizontalScrollbarBarColor = true;
-            this.PanelDispoBenevole.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelDispoBenevole.HorizontalScrollbarSize = 10;
-            this.PanelDispoBenevole.Location = new System.Drawing.Point(19, 72);
-            this.PanelDispoBenevole.Name = "PanelDispoBenevole";
-            this.PanelDispoBenevole.Size = new System.Drawing.Size(477, 56);
-            this.PanelDispoBenevole.TabIndex = 12;
-            this.PanelDispoBenevole.VerticalScrollbarBarColor = true;
-            this.PanelDispoBenevole.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelDispoBenevole.VerticalScrollbarSize = 10;
-            // 
-            // BtnEnregistrerBenevole
-            // 
-            this.BtnEnregistrerBenevole.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.BtnEnregistrerBenevole.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.BtnEnregistrerBenevole.Highlight = true;
-            this.BtnEnregistrerBenevole.Location = new System.Drawing.Point(503, 33);
-            this.BtnEnregistrerBenevole.Name = "BtnEnregistrerBenevole";
-            this.BtnEnregistrerBenevole.Size = new System.Drawing.Size(75, 23);
-            this.BtnEnregistrerBenevole.Style = MetroFramework.MetroColorStyle.Red;
-            this.BtnEnregistrerBenevole.TabIndex = 11;
-            this.BtnEnregistrerBenevole.Text = "S\'inscrire !";
-            this.BtnEnregistrerBenevole.UseSelectable = true;
-            this.BtnEnregistrerBenevole.Click += new System.EventHandler(this.BtnEnregistrerBenevole_Click);
-            // 
-            // TxtLicenceBenevole
-            // 
-            this.TxtLicenceBenevole.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtLicenceBenevole.Location = new System.Drawing.Point(363, 36);
-            this.TxtLicenceBenevole.Mask = "000000000000";
-            this.TxtLicenceBenevole.Name = "TxtLicenceBenevole";
-            this.TxtLicenceBenevole.Size = new System.Drawing.Size(85, 20);
-            this.TxtLicenceBenevole.TabIndex = 9;
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(230, 37);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(127, 19);
-            this.metroLabel13.TabIndex = 8;
-            this.metroLabel13.Text = "Numéro de licence :";
-            // 
-            // TxtDateNaissance
-            // 
-            this.TxtDateNaissance.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtDateNaissance.Location = new System.Drawing.Point(145, 36);
-            this.TxtDateNaissance.Mask = "00/00/0000";
-            this.TxtDateNaissance.Name = "TxtDateNaissance";
-            this.TxtDateNaissance.Size = new System.Drawing.Size(67, 20);
-            this.TxtDateNaissance.TabIndex = 7;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(19, 37);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(120, 19);
-            this.metroLabel12.TabIndex = 6;
-            this.metroLabel12.Text = "Date de naissance :";
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(3, 2);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(267, 19);
-            this.metroLabel11.TabIndex = 5;
-            this.metroLabel11.Text = "Complément de l\'inscription d\'un bénévole :";
-            // 
             // PanelIntervenant
             // 
             this.PanelIntervenant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -796,6 +702,100 @@
             this.metroLabel8.TabIndex = 2;
             this.metroLabel8.Text = "Atelier :";
             // 
+            // PanelBenevole
+            // 
+            this.PanelBenevole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelBenevole.Controls.Add(this.PanelDispoBenevole);
+            this.PanelBenevole.Controls.Add(this.BtnEnregistrerBenevole);
+            this.PanelBenevole.Controls.Add(this.TxtLicenceBenevole);
+            this.PanelBenevole.Controls.Add(this.metroLabel13);
+            this.PanelBenevole.Controls.Add(this.TxtDateNaissance);
+            this.PanelBenevole.Controls.Add(this.metroLabel12);
+            this.PanelBenevole.Controls.Add(this.metroLabel11);
+            this.PanelBenevole.HorizontalScrollbarBarColor = true;
+            this.PanelBenevole.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelBenevole.HorizontalScrollbarSize = 10;
+            this.PanelBenevole.Location = new System.Drawing.Point(422, 14);
+            this.PanelBenevole.Name = "PanelBenevole";
+            this.PanelBenevole.Size = new System.Drawing.Size(584, 197);
+            this.PanelBenevole.TabIndex = 5;
+            this.PanelBenevole.VerticalScrollbarBarColor = true;
+            this.PanelBenevole.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelBenevole.VerticalScrollbarSize = 10;
+            this.PanelBenevole.Visible = false;
+            // 
+            // PanelDispoBenevole
+            // 
+            this.PanelDispoBenevole.HorizontalScrollbarBarColor = true;
+            this.PanelDispoBenevole.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelDispoBenevole.HorizontalScrollbarSize = 10;
+            this.PanelDispoBenevole.Location = new System.Drawing.Point(19, 72);
+            this.PanelDispoBenevole.Name = "PanelDispoBenevole";
+            this.PanelDispoBenevole.Size = new System.Drawing.Size(477, 56);
+            this.PanelDispoBenevole.TabIndex = 12;
+            this.PanelDispoBenevole.VerticalScrollbarBarColor = true;
+            this.PanelDispoBenevole.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelDispoBenevole.VerticalScrollbarSize = 10;
+            // 
+            // BtnEnregistrerBenevole
+            // 
+            this.BtnEnregistrerBenevole.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.BtnEnregistrerBenevole.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.BtnEnregistrerBenevole.Highlight = true;
+            this.BtnEnregistrerBenevole.Location = new System.Drawing.Point(503, 33);
+            this.BtnEnregistrerBenevole.Name = "BtnEnregistrerBenevole";
+            this.BtnEnregistrerBenevole.Size = new System.Drawing.Size(75, 23);
+            this.BtnEnregistrerBenevole.Style = MetroFramework.MetroColorStyle.Red;
+            this.BtnEnregistrerBenevole.TabIndex = 11;
+            this.BtnEnregistrerBenevole.Text = "S\'inscrire !";
+            this.BtnEnregistrerBenevole.UseSelectable = true;
+            this.BtnEnregistrerBenevole.Click += new System.EventHandler(this.BtnEnregistrerBenevole_Click);
+            // 
+            // TxtLicenceBenevole
+            // 
+            this.TxtLicenceBenevole.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtLicenceBenevole.Location = new System.Drawing.Point(363, 36);
+            this.TxtLicenceBenevole.Mask = "000000000000";
+            this.TxtLicenceBenevole.Name = "TxtLicenceBenevole";
+            this.TxtLicenceBenevole.Size = new System.Drawing.Size(85, 20);
+            this.TxtLicenceBenevole.TabIndex = 9;
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(230, 37);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(127, 19);
+            this.metroLabel13.TabIndex = 8;
+            this.metroLabel13.Text = "Numéro de licence :";
+            // 
+            // TxtDateNaissance
+            // 
+            this.TxtDateNaissance.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtDateNaissance.Location = new System.Drawing.Point(145, 36);
+            this.TxtDateNaissance.Mask = "00/00/0000";
+            this.TxtDateNaissance.Name = "TxtDateNaissance";
+            this.TxtDateNaissance.Size = new System.Drawing.Size(67, 20);
+            this.TxtDateNaissance.TabIndex = 7;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(19, 37);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(120, 19);
+            this.metroLabel12.TabIndex = 6;
+            this.metroLabel12.Text = "Date de naissance :";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(3, 2);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(267, 19);
+            this.metroLabel11.TabIndex = 5;
+            this.metroLabel11.Text = "Complément de l\'inscription d\'un bénévole :";
+            // 
             // TabGestionAtelierThemeVacation
             // 
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerVacation);
@@ -917,6 +917,7 @@
             // 
             // BtnCreerAtelierCreerThemeAjout
             // 
+            this.BtnCreerAtelierCreerThemeAjout.Enabled = false;
             this.BtnCreerAtelierCreerThemeAjout.Location = new System.Drawing.Point(155, 69);
             this.BtnCreerAtelierCreerThemeAjout.Name = "BtnCreerAtelierCreerThemeAjout";
             this.BtnCreerAtelierCreerThemeAjout.Size = new System.Drawing.Size(33, 23);
@@ -1198,7 +1199,7 @@
             this.DateCreerVacationHeureFin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin5.Location = new System.Drawing.Point(83, 56);
             this.DateCreerVacationHeureFin5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin5.Name = "DateCreerVacationHeureFin5";
             this.DateCreerVacationHeureFin5.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin5.TabIndex = 3;
@@ -1219,7 +1220,7 @@
             this.DateCreerVacationHeureDebut5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut5.Location = new System.Drawing.Point(83, 21);
             this.DateCreerVacationHeureDebut5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut5.Name = "DateCreerVacationHeureDebut5";
             this.DateCreerVacationHeureDebut5.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut5.TabIndex = 1;
@@ -1269,7 +1270,7 @@
             this.DateCreerVacationHeureFin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin4.Location = new System.Drawing.Point(81, 56);
             this.DateCreerVacationHeureFin4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin4.Name = "DateCreerVacationHeureFin4";
             this.DateCreerVacationHeureFin4.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin4.TabIndex = 3;
@@ -1290,7 +1291,7 @@
             this.DateCreerVacationHeureDebut4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut4.Location = new System.Drawing.Point(81, 21);
             this.DateCreerVacationHeureDebut4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut4.Name = "DateCreerVacationHeureDebut4";
             this.DateCreerVacationHeureDebut4.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut4.TabIndex = 1;
@@ -1340,7 +1341,7 @@
             this.DateCreerVacationHeureFin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin3.Location = new System.Drawing.Point(83, 55);
             this.DateCreerVacationHeureFin3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin3.Name = "DateCreerVacationHeureFin3";
             this.DateCreerVacationHeureFin3.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin3.TabIndex = 3;
@@ -1361,7 +1362,7 @@
             this.DateCreerVacationHeureDebut3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut3.Location = new System.Drawing.Point(83, 20);
             this.DateCreerVacationHeureDebut3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut3.Name = "DateCreerVacationHeureDebut3";
             this.DateCreerVacationHeureDebut3.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut3.TabIndex = 1;
@@ -1411,7 +1412,7 @@
             this.DateCreerVacationHeureFin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin2.Location = new System.Drawing.Point(85, 56);
             this.DateCreerVacationHeureFin2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin2.Name = "DateCreerVacationHeureFin2";
             this.DateCreerVacationHeureFin2.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin2.TabIndex = 3;
@@ -1432,7 +1433,7 @@
             this.DateCreerVacationHeureDebut2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut2.Location = new System.Drawing.Point(85, 21);
             this.DateCreerVacationHeureDebut2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut2.Name = "DateCreerVacationHeureDebut2";
             this.DateCreerVacationHeureDebut2.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut2.TabIndex = 1;
@@ -1482,7 +1483,7 @@
             this.DateCreerVacationHeureFin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureFin1.Location = new System.Drawing.Point(85, 55);
             this.DateCreerVacationHeureFin1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureFin1.Name = "DateCreerVacationHeureFin1";
             this.DateCreerVacationHeureFin1.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureFin1.TabIndex = 3;
@@ -1503,7 +1504,7 @@
             this.DateCreerVacationHeureDebut1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateCreerVacationHeureDebut1.Location = new System.Drawing.Point(85, 20);
             this.DateCreerVacationHeureDebut1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.DateCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCreerVacationHeureDebut1.Name = "DateCreerVacationHeureDebut1";
             this.DateCreerVacationHeureDebut1.Size = new System.Drawing.Size(178, 29);
             this.DateCreerVacationHeureDebut1.TabIndex = 1;
@@ -2055,10 +2056,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PboxApercuParticipant)).EndInit();
             this.PanelTypeParticipant.ResumeLayout(false);
             this.PanelTypeParticipant.PerformLayout();
-            this.PanelBenevole.ResumeLayout(false);
-            this.PanelBenevole.PerformLayout();
             this.PanelIntervenant.ResumeLayout(false);
             this.PanelIntervenant.PerformLayout();
+            this.PanelBenevole.ResumeLayout(false);
+            this.PanelBenevole.PerformLayout();
             this.TabGestionAtelierThemeVacation.ResumeLayout(false);
             this.PanelCreerVacation.ResumeLayout(false);
             this.PanelCreerVacation.PerformLayout();
