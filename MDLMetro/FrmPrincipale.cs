@@ -24,9 +24,9 @@ namespace MDLMetro
         Collection<MetroPanel> PanelsVacations = new Collection<MetroPanel>();
         int NombreLigne = 0;
         int NombreVacationCreerAtelier = 0;
-        int x = 14;
-        int y = 0;
-        int x2 = 630;
+        int XVacationCreerAtelier = 14;
+        int YVacationCreerAtelier = 0;
+        int X2VacationCreerAtelier = 630;
         byte[] photoByte;
         private string ChainePropre;
 
@@ -536,16 +536,16 @@ namespace MDLMetro
             {
                 if (NombreVacationCreerAtelier % 2 == 0)
                 {
-                    y += 64;
+                    YVacationCreerAtelier += 64;
                     ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
-                    CreerAtelierUneVacation.Location = new Point(x, y);
+                    CreerAtelierUneVacation.Location = new Point(XVacationCreerAtelier, YVacationCreerAtelier);
                     PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
                     NombreVacationCreerAtelier++;
                 }
                 else
                 {
                     ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
-                    CreerAtelierUneVacation.Location = new Point(x2, y);
+                    CreerAtelierUneVacation.Location = new Point(X2VacationCreerAtelier, YVacationCreerAtelier);
                     PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
                     NombreVacationCreerAtelier++;
                 }
@@ -559,7 +559,7 @@ namespace MDLMetro
                 NombreVacationCreerAtelier--;
                 if (NombreVacationCreerAtelier % 2 == 0)
                 {
-                    y -= 64;
+                    YVacationCreerAtelier -= 64;
                 }
                 PanelCreerAtelierVacation.Controls.RemoveAt(PanelCreerAtelierVacation.Controls.Count - 1);
             }
