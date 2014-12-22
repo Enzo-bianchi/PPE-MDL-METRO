@@ -38,6 +38,7 @@
             // 
             // ComposantVacationDateTime
             // 
+            this.ComposantVacationDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.ComposantVacationDateTime.Location = new System.Drawing.Point(3, 22);
             this.ComposantVacationDateTime.MaxDate = new System.DateTime(2015, 9, 13, 0, 0, 0, 0);
             this.ComposantVacationDateTime.MinDate = new System.DateTime(2015, 9, 12, 0, 0, 0, 0);
@@ -71,6 +72,7 @@
             // ComposantVacationLabelHeureDebut
             // 
             this.ComposantVacationLabelHeureDebut.AutoSize = true;
+            this.ComposantVacationLabelHeureDebut.BackColor = System.Drawing.Color.White;
             this.ComposantVacationLabelHeureDebut.Location = new System.Drawing.Point(238, 6);
             this.ComposantVacationLabelHeureDebut.Name = "ComposantVacationLabelHeureDebut";
             this.ComposantVacationLabelHeureDebut.Size = new System.Drawing.Size(81, 13);
@@ -92,6 +94,7 @@
             // ComposantVacationLabelHeureFin
             // 
             this.ComposantVacationLabelHeureFin.AutoSize = true;
+            this.ComposantVacationLabelHeureFin.BackColor = System.Drawing.Color.White;
             this.ComposantVacationLabelHeureFin.Location = new System.Drawing.Point(373, 6);
             this.ComposantVacationLabelHeureFin.Name = "ComposantVacationLabelHeureFin";
             this.ComposantVacationLabelHeureFin.Size = new System.Drawing.Size(65, 13);
