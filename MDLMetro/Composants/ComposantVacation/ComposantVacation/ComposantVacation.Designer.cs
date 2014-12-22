@@ -38,6 +38,7 @@
             // 
             // ComposantVacationDateTime
             // 
+            this.ComposantVacationDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.ComposantVacationDateTime.Location = new System.Drawing.Point(3, 22);
             this.ComposantVacationDateTime.MaxDate = new System.DateTime(2015, 9, 13, 0, 0, 0, 0);
             this.ComposantVacationDateTime.MinDate = new System.DateTime(2015, 9, 12, 0, 0, 0, 0);
@@ -58,12 +59,13 @@
             // 
             // ComposantVacationMaskedTBHeureDebut
             // 
-            this.ComposantVacationMaskedTBHeureDebut.BackColor = System.Drawing.SystemColors.Control;
+            this.ComposantVacationMaskedTBHeureDebut.BackColor = System.Drawing.Color.Red;
             this.ComposantVacationMaskedTBHeureDebut.Location = new System.Drawing.Point(228, 29);
             this.ComposantVacationMaskedTBHeureDebut.Mask = "00:00";
             this.ComposantVacationMaskedTBHeureDebut.Name = "ComposantVacationMaskedTBHeureDebut";
             this.ComposantVacationMaskedTBHeureDebut.Size = new System.Drawing.Size(100, 20);
             this.ComposantVacationMaskedTBHeureDebut.TabIndex = 2;
+            this.ComposantVacationMaskedTBHeureDebut.Text = "0000";
             this.ComposantVacationMaskedTBHeureDebut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ComposantVacationMaskedTBHeureDebut.Enter += new System.EventHandler(this.ComposantVacationMaskedTBHeureDebut_Enter);
             this.ComposantVacationMaskedTBHeureDebut.Leave += new System.EventHandler(this.ComposantVacationMaskedTBHeureDebut_Leave);
@@ -71,6 +73,7 @@
             // ComposantVacationLabelHeureDebut
             // 
             this.ComposantVacationLabelHeureDebut.AutoSize = true;
+            this.ComposantVacationLabelHeureDebut.BackColor = System.Drawing.Color.White;
             this.ComposantVacationLabelHeureDebut.Location = new System.Drawing.Point(238, 6);
             this.ComposantVacationLabelHeureDebut.Name = "ComposantVacationLabelHeureDebut";
             this.ComposantVacationLabelHeureDebut.Size = new System.Drawing.Size(81, 13);
@@ -79,12 +82,13 @@
             // 
             // ComposantVacationMaskedTBHeureFin
             // 
-            this.ComposantVacationMaskedTBHeureFin.BackColor = System.Drawing.SystemColors.Control;
+            this.ComposantVacationMaskedTBHeureFin.BackColor = System.Drawing.Color.Red;
             this.ComposantVacationMaskedTBHeureFin.Location = new System.Drawing.Point(354, 29);
             this.ComposantVacationMaskedTBHeureFin.Mask = "00:00";
             this.ComposantVacationMaskedTBHeureFin.Name = "ComposantVacationMaskedTBHeureFin";
             this.ComposantVacationMaskedTBHeureFin.Size = new System.Drawing.Size(100, 20);
             this.ComposantVacationMaskedTBHeureFin.TabIndex = 4;
+            this.ComposantVacationMaskedTBHeureFin.Text = "0000";
             this.ComposantVacationMaskedTBHeureFin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ComposantVacationMaskedTBHeureFin.Enter += new System.EventHandler(this.ComposantVacationMaskedTBHeureFin_Enter);
             this.ComposantVacationMaskedTBHeureFin.Leave += new System.EventHandler(this.ComposantVacationMaskedTBHeureFin_Leave);
@@ -92,6 +96,7 @@
             // ComposantVacationLabelHeureFin
             // 
             this.ComposantVacationLabelHeureFin.AutoSize = true;
+            this.ComposantVacationLabelHeureFin.BackColor = System.Drawing.Color.White;
             this.ComposantVacationLabelHeureFin.Location = new System.Drawing.Point(373, 6);
             this.ComposantVacationLabelHeureFin.Name = "ComposantVacationLabelHeureFin";
             this.ComposantVacationLabelHeureFin.Size = new System.Drawing.Size(65, 13);

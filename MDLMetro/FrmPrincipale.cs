@@ -11,6 +11,7 @@ using MetroFramework;
 using MetroFramework.Controls;
 using System.Collections.ObjectModel;
 using ComposantNuite;
+using ComposantVacation;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -22,6 +23,10 @@ namespace MDLMetro
         private Bdd UneConnexion;
         Collection<MetroPanel> PanelsVacations = new Collection<MetroPanel>();
         int NombreLigne = 0;
+        int NombreVacationCreerAtelier = 0;
+        int x = 14;
+        int y = 0;
+        int x2 = 630;
         byte[] photoByte;
         private string ChainePropre;
 
@@ -150,68 +155,6 @@ namespace MDLMetro
             PanelCreerVacationSuite.Enabled = false;
         }
 
-        private void BtnCreerAtelierCreerVacationAjout1_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation2.Visible = true;
-            PanelCreerAtelierCreerVacation2.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout1.Enabled = false;
-        }
-
-        private void BtnCreerAtelierCreerVacationAjout2_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation3.Visible = true;
-            PanelCreerAtelierCreerVacation3.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout2.Enabled = false;
-            BtnCreerAtelierCreerVacationRetirer2.Enabled = false;
-        }
-
-        private void BtnCreerAtelierCreerVacationAjout3_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation4.Visible = true;
-            PanelCreerAtelierCreerVacation4.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout3.Enabled = false;
-            BtnCreerAtelierCreerVacationRetirer3.Enabled = false;
-        }
-
-        private void BtnCreerAtelierCreerVacationAjout4_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation5.Visible = true;
-            PanelCreerAtelierCreerVacation5.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout4.Enabled = false;
-            BtnCreerAtelierCreerVacationRetirer4.Enabled = false;
-        }
-
-        private void BtnCreerAtelierCreerVacationRetirer5_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation5.Visible = false;
-            PanelCreerAtelierCreerVacation5.Enabled = false;
-            BtnCreerAtelierCreerVacationRetirer4.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout4.Enabled = true;
-        }
-
-        private void BtnCreerAtelierCreerVacationRetirer4_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation4.Visible = false;
-            PanelCreerAtelierCreerVacation4.Enabled = false;
-            BtnCreerAtelierCreerVacationRetirer3.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout3.Enabled = true;
-        }
-
-        private void BtnCreerAtelierCreerVacationRetirer3_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation3.Visible = false;
-            PanelCreerAtelierCreerVacation3.Enabled = false;
-            BtnCreerAtelierCreerVacationRetirer2.Enabled = true;
-            BtnCreerAtelierCreerVacationAjout2.Enabled = true;
-        }
-
-        private void BtnCreerAtelierCreerVacationRetirer2_Click(object sender, EventArgs e)
-        {
-            PanelCreerAtelierCreerVacation2.Visible = false;
-            PanelCreerAtelierCreerVacation2.Enabled = false;
-            BtnCreerAtelierCreerVacationAjout1.Enabled = true;
-        }
-
         private void BtnCreerAtelierCreerThemeAjout_Click(object sender, EventArgs e)
         {
             if (this.TxtCreerAtelierCreerTheme.Text != string.Empty)
@@ -271,41 +214,41 @@ namespace MDLMetro
 
         private void BtnCreerAtelierEnregistrer_Click(object sender, EventArgs e)
         {
-
-            Collection<String> VacationsDebut = new Collection<String>();
-            Collection<String> VacationsFin = new Collection<String>();
-            Collection<String> Themes = new Collection<String>();
-
-            VacationsDebut.Add(DateCreerAtelierCreerVacationHeureDebut1.Text);
-            VacationsFin.Add(DateCreerAtelierCreerVacationHeureFin1.Text);
-
-            if (PanelCreerAtelierCreerVacation2.Enabled)
+            try
             {
-                VacationsDebut.Add(DateCreerAtelierCreerVacationHeureDebut2.Text);
-                VacationsFin.Add(DateCreerAtelierCreerVacationHeureFin2.Text);
-            }
-            if (PanelCreerAtelierCreerVacation3.Enabled)
-            {
-                VacationsDebut.Add(DateCreerAtelierCreerVacationHeureDebut3.Text);
-                VacationsFin.Add(DateCreerAtelierCreerVacationHeureFin3.Text);
-            }
-            if (PanelCreerAtelierCreerVacation4.Enabled)
-            {
-                VacationsDebut.Add(DateCreerAtelierCreerVacationHeureDebut4.Text);
-                VacationsFin.Add(DateCreerAtelierCreerVacationHeureFin4.Text);
-            }
-            if (PanelCreerAtelierCreerVacation5.Enabled)
-            {
-                VacationsDebut.Add(DateCreerAtelierCreerVacationHeureDebut5.Text);
-                VacationsFin.Add(DateCreerAtelierCreerVacationHeureFin5.Text);
-            }
+                Collection<String> VacationsDebut = new Collection<String>();
+                Collection<String> VacationsFin = new Collection<String>();
+                Collection<String> Themes = new Collection<String>();
 
-            foreach (ListViewItem UnTheme in ListeCreerAtelierCreerTheme.Items)
-            {
-                Themes.Add(UnTheme.Text);
-            }
+                foreach (Control UnControle in PanelCreerAtelierVacation.Controls)
+                {
+                    if (UnControle is ComposantVacation.ComposantVacation)
+                    {
+                        if (UnControle.Controls[3].BackColor == Color.Green)
+                        {
+                            string UnDebut = UnControle.Controls[5].Text + " " + UnControle.Controls[3].Text;
+                            string UneFin = UnControle.Controls[5].Text + " " + UnControle.Controls[1].Text;
+                            VacationsDebut.Add(UnDebut);
+                            VacationsFin.Add(UneFin);
+                        }
+                        else
+                        {
+                            throw new Exception("Une des heures ne respecte pas le bon format.");
+                        }
+                    }
+                }
 
-            UneConnexion.AjoutAtelier(TxtCreerAtelierNom.Text, Convert.ToInt32(NumCreerAtelierNbPlaces.Text), Themes, VacationsDebut, VacationsFin);
+                foreach (ListViewItem UnTheme in ListeCreerAtelierCreerTheme.Items)
+                {
+                    Themes.Add(UnTheme.Text);
+                }
+
+                UneConnexion.AjoutAtelier(TxtCreerAtelierNom.Text, Convert.ToInt32(NumCreerAtelierNbPlaces.Text), Themes, VacationsDebut, VacationsFin);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this,ex.Message,"", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         /// <summary>
         /// Procedure permettant de vider les champs des Textbox contenue dans une collection de controles d'un panel
@@ -402,8 +345,6 @@ namespace MDLMetro
                 {
                     PanelsVacations[i].Enabled = true;
                     PanelsVacations[i].Visible = true;
-                    //MessageBox.Show(i.ToString() + "=>" + PanelsVacations[i].Controls[0].Name.ToString());
-                    //MessageBox.Show(i.ToString() + "=>" + PanelsVacations[i].Controls[1].Name.ToString());
                     PanelsVacations[i].Controls[0].Text = UneDataTable.Rows[i]["heurefin"].ToString();
                     PanelsVacations[i].Controls[4].Text = UneDataTable.Rows[i]["heuredebut"].ToString();
                     PanelsVacations[i].Refresh();
@@ -586,6 +527,41 @@ namespace MDLMetro
             {
                 string messageComplet = "Verifier la taille de votre photo (Max. 150x150)" + Environment.NewLine + "Verifier le poid de la photo (Max. 1Mo)";
                 MetroMessageBox.Show(this, messageComplet, "Une Erreur est survenue", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void BtnCreerAtelierAjoutVacation_Click(object sender, EventArgs e)
+        {
+            if (NombreVacationCreerAtelier < 5)
+            {
+                if (NombreVacationCreerAtelier % 2 == 0)
+                {
+                    y += 64;
+                    ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
+                    CreerAtelierUneVacation.Location = new Point(x, y);
+                    PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
+                    NombreVacationCreerAtelier++;
+                }
+                else
+                {
+                    ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
+                    CreerAtelierUneVacation.Location = new Point(x2, y);
+                    PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
+                    NombreVacationCreerAtelier++;
+                }
+            }
+        }
+
+        private void BtnCreerAtelierRetirerVacation_Click(object sender, EventArgs e)
+        {
+            if (PanelCreerAtelierVacation.Controls.Count > 5)
+            {
+                NombreVacationCreerAtelier--;
+                if (NombreVacationCreerAtelier % 2 == 0)
+                {
+                    y -= 64;
+                }
+                PanelCreerAtelierVacation.Controls.RemoveAt(PanelCreerAtelierVacation.Controls.Count - 1);
             }
         }
     }
