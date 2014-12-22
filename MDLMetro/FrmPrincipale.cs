@@ -214,24 +214,41 @@ namespace MDLMetro
 
         private void BtnCreerAtelierEnregistrer_Click(object sender, EventArgs e)
         {
-            Collection<String> VacationsDebut = new Collection<String>();
-            Collection<String> VacationsFin = new Collection<String>();
-            Collection<String> Themes = new Collection<String>();
-
-            foreach (Control UnControle in PanelCreerAtelierVacation.Controls)
+            try
             {
-                if (UnControle is ComposantVacation.ComposantVacation)
+                Collection<String> VacationsDebut = new Collection<String>();
+                Collection<String> VacationsFin = new Collection<String>();
+                Collection<String> Themes = new Collection<String>();
+
+                foreach (Control UnControle in PanelCreerAtelierVacation.Controls)
                 {
-                   MessageBox.Show(UnControle.Controls[5].Text);
+                    if (UnControle is ComposantVacation.ComposantVacation)
+                    {
+                        if (UnControle.Controls[3].BackColor == Color.Green)
+                        {
+                            string UnDebut = UnControle.Controls[5].Text + " " + UnControle.Controls[3].Text;
+                            string UneFin = UnControle.Controls[5].Text + " " + UnControle.Controls[1].Text;
+                            VacationsDebut.Add(UnDebut);
+                            VacationsFin.Add(UneFin);
+                        }
+                        else
+                        {
+                            throw new Exception("Une des heures ne respecte pas le bon format.");
+                        }
+                    }
                 }
-            }
 
-            /*foreach (ListViewItem UnTheme in ListeCreerAtelierCreerTheme.Items)
+                foreach (ListViewItem UnTheme in ListeCreerAtelierCreerTheme.Items)
+                {
+                    Themes.Add(UnTheme.Text);
+                }
+
+                UneConnexion.AjoutAtelier(TxtCreerAtelierNom.Text, Convert.ToInt32(NumCreerAtelierNbPlaces.Text), Themes, VacationsDebut, VacationsFin);
+            }
+            catch (Exception ex)
             {
-                Themes.Add(UnTheme.Text);
+                MetroMessageBox.Show(this,ex.Message,"", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            UneConnexion.AjoutAtelier(TxtCreerAtelierNom.Text, Convert.ToInt32(NumCreerAtelierNbPlaces.Text), Themes, VacationsDebut, VacationsFin);*/
         }
         /// <summary>
         /// Procedure permettant de vider les champs des Textbox contenue dans une collection de controles d'un panel
@@ -515,21 +532,23 @@ namespace MDLMetro
 
         private void BtnCreerAtelierAjoutVacation_Click(object sender, EventArgs e)
         {
-
-            if (NombreVacationCreerAtelier % 2 == 0)
+            if (NombreVacationCreerAtelier < 5)
             {
-                y += 64;
-                ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
-                CreerAtelierUneVacation.Location = new Point(x, y);
-                PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
-                NombreVacationCreerAtelier++;
-            }
-            else
-            {
-                ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
-                CreerAtelierUneVacation.Location = new Point(x2, y);
-                PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
-                NombreVacationCreerAtelier++;
+                if (NombreVacationCreerAtelier % 2 == 0)
+                {
+                    y += 64;
+                    ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
+                    CreerAtelierUneVacation.Location = new Point(x, y);
+                    PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
+                    NombreVacationCreerAtelier++;
+                }
+                else
+                {
+                    ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
+                    CreerAtelierUneVacation.Location = new Point(x2, y);
+                    PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
+                    NombreVacationCreerAtelier++;
+                }
             }
         }
 
