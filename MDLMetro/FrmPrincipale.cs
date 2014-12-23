@@ -21,9 +21,10 @@ namespace MDLMetro
     {
         private String IdStatutSelectionne = "";
         private Bdd UneConnexion;
-        Collection<MetroPanel> PanelsVacations = new Collection<MetroPanel>();
         int NombreLigne = 0;
         int NombreVacationCreerAtelier = 0;
+        int NombreVacationModifier = 0;
+
         int XVacationCreerAtelier = 14;
         int YVacationCreerAtelier = 0;
         int X2VacationCreerAtelier = 630;
@@ -296,11 +297,6 @@ namespace MDLMetro
         private void RadGestionVacation_CheckedChanged(object sender, EventArgs e)
         {
             DataTable UneDataTable = new DataTable();
-            PanelsVacations.Add(PanelCreerVacation1);
-            PanelsVacations.Add(PanelCreerVacation2);
-            PanelsVacations.Add(PanelCreerVacation3);
-            PanelsVacations.Add(PanelCreerVacation4);
-            PanelsVacations.Add(PanelCreerVacation5);
             if (RadGestionVacation.Checked)
             {
                 PanelCreerAtelier.Enabled = false;
@@ -319,64 +315,104 @@ namespace MDLMetro
                 PanelCreerVacationSuite.Visible = true;
                 PanelCreerVacationSuite.Enabled = true;
 
+                CbbCreerVacationAtelier.SelectedIndexChanged -= new System.EventHandler(this.CbbCreerVacationAtelier_SelectedIndexChanged);
                 UneDataTable = UneConnexion.ObtenirDonnesOracle("VATELIER01");
                 CbbCreerVacationAtelier.DataSource = UneDataTable;
                 CbbCreerVacationAtelier.DisplayMember = "LIBELLE";
                 CbbCreerVacationAtelier.ValueMember = "ID";
                 CbbCreerVacationAtelier.Refresh();
+                CbbCreerVacationAtelier.SelectedIndexChanged += new System.EventHandler(this.CbbCreerVacationAtelier_SelectedIndexChanged);
+                CbbCreerVacationAtelier_SelectedIndexChanged(sender, e);
+                //Les Switchs evenement permettent de contourner le problème suivant :
+                //L'evenement SelectedIndexChanged s'active lors d'un changement dans la combobox mais aussi lors du REMPLISSAGE de la combobox
+                //Ce qui pose problème car le premier objet est un type datarowview et il faut donc le traiter autrement que les autres.
+                //Donc en desactivant l'evenement lors du rempplisage, il ne se passera rien. Une fois la combobox remplie, je ré-active l'événement
+                //et je fais appel à l'événement pour le premier item et dans ce cas il est traité correctement.
             }
         }
 
         private void CbbCreerVacationAtelier_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int XVacationCreerAtelier = 14;
+            int YVacationCreerAtelier = 0; //Actualisation des positions initiales pour éviter les décalages
+            int X2VacationCreerAtelier = 630;
             DataTable UneDataTable = new DataTable();
-            for (int i = 0; i < 5; i++)
+            while (PanelCreerVacationSuite.Controls.Count != 3) // 3 correspond au nombre de base
             {
-                PanelsVacations[i].Enabled = false;
-                PanelsVacations[i].Visible = false;
-            }
-            int TestParse = 0;
-            int.TryParse(CbbCreerVacationAtelier.SelectedValue.ToString(), out TestParse);
-            if (TestParse == 0)
-            {
-                UneDataTable = UneConnexion.ObtenirVacationAtelier(Convert.ToInt32(((DataRowView)CbbCreerVacationAtelier.SelectedValue)["id"]));
-                NombreLigne = UneDataTable.Rows.Count;
-                for (int i = 0; i < NombreLigne; i++)
+                NombreVacationModifier--;
+                if (NombreVacationModifier % 2 == 0)
                 {
-                    PanelsVacations[i].Enabled = true;
-                    PanelsVacations[i].Visible = true;
-                    PanelsVacations[i].Controls[0].Text = UneDataTable.Rows[i]["heurefin"].ToString();
-                    PanelsVacations[i].Controls[4].Text = UneDataTable.Rows[i]["heuredebut"].ToString();
-                    PanelsVacations[i].Refresh();
-
+                    NombreVacationModifier -= 64;
                 }
-            }
-            if (TestParse != 0)
-            {
-                UneDataTable = UneConnexion.ObtenirVacationAtelier(Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
-                NombreLigne = UneDataTable.Rows.Count;
-                for (int i = 0; i < NombreLigne; i++)
-                {
-                    PanelsVacations[i].Enabled = true;
-                    PanelsVacations[i].Visible = true;
-                    PanelsVacations[i].Controls[0].Text = UneDataTable.Rows[i]["heurefin"].ToString();
-                    PanelsVacations[i].Controls[4].Text = UneDataTable.Rows[i]["heuredebut"].ToString();
-                    PanelsVacations[i].Refresh();
-                }
+                PanelCreerVacationSuite.Controls.RemoveAt(PanelCreerVacationSuite.Controls.Count - 1);
             }
 
+            UneDataTable = UneConnexion.ObtenirVacationAtelier(Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
+            NombreLigne = UneDataTable.Rows.Count;
+
+            for (int i = 0; i < NombreLigne; i++)
+            {
+                string[] datedebut = UneDataTable.Rows[i]["heuredebut"].ToString().Split(' '); // Ici on separe la date et l'heure pour les differents controls
+                string[] datefin = UneDataTable.Rows[i]["heurefin"].ToString().Split(' ');
+                  
+                if (NombreVacationModifier % 2 == 0)
+                {
+                    YVacationCreerAtelier += 64;
+                    ComposantVacation.ComposantVacation ModifierUneVacation = new ComposantVacation.ComposantVacation();
+                    ModifierUneVacation.Location = new Point(XVacationCreerAtelier, YVacationCreerAtelier);
+                    ModifierUneVacation.Controls[5].Text = datedebut[0];
+                    ModifierUneVacation.Controls[3].Text = datedebut[1];
+                    ModifierUneVacation.Controls[1].Text = datefin[1];
+                    ModifierUneVacation.Controls[1].BackColor = Color.Green;
+                    ModifierUneVacation.Controls[3].BackColor = Color.Green;
+                    PanelCreerVacationSuite.Controls.Add(ModifierUneVacation);
+                    NombreVacationModifier++;
+                }
+                else
+                {
+                    ComposantVacation.ComposantVacation ModifierUneVacation = new ComposantVacation.ComposantVacation();
+                    ModifierUneVacation.Location = new Point(X2VacationCreerAtelier, YVacationCreerAtelier);
+                    ModifierUneVacation.Controls[5].Text = datedebut[0];
+                    ModifierUneVacation.Controls[3].Text = datedebut[1];
+                    ModifierUneVacation.Controls[1].Text = datefin[1];
+                    ModifierUneVacation.Controls[1].BackColor = Color.Green;
+                    ModifierUneVacation.Controls[3].BackColor = Color.Green;
+                    PanelCreerVacationSuite.Controls.Add(ModifierUneVacation);
+                    NombreVacationModifier++;
+                }
+            }
         }
 
         private void BtnCreerVacationEnregistrer_Click(object sender, EventArgs e)
         {
-            Collection<String> VacationsDebut = new Collection<String>();
-            Collection<String> VacationsFin = new Collection<String>();
-            for (int i = 0; i < NombreLigne; i++)
+            try
             {
-                VacationsDebut.Add(PanelsVacations[i].Controls[0].Text);
-                VacationsFin.Add(PanelsVacations[i].Controls[2].Text);
+                Collection<String> VacationsDebut = new Collection<String>();
+                Collection<String> VacationsFin = new Collection<String>();
+                foreach (Control UnControle in PanelCreerVacationSuite.Controls)
+                {
+                    if (UnControle is ComposantVacation.ComposantVacation)
+                    {
+                        if (UnControle.Controls[3].BackColor == Color.Green)
+                        {
+                            string UnDebut = UnControle.Controls[5].Text + " " + UnControle.Controls[3].Text;
+                            string UneFin = UnControle.Controls[5].Text + " " + UnControle.Controls[1].Text;
+                            VacationsDebut.Add(UnDebut);
+                            VacationsFin.Add(UneFin);
+                        }
+                        else
+                        {
+                            throw new Exception("Une des heures ne respecte pas le bon format.");
+                        }
+                    }
+                }
+                UneConnexion.ModificationVacation(VacationsDebut, VacationsFin, Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
             }
-            UneConnexion.ModificationVacation(VacationsDebut, VacationsFin, Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void BtnCreerTheme_Click(object sender, EventArgs e)

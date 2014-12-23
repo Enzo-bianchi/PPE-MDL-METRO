@@ -109,36 +109,6 @@
             this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
             this.PanelCreerVacationSuite = new MetroFramework.Controls.MetroPanel();
             this.metroLabel37 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerVacation5 = new MetroFramework.Controls.MetroPanel();
-            this.DateCreerVacationHeureFin5 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel38 = new MetroFramework.Controls.MetroLabel();
-            this.DateCreerVacationHeureDebut5 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel39 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel40 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerVacation4 = new MetroFramework.Controls.MetroPanel();
-            this.DateCreerVacationHeureFin4 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel41 = new MetroFramework.Controls.MetroLabel();
-            this.DateCreerVacationHeureDebut4 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel42 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel43 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerVacation3 = new MetroFramework.Controls.MetroPanel();
-            this.DateCreerVacationHeureFin3 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel44 = new MetroFramework.Controls.MetroLabel();
-            this.DateCreerVacationHeureDebut3 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel45 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerVacation2 = new MetroFramework.Controls.MetroPanel();
-            this.DateCreerVacationHeureFin2 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
-            this.DateCreerVacationHeureDebut2 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel48 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel49 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerVacation1 = new MetroFramework.Controls.MetroPanel();
-            this.DateCreerVacationHeureFin1 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
-            this.DateCreerVacationHeureDebut1 = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
             this.AideVacationAtelier = new MetroFramework.Components.MetroToolTip();
             this.BtnQuitter = new MetroFramework.Controls.MetroButton();
             this.OfpPhotoParticipant = new System.Windows.Forms.OpenFileDialog();
@@ -158,11 +128,6 @@
             this.PanelRadAtelierThemeVacation.SuspendLayout();
             this.PanelCreerTheme.SuspendLayout();
             this.PanelCreerVacationSuite.SuspendLayout();
-            this.PanelCreerVacation5.SuspendLayout();
-            this.PanelCreerVacation4.SuspendLayout();
-            this.PanelCreerVacation3.SuspendLayout();
-            this.PanelCreerVacation2.SuspendLayout();
-            this.PanelCreerVacation1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabPrincipal
@@ -757,14 +722,14 @@
             // 
             // TabGestionAtelierThemeVacation
             // 
-            this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelier);
-            this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelierVacation);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerVacation);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.BtnCreerAtelierEnregistrer);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelierTheme);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelRadAtelierThemeVacation);
+            this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelier);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerTheme);
             this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerVacationSuite);
+            this.TabGestionAtelierThemeVacation.Controls.Add(this.PanelCreerAtelierVacation);
             this.TabGestionAtelierThemeVacation.HorizontalScrollbarBarColor = true;
             this.TabGestionAtelierThemeVacation.HorizontalScrollbarHighlightOnWheel = false;
             this.TabGestionAtelierThemeVacation.HorizontalScrollbarSize = 10;
@@ -1156,11 +1121,6 @@
             // 
             this.PanelCreerVacationSuite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelCreerVacationSuite.Controls.Add(this.metroLabel37);
-            this.PanelCreerVacationSuite.Controls.Add(this.PanelCreerVacation5);
-            this.PanelCreerVacationSuite.Controls.Add(this.PanelCreerVacation4);
-            this.PanelCreerVacationSuite.Controls.Add(this.PanelCreerVacation3);
-            this.PanelCreerVacationSuite.Controls.Add(this.PanelCreerVacation2);
-            this.PanelCreerVacationSuite.Controls.Add(this.PanelCreerVacation1);
             this.PanelCreerVacationSuite.HorizontalScrollbarBarColor = true;
             this.PanelCreerVacationSuite.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelCreerVacationSuite.HorizontalScrollbarSize = 10;
@@ -1181,361 +1141,6 @@
             this.metroLabel37.Size = new System.Drawing.Size(235, 19);
             this.metroLabel37.TabIndex = 10;
             this.metroLabel37.Text = "Modifier les vacations pour cet atelier :";
-            // 
-            // PanelCreerVacation5
-            // 
-            this.PanelCreerVacation5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacation5.Controls.Add(this.DateCreerVacationHeureFin5);
-            this.PanelCreerVacation5.Controls.Add(this.metroLabel38);
-            this.PanelCreerVacation5.Controls.Add(this.DateCreerVacationHeureDebut5);
-            this.PanelCreerVacation5.Controls.Add(this.metroLabel39);
-            this.PanelCreerVacation5.Controls.Add(this.metroLabel40);
-            this.PanelCreerVacation5.Enabled = false;
-            this.PanelCreerVacation5.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacation5.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation5.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacation5.Location = new System.Drawing.Point(760, 115);
-            this.PanelCreerVacation5.Name = "PanelCreerVacation5";
-            this.PanelCreerVacation5.Size = new System.Drawing.Size(332, 104);
-            this.PanelCreerVacation5.TabIndex = 9;
-            this.PanelCreerVacation5.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacation5.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation5.VerticalScrollbarSize = 10;
-            // 
-            // DateCreerVacationHeureFin5
-            // 
-            this.DateCreerVacationHeureFin5.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureFin5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureFin5.Location = new System.Drawing.Point(83, 56);
-            this.DateCreerVacationHeureFin5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin5.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureFin5.Name = "DateCreerVacationHeureFin5";
-            this.DateCreerVacationHeureFin5.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureFin5.TabIndex = 3;
-            this.DateCreerVacationHeureFin5.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel38
-            // 
-            this.metroLabel38.AutoSize = true;
-            this.metroLabel38.Location = new System.Drawing.Point(30, 60);
-            this.metroLabel38.Name = "metroLabel38";
-            this.metroLabel38.Size = new System.Drawing.Size(47, 19);
-            this.metroLabel38.TabIndex = 6;
-            this.metroLabel38.Text = "Fin le :";
-            // 
-            // DateCreerVacationHeureDebut5
-            // 
-            this.DateCreerVacationHeureDebut5.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureDebut5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureDebut5.Location = new System.Drawing.Point(83, 21);
-            this.DateCreerVacationHeureDebut5.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut5.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureDebut5.Name = "DateCreerVacationHeureDebut5";
-            this.DateCreerVacationHeureDebut5.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureDebut5.TabIndex = 1;
-            this.DateCreerVacationHeureDebut5.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel39
-            // 
-            this.metroLabel39.AutoSize = true;
-            this.metroLabel39.Location = new System.Drawing.Point(12, 31);
-            this.metroLabel39.Name = "metroLabel39";
-            this.metroLabel39.Size = new System.Drawing.Size(65, 19);
-            this.metroLabel39.TabIndex = 5;
-            this.metroLabel39.Text = "Debut le :";
-            // 
-            // metroLabel40
-            // 
-            this.metroLabel40.AutoSize = true;
-            this.metroLabel40.Location = new System.Drawing.Point(1, 1);
-            this.metroLabel40.Name = "metroLabel40";
-            this.metroLabel40.Size = new System.Drawing.Size(80, 19);
-            this.metroLabel40.TabIndex = 3;
-            this.metroLabel40.Text = "Vacation n°5";
-            // 
-            // PanelCreerVacation4
-            // 
-            this.PanelCreerVacation4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacation4.Controls.Add(this.DateCreerVacationHeureFin4);
-            this.PanelCreerVacation4.Controls.Add(this.metroLabel41);
-            this.PanelCreerVacation4.Controls.Add(this.DateCreerVacationHeureDebut4);
-            this.PanelCreerVacation4.Controls.Add(this.metroLabel42);
-            this.PanelCreerVacation4.Controls.Add(this.metroLabel43);
-            this.PanelCreerVacation4.Enabled = false;
-            this.PanelCreerVacation4.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacation4.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation4.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacation4.Location = new System.Drawing.Point(398, 180);
-            this.PanelCreerVacation4.Name = "PanelCreerVacation4";
-            this.PanelCreerVacation4.Size = new System.Drawing.Size(332, 101);
-            this.PanelCreerVacation4.TabIndex = 8;
-            this.PanelCreerVacation4.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacation4.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation4.VerticalScrollbarSize = 10;
-            // 
-            // DateCreerVacationHeureFin4
-            // 
-            this.DateCreerVacationHeureFin4.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureFin4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureFin4.Location = new System.Drawing.Point(81, 56);
-            this.DateCreerVacationHeureFin4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin4.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureFin4.Name = "DateCreerVacationHeureFin4";
-            this.DateCreerVacationHeureFin4.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureFin4.TabIndex = 3;
-            this.DateCreerVacationHeureFin4.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel41
-            // 
-            this.metroLabel41.AutoSize = true;
-            this.metroLabel41.Location = new System.Drawing.Point(30, 60);
-            this.metroLabel41.Name = "metroLabel41";
-            this.metroLabel41.Size = new System.Drawing.Size(47, 19);
-            this.metroLabel41.TabIndex = 6;
-            this.metroLabel41.Text = "Fin le :";
-            // 
-            // DateCreerVacationHeureDebut4
-            // 
-            this.DateCreerVacationHeureDebut4.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureDebut4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureDebut4.Location = new System.Drawing.Point(81, 21);
-            this.DateCreerVacationHeureDebut4.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut4.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureDebut4.Name = "DateCreerVacationHeureDebut4";
-            this.DateCreerVacationHeureDebut4.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureDebut4.TabIndex = 1;
-            this.DateCreerVacationHeureDebut4.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel42
-            // 
-            this.metroLabel42.AutoSize = true;
-            this.metroLabel42.Location = new System.Drawing.Point(12, 31);
-            this.metroLabel42.Name = "metroLabel42";
-            this.metroLabel42.Size = new System.Drawing.Size(65, 19);
-            this.metroLabel42.TabIndex = 5;
-            this.metroLabel42.Text = "Debut le :";
-            // 
-            // metroLabel43
-            // 
-            this.metroLabel43.AutoSize = true;
-            this.metroLabel43.Location = new System.Drawing.Point(1, 1);
-            this.metroLabel43.Name = "metroLabel43";
-            this.metroLabel43.Size = new System.Drawing.Size(80, 19);
-            this.metroLabel43.TabIndex = 3;
-            this.metroLabel43.Text = "Vacation n°4";
-            // 
-            // PanelCreerVacation3
-            // 
-            this.PanelCreerVacation3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacation3.Controls.Add(this.DateCreerVacationHeureFin3);
-            this.PanelCreerVacation3.Controls.Add(this.metroLabel44);
-            this.PanelCreerVacation3.Controls.Add(this.DateCreerVacationHeureDebut3);
-            this.PanelCreerVacation3.Controls.Add(this.metroLabel45);
-            this.PanelCreerVacation3.Controls.Add(this.metroLabel46);
-            this.PanelCreerVacation3.Enabled = false;
-            this.PanelCreerVacation3.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacation3.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation3.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacation3.Location = new System.Drawing.Point(396, 43);
-            this.PanelCreerVacation3.Name = "PanelCreerVacation3";
-            this.PanelCreerVacation3.Size = new System.Drawing.Size(332, 104);
-            this.PanelCreerVacation3.TabIndex = 7;
-            this.PanelCreerVacation3.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacation3.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation3.VerticalScrollbarSize = 10;
-            // 
-            // DateCreerVacationHeureFin3
-            // 
-            this.DateCreerVacationHeureFin3.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureFin3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureFin3.Location = new System.Drawing.Point(83, 55);
-            this.DateCreerVacationHeureFin3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin3.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureFin3.Name = "DateCreerVacationHeureFin3";
-            this.DateCreerVacationHeureFin3.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureFin3.TabIndex = 3;
-            this.DateCreerVacationHeureFin3.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel44
-            // 
-            this.metroLabel44.AutoSize = true;
-            this.metroLabel44.Location = new System.Drawing.Point(30, 59);
-            this.metroLabel44.Name = "metroLabel44";
-            this.metroLabel44.Size = new System.Drawing.Size(47, 19);
-            this.metroLabel44.TabIndex = 6;
-            this.metroLabel44.Text = "Fin le :";
-            // 
-            // DateCreerVacationHeureDebut3
-            // 
-            this.DateCreerVacationHeureDebut3.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureDebut3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureDebut3.Location = new System.Drawing.Point(83, 20);
-            this.DateCreerVacationHeureDebut3.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut3.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureDebut3.Name = "DateCreerVacationHeureDebut3";
-            this.DateCreerVacationHeureDebut3.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureDebut3.TabIndex = 1;
-            this.DateCreerVacationHeureDebut3.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel45
-            // 
-            this.metroLabel45.AutoSize = true;
-            this.metroLabel45.Location = new System.Drawing.Point(12, 30);
-            this.metroLabel45.Name = "metroLabel45";
-            this.metroLabel45.Size = new System.Drawing.Size(65, 19);
-            this.metroLabel45.TabIndex = 5;
-            this.metroLabel45.Text = "Debut le :";
-            // 
-            // metroLabel46
-            // 
-            this.metroLabel46.AutoSize = true;
-            this.metroLabel46.Location = new System.Drawing.Point(1, 1);
-            this.metroLabel46.Name = "metroLabel46";
-            this.metroLabel46.Size = new System.Drawing.Size(80, 19);
-            this.metroLabel46.TabIndex = 3;
-            this.metroLabel46.Text = "Vacation n°3";
-            // 
-            // PanelCreerVacation2
-            // 
-            this.PanelCreerVacation2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacation2.Controls.Add(this.DateCreerVacationHeureFin2);
-            this.PanelCreerVacation2.Controls.Add(this.metroLabel47);
-            this.PanelCreerVacation2.Controls.Add(this.DateCreerVacationHeureDebut2);
-            this.PanelCreerVacation2.Controls.Add(this.metroLabel48);
-            this.PanelCreerVacation2.Controls.Add(this.metroLabel49);
-            this.PanelCreerVacation2.Enabled = false;
-            this.PanelCreerVacation2.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacation2.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation2.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacation2.Location = new System.Drawing.Point(14, 180);
-            this.PanelCreerVacation2.Name = "PanelCreerVacation2";
-            this.PanelCreerVacation2.Size = new System.Drawing.Size(334, 101);
-            this.PanelCreerVacation2.TabIndex = 6;
-            this.PanelCreerVacation2.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacation2.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation2.VerticalScrollbarSize = 10;
-            // 
-            // DateCreerVacationHeureFin2
-            // 
-            this.DateCreerVacationHeureFin2.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureFin2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureFin2.Location = new System.Drawing.Point(85, 56);
-            this.DateCreerVacationHeureFin2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin2.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureFin2.Name = "DateCreerVacationHeureFin2";
-            this.DateCreerVacationHeureFin2.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureFin2.TabIndex = 3;
-            this.DateCreerVacationHeureFin2.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel47
-            // 
-            this.metroLabel47.AutoSize = true;
-            this.metroLabel47.Location = new System.Drawing.Point(29, 60);
-            this.metroLabel47.Name = "metroLabel47";
-            this.metroLabel47.Size = new System.Drawing.Size(47, 19);
-            this.metroLabel47.TabIndex = 6;
-            this.metroLabel47.Text = "Fin le :";
-            // 
-            // DateCreerVacationHeureDebut2
-            // 
-            this.DateCreerVacationHeureDebut2.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureDebut2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureDebut2.Location = new System.Drawing.Point(85, 21);
-            this.DateCreerVacationHeureDebut2.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut2.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureDebut2.Name = "DateCreerVacationHeureDebut2";
-            this.DateCreerVacationHeureDebut2.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureDebut2.TabIndex = 1;
-            this.DateCreerVacationHeureDebut2.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel48
-            // 
-            this.metroLabel48.AutoSize = true;
-            this.metroLabel48.Location = new System.Drawing.Point(11, 31);
-            this.metroLabel48.Name = "metroLabel48";
-            this.metroLabel48.Size = new System.Drawing.Size(65, 19);
-            this.metroLabel48.TabIndex = 5;
-            this.metroLabel48.Text = "Debut le :";
-            // 
-            // metroLabel49
-            // 
-            this.metroLabel49.AutoSize = true;
-            this.metroLabel49.Location = new System.Drawing.Point(1, 1);
-            this.metroLabel49.Name = "metroLabel49";
-            this.metroLabel49.Size = new System.Drawing.Size(80, 19);
-            this.metroLabel49.TabIndex = 3;
-            this.metroLabel49.Text = "Vacation n°2";
-            // 
-            // PanelCreerVacation1
-            // 
-            this.PanelCreerVacation1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacation1.Controls.Add(this.DateCreerVacationHeureFin1);
-            this.PanelCreerVacation1.Controls.Add(this.metroLabel50);
-            this.PanelCreerVacation1.Controls.Add(this.DateCreerVacationHeureDebut1);
-            this.PanelCreerVacation1.Controls.Add(this.metroLabel51);
-            this.PanelCreerVacation1.Controls.Add(this.metroLabel52);
-            this.PanelCreerVacation1.Enabled = false;
-            this.PanelCreerVacation1.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacation1.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation1.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacation1.Location = new System.Drawing.Point(14, 43);
-            this.PanelCreerVacation1.Name = "PanelCreerVacation1";
-            this.PanelCreerVacation1.Size = new System.Drawing.Size(334, 104);
-            this.PanelCreerVacation1.TabIndex = 5;
-            this.PanelCreerVacation1.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacation1.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation1.VerticalScrollbarSize = 10;
-            // 
-            // DateCreerVacationHeureFin1
-            // 
-            this.DateCreerVacationHeureFin1.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureFin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureFin1.Location = new System.Drawing.Point(85, 55);
-            this.DateCreerVacationHeureFin1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureFin1.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureFin1.Name = "DateCreerVacationHeureFin1";
-            this.DateCreerVacationHeureFin1.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureFin1.TabIndex = 3;
-            this.DateCreerVacationHeureFin1.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel50
-            // 
-            this.metroLabel50.AutoSize = true;
-            this.metroLabel50.Location = new System.Drawing.Point(29, 59);
-            this.metroLabel50.Name = "metroLabel50";
-            this.metroLabel50.Size = new System.Drawing.Size(47, 19);
-            this.metroLabel50.TabIndex = 4;
-            this.metroLabel50.Text = "Fin le :";
-            // 
-            // DateCreerVacationHeureDebut1
-            // 
-            this.DateCreerVacationHeureDebut1.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.DateCreerVacationHeureDebut1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreerVacationHeureDebut1.Location = new System.Drawing.Point(85, 20);
-            this.DateCreerVacationHeureDebut1.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            this.DateCreerVacationHeureDebut1.MinimumSize = new System.Drawing.Size(4, 29);
-            this.DateCreerVacationHeureDebut1.Name = "DateCreerVacationHeureDebut1";
-            this.DateCreerVacationHeureDebut1.Size = new System.Drawing.Size(178, 29);
-            this.DateCreerVacationHeureDebut1.TabIndex = 1;
-            this.DateCreerVacationHeureDebut1.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
-            // 
-            // metroLabel51
-            // 
-            this.metroLabel51.AutoSize = true;
-            this.metroLabel51.Location = new System.Drawing.Point(11, 30);
-            this.metroLabel51.Name = "metroLabel51";
-            this.metroLabel51.Size = new System.Drawing.Size(65, 19);
-            this.metroLabel51.TabIndex = 3;
-            this.metroLabel51.Text = "Debut le :";
-            // 
-            // metroLabel52
-            // 
-            this.metroLabel52.AutoSize = true;
-            this.metroLabel52.Location = new System.Drawing.Point(1, 1);
-            this.metroLabel52.Name = "metroLabel52";
-            this.metroLabel52.Size = new System.Drawing.Size(78, 19);
-            this.metroLabel52.TabIndex = 2;
-            this.metroLabel52.Text = "Vacation n°1";
             // 
             // AideVacationAtelier
             // 
@@ -1607,16 +1212,6 @@
             this.PanelCreerTheme.PerformLayout();
             this.PanelCreerVacationSuite.ResumeLayout(false);
             this.PanelCreerVacationSuite.PerformLayout();
-            this.PanelCreerVacation5.ResumeLayout(false);
-            this.PanelCreerVacation5.PerformLayout();
-            this.PanelCreerVacation4.ResumeLayout(false);
-            this.PanelCreerVacation4.PerformLayout();
-            this.PanelCreerVacation3.ResumeLayout(false);
-            this.PanelCreerVacation3.PerformLayout();
-            this.PanelCreerVacation2.ResumeLayout(false);
-            this.PanelCreerVacation2.PerformLayout();
-            this.PanelCreerVacation1.ResumeLayout(false);
-            this.PanelCreerVacation1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1696,36 +1291,6 @@
         private MetroFramework.Controls.MetroButton BtnCreerTheme;
         private MetroFramework.Controls.MetroPanel PanelCreerVacationSuite;
         private MetroFramework.Controls.MetroLabel metroLabel37;
-        private MetroFramework.Controls.MetroPanel PanelCreerVacation5;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureFin5;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureDebut5;
-        private MetroFramework.Controls.MetroLabel metroLabel38;
-        private MetroFramework.Controls.MetroLabel metroLabel39;
-        private MetroFramework.Controls.MetroLabel metroLabel40;
-        private MetroFramework.Controls.MetroPanel PanelCreerVacation4;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureFin4;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureDebut4;
-        private MetroFramework.Controls.MetroLabel metroLabel41;
-        private MetroFramework.Controls.MetroLabel metroLabel42;
-        private MetroFramework.Controls.MetroLabel metroLabel43;
-        private MetroFramework.Controls.MetroPanel PanelCreerVacation3;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureFin3;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureDebut3;
-        private MetroFramework.Controls.MetroLabel metroLabel44;
-        private MetroFramework.Controls.MetroLabel metroLabel45;
-        private MetroFramework.Controls.MetroLabel metroLabel46;
-        private MetroFramework.Controls.MetroPanel PanelCreerVacation2;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureFin2;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureDebut2;
-        private MetroFramework.Controls.MetroLabel metroLabel47;
-        private MetroFramework.Controls.MetroLabel metroLabel48;
-        private MetroFramework.Controls.MetroLabel metroLabel49;
-        private MetroFramework.Controls.MetroPanel PanelCreerVacation1;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureDebut1;
-        private MetroFramework.Controls.MetroDateTime DateCreerVacationHeureFin1;
-        private MetroFramework.Controls.MetroLabel metroLabel50;
-        private MetroFramework.Controls.MetroLabel metroLabel51;
-        private MetroFramework.Controls.MetroLabel metroLabel52;
         private MetroFramework.Controls.MetroPanel PanelCreerVacation;
         private MetroFramework.Controls.MetroButton BtnCreerVacationEnregistrer;
         private MetroFramework.Controls.MetroComboBox CbbCreerVacationAtelier;
