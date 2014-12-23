@@ -481,7 +481,6 @@ namespace BaseDeDonnees
             {
                 UneOracleCommand = new OracleCommand("pckatelier.modificationvacations", CnOracle);
                 UneOracleCommand.CommandType = CommandType.StoredProcedure;
-                UneOracleCommand.Parameters.Add("idatelier", OracleDbType.Int32, ParameterDirection.Input).Value = pIdAtelier;
 
                 OracleParameter pLesDatesDebut = new OracleParameter();
                 pLesDatesDebut.ParameterName = "plesdatesdebut";
@@ -498,6 +497,8 @@ namespace BaseDeDonnees
                 pLesDatesFin.Value = pVacationsHeureFin.ToArray();
                 pLesDatesFin.Size = pVacationsHeureFin.Count;
                 UneOracleCommand.Parameters.Add(pLesDatesFin);
+
+                UneOracleCommand.Parameters.Add("pidatelier", OracleDbType.Int32, ParameterDirection.Input).Value = pIdAtelier;
 
                 UneOracleCommand.ExecuteNonQuery();
                 MessageBox.Show("Modification vacation effectuée.");
