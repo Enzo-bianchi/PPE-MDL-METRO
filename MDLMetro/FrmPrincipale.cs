@@ -21,17 +21,25 @@ namespace MDLMetro
     {
         private String IdStatutSelectionne = "";
         private Bdd UneConnexion;
+        
+        //Variables correspondant a la création dynamique des composants pour la gestion des vacations.
+        //Nombre de ligne remplies par les composants.
         int NombreLigne = 0;
         int NombreVacationCreerAtelier = 0;
         int NombreVacationModifier = 0;
-
+        //Colone des composants de gauche.
         int XVacationCreerAtelier = 14;
+        //Ligne des composants.
         int YVacationCreerAtelier = 0;
+        //Colone des composants de droite.
         int X2VacationCreerAtelier = 630;
+
         byte[] photoByte;
         private string ChainePropre;
 
-
+        /// <summary>
+        /// Initialise la fenetre principale.
+        /// </summary>
         public FrmPrincipale()
         {
             InitializeComponent();
@@ -49,6 +57,7 @@ namespace MDLMetro
                 Application.Exit();
             }
         }
+
 
         private void RadTypeParticipant_CheckedChanged(object sender, EventArgs e)
         {
@@ -136,6 +145,12 @@ namespace MDLMetro
             return CmbAtelierIntervenant.Text != "Choisir" && this.IdStatutSelectionne.Length > 0;
         }
 
+        /// <summary>
+        /// Événement permettant d'activer et de rendre visibles tous les éléments graphiques correspondant à la gestion des ateliers lorsque le bouton radio correspondant est coché.
+        /// Et de cacher les éléments ne correspondants pas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadGestionAtelier_CheckedChanged(object sender, EventArgs e)
         {
             PanelCreerAtelier.Visible = true;
@@ -156,6 +171,11 @@ namespace MDLMetro
             PanelCreerVacationSuite.Enabled = false;
         }
 
+        /// <summary>
+        /// Ajoute un thème dans la liste des thèmes a la création d'un atelier après vérification du thème par l'événement TxtCreerAtelierCreerTheme_TextChanged.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerAtelierCreerThemeAjout_Click(object sender, EventArgs e)
         {
             if (this.TxtCreerAtelierCreerTheme.Text != string.Empty)
@@ -165,6 +185,13 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Vérifie que le nom du thème soit valide lorsque l'utilisateur entre les données dans le champ permettant la création d'un thème à la création d'un atelier.
+        /// Entre le texte valide dans une variable (pas d'espaces au debut et a la fin, pas de symboles).
+        /// Si le texte est invalide l'utilisateur ne peut pas l'ajouter à la liste des thèmes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TxtCreerAtelierCreerTheme_TextChanged(object sender, EventArgs e)
         {
             char[] CharsToTrim = { ',', '.', ';', ' ' };
@@ -188,6 +215,11 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Permets lors de la sélection d'un thème existant dans la liste des thèmes d'activer le bouton permettant de supprimer le thème.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListeCreerAtelierCreerTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ListeCreerAtelierCreerTheme.SelectedItems.Count > 0)
@@ -200,6 +232,11 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Permet de supprimer un ou plusieurs thème de la liste des thèmes a la création d'un atelier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerAtelierCreerThemeRetirer_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -213,6 +250,13 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Permet d'enregistrer un atelier.
+        /// Crée une collection des dates de debut des vacations, idem pour les dates de fin et crée une collection des thèmes.
+        /// Utilise les collections (de type texte) pour crée l'atelier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerAtelierEnregistrer_Click(object sender, EventArgs e)
         {
             try
@@ -266,6 +310,12 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Événement permettant d'activer et de rendre visibles tous les éléments graphiques correspondant à la gestion des thèmes lorsque le bouton radio correspondant est coché.
+        /// Et de cacher les éléments ne correspondants pas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadGestionTheme_CheckedChanged(object sender, EventArgs e)
         {
             DataTable UneDataTable = new DataTable();
@@ -294,6 +344,13 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Événement permettant d'activer et de rendre visibles tous les éléments graphiques correspondant à la gestion des vacations lorsque le bouton radio correspondant est coché.
+        /// Et de cacher les éléments ne correspondants pas.
+        /// Permet aussi d'initialisé la liste des ateliers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadGestionVacation_CheckedChanged(object sender, EventArgs e)
         {
             DataTable UneDataTable = new DataTable();
@@ -323,21 +380,27 @@ namespace MDLMetro
                 CbbCreerVacationAtelier.Refresh();
                 CbbCreerVacationAtelier.SelectedIndexChanged += new System.EventHandler(this.CbbCreerVacationAtelier_SelectedIndexChanged);
                 CbbCreerVacationAtelier_SelectedIndexChanged(sender, e);
-                //Les Switchs evenement permettent de contourner le problème suivant :
-                //L'evenement SelectedIndexChanged s'active lors d'un changement dans la combobox mais aussi lors du REMPLISSAGE de la combobox
+                //Activer/désactiver l'événement SelectedIndexChanged permet de contourner le problème suivant :
+                //l'événement SelectedIndexChanged s'active lors d'un changement dans la combo-box mais aussi lors du REMPLISSAGE de la combo-box.
                 //Ce qui pose problème car le premier objet est un type datarowview et il faut donc le traiter autrement que les autres.
-                //Donc en desactivant l'evenement lors du rempplisage, il ne se passera rien. Une fois la combobox remplie, je ré-active l'événement
-                //et je fais appel à l'événement pour le premier item et dans ce cas il est traité correctement.
+                //Donc en désactivant l'événement lors du remplissage, il ne se passera rien. Une fois la combo-box remplie, on réactive l'événement.
             }
         }
 
+        /// <summary>
+        /// Permet de supprimer les composants dynamiques correspondants a la modification des vacations lorsqu'un atelier est choisi.
+        /// Permet par la suite de crée des composants dynamiques correspondants a la modification des vacations pour l'atelier choisi.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CbbCreerVacationAtelier_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int XVacationCreerAtelier = 14;
-            int YVacationCreerAtelier = 0; //Actualisation des positions initiales pour éviter les décalages
-            int X2VacationCreerAtelier = 630;
+            XVacationCreerAtelier = 14;
+            YVacationCreerAtelier = 0; //Actualisation des positions initiales pour éviter les décalages
+            X2VacationCreerAtelier = 630;
             DataTable UneDataTable = new DataTable();
-            while (PanelCreerVacationSuite.Controls.Count != 3) // 3 correspond au nombre de base
+            //tant qu'il y a des composant dynamique pour la modification de vacation, on supprime.
+            while (PanelCreerVacationSuite.Controls.Count != 3) // 3 correspond au nombre de controls avec aucun composant.
             {
                 NombreVacationModifier--;
                 if (NombreVacationModifier % 2 == 0)
@@ -346,15 +409,16 @@ namespace MDLMetro
                 }
                 PanelCreerVacationSuite.Controls.RemoveAt(PanelCreerVacationSuite.Controls.Count - 1);
             }
-
+            //On récupere les vacations éxistantes pour l'atelier.
             UneDataTable = UneConnexion.ObtenirVacationAtelier(Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
+            //On compte le nombre de vacations.
             NombreLigne = UneDataTable.Rows.Count;
-
+            //On crée un composant vacation PAR vacation correspondant à l'atelier et on les complète avec les données récupérées de la base de données.
             for (int i = 0; i < NombreLigne; i++)
             {
                 string[] datedebut = UneDataTable.Rows[i]["heuredebut"].ToString().Split(' '); // Ici on separe la date et l'heure pour les differents controls
                 string[] datefin = UneDataTable.Rows[i]["heurefin"].ToString().Split(' ');
-                  
+                 //Si le nombre de vacation est pair, il s'agit d'une vacation qui sera a gauche.
                 if (NombreVacationModifier % 2 == 0)
                 {
                     YVacationCreerAtelier += 64;
@@ -368,6 +432,7 @@ namespace MDLMetro
                     PanelCreerVacationSuite.Controls.Add(ModifierUneVacation);
                     NombreVacationModifier++;
                 }
+                //Sinon a droite.
                 else
                 {
                     ComposantVacation.ComposantVacation ModifierUneVacation = new ComposantVacation.ComposantVacation();
@@ -383,6 +448,12 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Permet de sauvegarder les vacations après modification.
+        /// Crée des dates en type texte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerVacationEnregistrer_Click(object sender, EventArgs e)
         {
             try
@@ -415,6 +486,11 @@ namespace MDLMetro
 
         }
 
+        /// <summary>
+        /// Permet de crée un thème.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerTheme_Click(object sender, EventArgs e)
         {
             UneConnexion.AjoutTheme(Convert.ToInt32(CbbCreerThemeAtelier.SelectedValue), TxtCreerThemeNom.Text);
@@ -566,10 +642,17 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Permet d'ajouter un composant vacation dynamique lors de la création d'un atelier et de la pression du bouton "+".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerAtelierAjoutVacation_Click(object sender, EventArgs e)
         {
+            //5 vacations maximum.
             if (NombreVacationCreerAtelier < 5)
             {
+                //Si le nombre de vacation est pair la prochaine sera du coté gauche.
                 if (NombreVacationCreerAtelier % 2 == 0)
                 {
                     YVacationCreerAtelier += 64;
@@ -578,6 +661,7 @@ namespace MDLMetro
                     PanelCreerAtelierVacation.Controls.Add(CreerAtelierUneVacation);
                     NombreVacationCreerAtelier++;
                 }
+                //Sinon du coté droit.
                 else
                 {
                     ComposantVacation.ComposantVacation CreerAtelierUneVacation = new ComposantVacation.ComposantVacation();
@@ -588,6 +672,11 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Supprimer un composant vacation dynamique de la page de création d'un atelier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreerAtelierRetirerVacation_Click(object sender, EventArgs e)
         {
             if (PanelCreerAtelierVacation.Controls.Count > 5)
