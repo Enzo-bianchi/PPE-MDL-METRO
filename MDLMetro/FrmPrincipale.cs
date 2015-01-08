@@ -160,7 +160,7 @@ namespace MDLMetro
             PanelCreerAtelierTheme.Enabled = true;
             PanelCreerAtelierVacation.Enabled = true;
             BtnCreerAtelierEnregistrer.Visible = true;
-            BtnCreerAtelierEnregistrer.Enabled = true;
+            BtnCreerAtelierEnregistrer.Enabled = false;
 
             PanelCreerTheme.Visible = false;
             PanelCreerTheme.Enabled = false;
@@ -183,6 +183,7 @@ namespace MDLMetro
                 this.ListeCreerAtelierCreerTheme.Items.Add(ChainePropre);
                 this.TxtCreerAtelierCreerTheme.Text = string.Empty;
             }
+            CheckCreerAtelier();
         }
 
         /// <summary>
@@ -248,6 +249,7 @@ namespace MDLMetro
                     i++;
                 }
             }
+            CheckCreerAtelier();
         }
 
         /// <summary>
@@ -395,6 +397,15 @@ namespace MDLMetro
         /// <param name="e"></param>
         private void CbbCreerVacationAtelier_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(CbbCreerVacationAtelier.Items.Count > 0)
+            {
+                BtnCreerVacationEnregistrer.Enabled = true;
+            }
+            else
+            {
+                BtnCreerVacationEnregistrer.Enabled = false;
+            }
+
             XVacationCreerAtelier = 14;
             YVacationCreerAtelier = 0; //Actualisation des positions initiales pour éviter les décalages
             X2VacationCreerAtelier = 630;
@@ -670,6 +681,7 @@ namespace MDLMetro
                     NombreVacationCreerAtelier++;
                 }
             }
+            CheckCreerAtelier();
         }
 
         /// <summary>
@@ -688,11 +700,59 @@ namespace MDLMetro
                 }
                 PanelCreerAtelierVacation.Controls.RemoveAt(PanelCreerAtelierVacation.Controls.Count - 1);
             }
+            CheckCreerAtelier();
         }
 
         private void RdbNuiteIntervenantNon_CheckedChanged(object sender, EventArgs e)
         {
             PanelNuiteIntervenant.Visible = false;
+        }
+
+        /// <summary>
+        /// Contrôle activant ou désactivant la possibilité d'enregistrer un atelier selon le résultat.
+        /// </summary>
+        private void CheckCreerAtelier()
+        {
+            if (NumCreerAtelierNbPlaces.Value > 0 && TxtCreerAtelierNom.Text != "" && ListeCreerAtelierCreerTheme.Items.Count > 0 && NombreVacationCreerAtelier > 0)
+            {
+                BtnCreerAtelierEnregistrer.Enabled = true;
+            }
+            else
+            {
+                BtnCreerAtelierEnregistrer.Enabled = false;
+            }
+        }
+
+        private void CheckCreerTheme()
+        {
+            if (TxtCreerThemeNom.Text != "" && CbbCreerThemeAtelier.Text != "")
+            {
+                BtnCreerTheme.Enabled = true;
+            }
+            else
+            {
+                BtnCreerTheme.Enabled = false;
+            }
+        }
+
+        private void NumCreerAtelierNbPlaces_ValueChanged(object sender, EventArgs e)
+        {
+            CheckCreerAtelier();
+        }
+
+        private void TxtCreerAtelierNom_TextChanged(object sender, EventArgs e)
+        {
+            CheckCreerAtelier();
+        }
+
+        private void TxtCreerThemeNom_TextChanged(object sender, EventArgs e)
+        {
+            CheckCreerTheme();
+        }
+
+        private void CbbCreerThemeAtelier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckCreerTheme();
         }
     }
 }
