@@ -723,6 +723,9 @@ namespace MDLMetro
             }
         }
 
+        /// <summary>
+        /// Contrôle activant ou désactivant la possibilité d'enregistrer un thème selon le résultat.
+        /// </summary>
         private void CheckCreerTheme()
         {
             if (TxtCreerThemeNom.Text != "" && CbbCreerThemeAtelier.Text != "")
