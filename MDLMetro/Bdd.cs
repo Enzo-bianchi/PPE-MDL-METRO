@@ -113,6 +113,7 @@ namespace BaseDeDonnees
         /// <param name="pVille">ville du participant</param>
         /// <param name="pTel">téléphone du participant</param>
         /// <param name="pMail">mail du participant</param>
+        /// <param name="pPhoto">Correspond a la photo du participant.</param>
         private void ParamCommunsNouveauxParticipants(OracleCommand Cmd, String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, byte[] pPhoto)
         {
             Cmd.Parameters.Add("pNom", OracleDbType.Varchar2, ParameterDirection.Input).Value = pNom;
@@ -133,7 +134,6 @@ namespace BaseDeDonnees
         /// <summary>
         /// procédure qui va se charger d'invoquer la procédure stockée qui ira inscrire un participant de type bénévole
         /// </summary>
-        /// <param name="Cmd">nom de l'objet command concerné par les paramètres</param>
         /// <param name="pNom">nom du participant</param>
         /// <param name="pPrenom">prénom du participant</param>
         /// <param name="pAdresse1">adresse1 du participant</param>
@@ -145,6 +145,7 @@ namespace BaseDeDonnees
         /// <param name="pDateNaissance">mail du bénévole</param>
         /// <param name="pNumeroLicence">numéro de licence du bénévole ou null</param>
         /// <param name="pDateBenevolat">collection des id des dates où le bénévole sera présent</param>
+        /// <param name="pPhoto">Correspond a la photo du participant</param>
         public void InscrireBenevole(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, DateTime pDateNaissance, Int64? pNumeroLicence, Collection<Int16> pDateBenevolat, byte[] pPhoto)
         {
             try
@@ -190,7 +191,7 @@ namespace BaseDeDonnees
         /// <summary>
         /// Procédure publique qui va appeler la procédure stockée permettant d'inscrire un nouvel intervenant sans nuité
         /// </summary>
-        /// <param name="Cmd">nom de l'objet command concerné par les paramètres</param>
+        /// <param name="pPhoto">Correspond a la photo du participant</param>
         /// <param name="pNom">nom du participant</param>
         /// <param name="pPrenom">prénom du participant</param>
         /// <param name="pAdresse1">adresse1 du participant</param>
@@ -250,7 +251,6 @@ namespace BaseDeDonnees
         /// <summary>
         /// Procédure publique qui va appeler la procédure stockée permettant d'inscrire un nouvel intervenant qui aura des nuités
         /// </summary>
-        /// <param name="Cmd">nom de l'objet command concerné par les paramètres</param>
         /// <param name="pNom">nom du participant</param>
         /// <param name="pPrenom">prénom du participant</param>
         /// <param name="pAdresse1">adresse1 du participant</param>
@@ -264,6 +264,7 @@ namespace BaseDeDonnees
         /// <param name="pLesCategories">tableau contenant la catégorie de chambre pour chaque nuité à réserver</param>
         /// <param name="pLesHotels">tableau contenant l'hôtel pour chaque nuité à réserver</param>
         /// <param name="pLesNuits">tableau contenant l'id de la date d'arrivée pour chaque nuité à réserver</param>
+        /// <param name="pPhoto">Correspond a la photo du participant</param>
         public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut, Collection<string> pLesCategories, Collection<string> pLesHotels, Collection<Int16> pLesNuits, byte[] pPhoto)
         {
             /// <remarks>
@@ -513,6 +514,12 @@ namespace BaseDeDonnees
             }
 
         }
+
+        /// <summary>
+        /// Permet d'obtenir les vacations d'un atelier dans la base de donnée.
+        /// </summary>
+        /// <param name="pIdAtelier"></param>
+        /// <returns>Une DataTable contenant les vacations d'un atelier.</returns>
         public DataTable ObtenirVacationAtelier(int pIdAtelier)
         {
             UneDataTable = new DataTable();

@@ -7,6 +7,10 @@ namespace MDLMetro
     public partial class FrmLogin : MetroFramework.Forms.MetroForm
     {
         internal BaseDeDonnees.Bdd UneConnexion;
+
+        /// <summary>
+        /// Permets d'initialiser la fenêtre de login.
+        /// </summary>
         public FrmLogin()
         {
             InitializeComponent();
