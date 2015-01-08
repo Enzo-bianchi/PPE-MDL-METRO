@@ -114,14 +114,13 @@ namespace MDLMetro
         /// </summary>
         private void GererInscriptionIntervenant()
         {
-
             PanelBenevole.Visible = false;
             PanelIntervenant.Visible = true;
             PanelFonctionIntervenant.Visible = true;
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanelFonctionIntervenant, "MetroRadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, CmbAtelierIntervenant, "VATELIER01");
 
-            CmbAtelierIntervenant.Text = "Choisir";
+ 
 
         }
         /// <summary>
@@ -142,7 +141,7 @@ namespace MDLMetro
         /// <returns></returns>
         private Boolean VerifBtnEnregistreIntervenant()
         {
-            return CmbAtelierIntervenant.Text != "Choisir" && this.IdStatutSelectionne.Length > 0;
+            return CmbAtelierIntervenant.Items.Count > 0 && this.IdStatutSelectionne.Length > 0;
         }
 
         /// <summary>

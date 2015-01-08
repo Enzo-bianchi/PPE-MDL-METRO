@@ -93,8 +93,6 @@ namespace MDLMetro
                 else if (unTypeControle == "MetroRadioButton")
                 {
                     MetroRadioButton UnControle = new MetroRadioButton();
-                    if (i == 0)
-                        UnControle.Checked = true;
                     AffecterControle(UneForme, UnPanel, UnControle, pPrefixe, UneLigne, i++, callback);
                     UnControle.CheckedChanged += new System.EventHandler(callback);
                 }

@@ -527,6 +527,7 @@
             // 
             // BtnEnregistrerIntervenant
             // 
+            this.BtnEnregistrerIntervenant.Enabled = false;
             this.BtnEnregistrerIntervenant.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.BtnEnregistrerIntervenant.FontWeight = MetroFramework.MetroButtonWeight.Light;
             this.BtnEnregistrerIntervenant.Highlight = true;
@@ -610,10 +611,10 @@
             // 
             // CmbAtelierIntervenant
             // 
-            this.CmbAtelierIntervenant.FormattingEnabled = true;
             this.CmbAtelierIntervenant.ItemHeight = 23;
             this.CmbAtelierIntervenant.Location = new System.Drawing.Point(79, 29);
             this.CmbAtelierIntervenant.Name = "CmbAtelierIntervenant";
+            this.CmbAtelierIntervenant.PromptText = "Choisir";
             this.CmbAtelierIntervenant.Size = new System.Drawing.Size(203, 29);
             this.CmbAtelierIntervenant.TabIndex = 3;
             this.CmbAtelierIntervenant.UseSelectable = true;
