@@ -600,5 +600,10 @@ namespace MDLMetro
                 PanelCreerAtelierVacation.Controls.RemoveAt(PanelCreerAtelierVacation.Controls.Count - 1);
             }
         }
+
+        private void RdbNuiteIntervenantNon_CheckedChanged(object sender, EventArgs e)
+        {
+            PanelNuiteIntervenant.Visible = false;
+        }
     }
 }
