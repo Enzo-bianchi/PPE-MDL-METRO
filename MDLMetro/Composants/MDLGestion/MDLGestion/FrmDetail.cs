@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MDLGestion
 {
-    public partial class Form1 : Form
+    public partial class FrmDetail : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public FrmDetail()
         {
             InitializeComponent();
         }
