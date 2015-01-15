@@ -77,28 +77,11 @@
             this.CmbAtelierIntervenant = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.TabGestionAtelierThemeVacation = new MetroFramework.Controls.MetroTabPage();
-            this.PanelCreerVacation = new MetroFramework.Controls.MetroPanel();
-            this.BtnCreerVacationEnregistrer = new MetroFramework.Controls.MetroButton();
-            this.CbbCreerVacationAtelier = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel54 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerTheme = new MetroFramework.Controls.MetroPanel();
-            this.BtnCreerTheme = new MetroFramework.Controls.MetroButton();
-            this.CbbCreerThemeAtelier = new MetroFramework.Controls.MetroComboBox();
-            this.TxtCreerThemeNom = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel35 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
             this.BtnCreerAtelierEnregistrer = new MetroFramework.Controls.MetroButton();
             this.PanelRadAtelierThemeVacation = new MetroFramework.Controls.MetroPanel();
             this.RadGestionVacation = new MetroFramework.Controls.MetroRadioButton();
             this.RadGestionTheme = new MetroFramework.Controls.MetroRadioButton();
             this.RadGestionAtelier = new MetroFramework.Controls.MetroRadioButton();
-            this.PanelCreerVacationSuite = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel37 = new MetroFramework.Controls.MetroLabel();
-            this.PanelCreerAtelier = new MetroFramework.Controls.MetroPanel();
-            this.NumCreerAtelierNbPlaces = new System.Windows.Forms.NumericUpDown();
-            this.TxtCreerAtelierNom = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.PanelCreerAtelierVacation = new MetroFramework.Controls.MetroPanel();
             this.BtnCreerAtelierRetirerVacation = new MetroFramework.Controls.MetroButton();
             this.BtnCreerAtelierAjoutVacation = new MetroFramework.Controls.MetroButton();
@@ -109,6 +92,23 @@
             this.ListeCreerAtelierCreerTheme = new System.Windows.Forms.ListView();
             this.TxtCreerAtelierCreerTheme = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.PanelCreerTheme = new MetroFramework.Controls.MetroPanel();
+            this.BtnCreerTheme = new MetroFramework.Controls.MetroButton();
+            this.CbbCreerThemeAtelier = new MetroFramework.Controls.MetroComboBox();
+            this.TxtCreerThemeNom = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel35 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
+            this.PanelCreerVacationSuite = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel37 = new MetroFramework.Controls.MetroLabel();
+            this.PanelCreerAtelier = new MetroFramework.Controls.MetroPanel();
+            this.NumCreerAtelierNbPlaces = new System.Windows.Forms.NumericUpDown();
+            this.TxtCreerAtelierNom = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.PanelCreerVacation = new MetroFramework.Controls.MetroPanel();
+            this.BtnCreerVacationEnregistrer = new MetroFramework.Controls.MetroButton();
+            this.CbbCreerVacationAtelier = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel54 = new MetroFramework.Controls.MetroLabel();
             this.AideVacationAtelier = new MetroFramework.Components.MetroToolTip();
             this.BtnQuitter = new MetroFramework.Controls.MetroButton();
             this.OfpPhotoParticipant = new System.Windows.Forms.OpenFileDialog();
@@ -120,14 +120,14 @@
             this.PanelBenevole.SuspendLayout();
             this.PanelIntervenant.SuspendLayout();
             this.TabGestionAtelierThemeVacation.SuspendLayout();
-            this.PanelCreerVacation.SuspendLayout();
-            this.PanelCreerTheme.SuspendLayout();
             this.PanelRadAtelierThemeVacation.SuspendLayout();
+            this.PanelCreerAtelierVacation.SuspendLayout();
+            this.PanelCreerAtelierTheme.SuspendLayout();
+            this.PanelCreerTheme.SuspendLayout();
             this.PanelCreerVacationSuite.SuspendLayout();
             this.PanelCreerAtelier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreerAtelierNbPlaces)).BeginInit();
-            this.PanelCreerAtelierVacation.SuspendLayout();
-            this.PanelCreerAtelierTheme.SuspendLayout();
+            this.PanelCreerVacation.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabPrincipal
@@ -136,7 +136,7 @@
             this.TabPrincipal.Controls.Add(this.TabGestionAtelierThemeVacation);
             this.TabPrincipal.Location = new System.Drawing.Point(23, 84);
             this.TabPrincipal.Name = "TabPrincipal";
-            this.TabPrincipal.SelectedIndex = 1;
+            this.TabPrincipal.SelectedIndex = 0;
             this.TabPrincipal.Size = new System.Drawing.Size(1129, 560);
             this.TabPrincipal.TabIndex = 0;
             this.TabPrincipal.UseSelectable = true;
@@ -146,8 +146,8 @@
             this.TabInscription.Controls.Add(this.metroLabel53);
             this.TabInscription.Controls.Add(this.PanelIdentite);
             this.TabInscription.Controls.Add(this.PanelTypeParticipant);
-            this.TabInscription.Controls.Add(this.PanelBenevole);
             this.TabInscription.Controls.Add(this.PanelIntervenant);
+            this.TabInscription.Controls.Add(this.PanelBenevole);
             this.TabInscription.HorizontalScrollbarBarColor = true;
             this.TabInscription.HorizontalScrollbarHighlightOnWheel = false;
             this.TabInscription.HorizontalScrollbarSize = 10;
@@ -747,137 +747,6 @@
             this.TabGestionAtelierThemeVacation.VerticalScrollbarHighlightOnWheel = false;
             this.TabGestionAtelierThemeVacation.VerticalScrollbarSize = 10;
             // 
-            // PanelCreerVacation
-            // 
-            this.PanelCreerVacation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacation.Controls.Add(this.BtnCreerVacationEnregistrer);
-            this.PanelCreerVacation.Controls.Add(this.CbbCreerVacationAtelier);
-            this.PanelCreerVacation.Controls.Add(this.metroLabel54);
-            this.PanelCreerVacation.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacation.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacation.Location = new System.Drawing.Point(3, 77);
-            this.PanelCreerVacation.Name = "PanelCreerVacation";
-            this.PanelCreerVacation.Size = new System.Drawing.Size(405, 55);
-            this.PanelCreerVacation.TabIndex = 15;
-            this.PanelCreerVacation.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacation.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacation.VerticalScrollbarSize = 10;
-            this.PanelCreerVacation.Visible = false;
-            // 
-            // BtnCreerVacationEnregistrer
-            // 
-            this.BtnCreerVacationEnregistrer.Enabled = false;
-            this.BtnCreerVacationEnregistrer.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.BtnCreerVacationEnregistrer.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.BtnCreerVacationEnregistrer.Highlight = true;
-            this.BtnCreerVacationEnregistrer.Location = new System.Drawing.Point(319, 18);
-            this.BtnCreerVacationEnregistrer.Name = "BtnCreerVacationEnregistrer";
-            this.BtnCreerVacationEnregistrer.Size = new System.Drawing.Size(77, 23);
-            this.BtnCreerVacationEnregistrer.Style = MetroFramework.MetroColorStyle.Red;
-            this.BtnCreerVacationEnregistrer.TabIndex = 13;
-            this.BtnCreerVacationEnregistrer.Text = "Enregistrer";
-            this.BtnCreerVacationEnregistrer.UseSelectable = true;
-            this.BtnCreerVacationEnregistrer.Click += new System.EventHandler(this.BtnCreerVacationEnregistrer_Click);
-            // 
-            // CbbCreerVacationAtelier
-            // 
-            this.CbbCreerVacationAtelier.FormattingEnabled = true;
-            this.CbbCreerVacationAtelier.ItemHeight = 23;
-            this.CbbCreerVacationAtelier.Location = new System.Drawing.Point(135, 14);
-            this.CbbCreerVacationAtelier.Name = "CbbCreerVacationAtelier";
-            this.CbbCreerVacationAtelier.Size = new System.Drawing.Size(167, 29);
-            this.CbbCreerVacationAtelier.TabIndex = 3;
-            this.CbbCreerVacationAtelier.UseSelectable = true;
-            this.CbbCreerVacationAtelier.SelectedIndexChanged += new System.EventHandler(this.CbbCreerVacationAtelier_SelectedIndexChanged);
-            // 
-            // metroLabel54
-            // 
-            this.metroLabel54.AutoSize = true;
-            this.metroLabel54.Location = new System.Drawing.Point(18, 16);
-            this.metroLabel54.Name = "metroLabel54";
-            this.metroLabel54.Size = new System.Drawing.Size(111, 19);
-            this.metroLabel54.TabIndex = 2;
-            this.metroLabel54.Text = "Atelier concerné :";
-            // 
-            // PanelCreerTheme
-            // 
-            this.PanelCreerTheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerTheme.Controls.Add(this.BtnCreerTheme);
-            this.PanelCreerTheme.Controls.Add(this.CbbCreerThemeAtelier);
-            this.PanelCreerTheme.Controls.Add(this.TxtCreerThemeNom);
-            this.PanelCreerTheme.Controls.Add(this.metroLabel35);
-            this.PanelCreerTheme.Controls.Add(this.metroLabel36);
-            this.PanelCreerTheme.HorizontalScrollbarBarColor = true;
-            this.PanelCreerTheme.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerTheme.HorizontalScrollbarSize = 10;
-            this.PanelCreerTheme.Location = new System.Drawing.Point(3, 77);
-            this.PanelCreerTheme.Name = "PanelCreerTheme";
-            this.PanelCreerTheme.Size = new System.Drawing.Size(332, 125);
-            this.PanelCreerTheme.TabIndex = 13;
-            this.PanelCreerTheme.VerticalScrollbarBarColor = true;
-            this.PanelCreerTheme.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerTheme.VerticalScrollbarSize = 10;
-            this.PanelCreerTheme.Visible = false;
-            // 
-            // BtnCreerTheme
-            // 
-            this.BtnCreerTheme.Enabled = false;
-            this.BtnCreerTheme.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.BtnCreerTheme.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.BtnCreerTheme.Highlight = true;
-            this.BtnCreerTheme.Location = new System.Drawing.Point(93, 97);
-            this.BtnCreerTheme.Name = "BtnCreerTheme";
-            this.BtnCreerTheme.Size = new System.Drawing.Size(144, 23);
-            this.BtnCreerTheme.Style = MetroFramework.MetroColorStyle.Red;
-            this.BtnCreerTheme.TabIndex = 13;
-            this.BtnCreerTheme.Text = "Enregistrer ce thème";
-            this.BtnCreerTheme.UseSelectable = true;
-            this.BtnCreerTheme.Click += new System.EventHandler(this.BtnCreerTheme_Click);
-            // 
-            // CbbCreerThemeAtelier
-            // 
-            this.CbbCreerThemeAtelier.FormattingEnabled = true;
-            this.CbbCreerThemeAtelier.ItemHeight = 23;
-            this.CbbCreerThemeAtelier.Location = new System.Drawing.Point(143, 50);
-            this.CbbCreerThemeAtelier.Name = "CbbCreerThemeAtelier";
-            this.CbbCreerThemeAtelier.Size = new System.Drawing.Size(173, 29);
-            this.CbbCreerThemeAtelier.TabIndex = 5;
-            this.CbbCreerThemeAtelier.UseSelectable = true;
-            this.CbbCreerThemeAtelier.SelectedIndexChanged += new System.EventHandler(this.CbbCreerThemeAtelier_SelectedIndexChanged);
-            // 
-            // TxtCreerThemeNom
-            // 
-            this.TxtCreerThemeNom.Lines = new string[0];
-            this.TxtCreerThemeNom.Location = new System.Drawing.Point(143, 12);
-            this.TxtCreerThemeNom.MaxLength = 32767;
-            this.TxtCreerThemeNom.Name = "TxtCreerThemeNom";
-            this.TxtCreerThemeNom.PasswordChar = '\0';
-            this.TxtCreerThemeNom.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtCreerThemeNom.SelectedText = "";
-            this.TxtCreerThemeNom.Size = new System.Drawing.Size(173, 23);
-            this.TxtCreerThemeNom.TabIndex = 4;
-            this.TxtCreerThemeNom.UseSelectable = true;
-            this.TxtCreerThemeNom.TextChanged += new System.EventHandler(this.TxtCreerThemeNom_TextChanged);
-            // 
-            // metroLabel35
-            // 
-            this.metroLabel35.AutoSize = true;
-            this.metroLabel35.Location = new System.Drawing.Point(21, 53);
-            this.metroLabel35.Name = "metroLabel35";
-            this.metroLabel35.Size = new System.Drawing.Size(111, 19);
-            this.metroLabel35.TabIndex = 3;
-            this.metroLabel35.Text = "Atelier concerné :";
-            // 
-            // metroLabel36
-            // 
-            this.metroLabel36.AutoSize = true;
-            this.metroLabel36.Location = new System.Drawing.Point(26, 12);
-            this.metroLabel36.Name = "metroLabel36";
-            this.metroLabel36.Size = new System.Drawing.Size(106, 19);
-            this.metroLabel36.TabIndex = 2;
-            this.metroLabel36.Text = "Nom du thème :";
-            // 
             // BtnCreerAtelierEnregistrer
             // 
             this.BtnCreerAtelierEnregistrer.FontSize = MetroFramework.MetroButtonSize.Medium;
@@ -942,91 +811,6 @@
             this.RadGestionAtelier.Text = "Atelier";
             this.RadGestionAtelier.UseSelectable = true;
             this.RadGestionAtelier.CheckedChanged += new System.EventHandler(this.RadGestionAtelier_CheckedChanged);
-            // 
-            // PanelCreerVacationSuite
-            // 
-            this.PanelCreerVacationSuite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerVacationSuite.Controls.Add(this.metroLabel37);
-            this.PanelCreerVacationSuite.HorizontalScrollbarBarColor = true;
-            this.PanelCreerVacationSuite.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacationSuite.HorizontalScrollbarSize = 10;
-            this.PanelCreerVacationSuite.Location = new System.Drawing.Point(3, 185);
-            this.PanelCreerVacationSuite.Name = "PanelCreerVacationSuite";
-            this.PanelCreerVacationSuite.Size = new System.Drawing.Size(1112, 327);
-            this.PanelCreerVacationSuite.TabIndex = 14;
-            this.PanelCreerVacationSuite.VerticalScrollbarBarColor = true;
-            this.PanelCreerVacationSuite.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerVacationSuite.VerticalScrollbarSize = 10;
-            this.PanelCreerVacationSuite.Visible = false;
-            // 
-            // metroLabel37
-            // 
-            this.metroLabel37.AutoSize = true;
-            this.metroLabel37.Location = new System.Drawing.Point(14, 9);
-            this.metroLabel37.Name = "metroLabel37";
-            this.metroLabel37.Size = new System.Drawing.Size(235, 19);
-            this.metroLabel37.TabIndex = 10;
-            this.metroLabel37.Text = "Modifier les vacations pour cet atelier :";
-            // 
-            // PanelCreerAtelier
-            // 
-            this.PanelCreerAtelier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelCreerAtelier.Controls.Add(this.NumCreerAtelierNbPlaces);
-            this.PanelCreerAtelier.Controls.Add(this.TxtCreerAtelierNom);
-            this.PanelCreerAtelier.Controls.Add(this.metroLabel17);
-            this.PanelCreerAtelier.Controls.Add(this.metroLabel16);
-            this.PanelCreerAtelier.HorizontalScrollbarBarColor = true;
-            this.PanelCreerAtelier.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelCreerAtelier.HorizontalScrollbarSize = 10;
-            this.PanelCreerAtelier.Location = new System.Drawing.Point(3, 77);
-            this.PanelCreerAtelier.Name = "PanelCreerAtelier";
-            this.PanelCreerAtelier.Size = new System.Drawing.Size(332, 91);
-            this.PanelCreerAtelier.TabIndex = 4;
-            this.PanelCreerAtelier.VerticalScrollbarBarColor = true;
-            this.PanelCreerAtelier.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelCreerAtelier.VerticalScrollbarSize = 10;
-            this.PanelCreerAtelier.Visible = false;
-            // 
-            // NumCreerAtelierNbPlaces
-            // 
-            this.NumCreerAtelierNbPlaces.BackColor = System.Drawing.SystemColors.Control;
-            this.NumCreerAtelierNbPlaces.Location = new System.Drawing.Point(145, 53);
-            this.NumCreerAtelierNbPlaces.Name = "NumCreerAtelierNbPlaces";
-            this.NumCreerAtelierNbPlaces.Size = new System.Drawing.Size(75, 20);
-            this.NumCreerAtelierNbPlaces.TabIndex = 5;
-            this.NumCreerAtelierNbPlaces.ValueChanged += new System.EventHandler(this.NumCreerAtelierNbPlaces_ValueChanged);
-            // 
-            // TxtCreerAtelierNom
-            // 
-            this.TxtCreerAtelierNom.Lines = new string[0];
-            this.TxtCreerAtelierNom.Location = new System.Drawing.Point(143, 12);
-            this.TxtCreerAtelierNom.MaxLength = 32767;
-            this.TxtCreerAtelierNom.Name = "TxtCreerAtelierNom";
-            this.TxtCreerAtelierNom.PasswordChar = '\0';
-            this.TxtCreerAtelierNom.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtCreerAtelierNom.SelectedText = "";
-            this.TxtCreerAtelierNom.Size = new System.Drawing.Size(173, 23);
-            this.TxtCreerAtelierNom.TabIndex = 4;
-            this.TxtCreerAtelierNom.UseSelectable = true;
-            this.TxtCreerAtelierNom.TextChanged += new System.EventHandler(this.TxtCreerAtelierNom_TextChanged);
-            // 
-            // metroLabel17
-            // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(14, 53);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(125, 19);
-            this.metroLabel17.TabIndex = 3;
-            this.metroLabel17.Text = "Nombre de places :";
-            // 
-            // metroLabel16
-            // 
-            this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(26, 12);
-            this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(111, 19);
-            this.metroLabel16.TabIndex = 2;
-            this.metroLabel16.Text = "Nom de l\'atelier :";
             // 
             // PanelCreerAtelierVacation
             // 
@@ -1153,6 +937,222 @@
             this.metroLabel18.TabIndex = 2;
             this.metroLabel18.Text = "Creer des thèmes pour cet atelier :";
             // 
+            // PanelCreerTheme
+            // 
+            this.PanelCreerTheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelCreerTheme.Controls.Add(this.BtnCreerTheme);
+            this.PanelCreerTheme.Controls.Add(this.CbbCreerThemeAtelier);
+            this.PanelCreerTheme.Controls.Add(this.TxtCreerThemeNom);
+            this.PanelCreerTheme.Controls.Add(this.metroLabel35);
+            this.PanelCreerTheme.Controls.Add(this.metroLabel36);
+            this.PanelCreerTheme.HorizontalScrollbarBarColor = true;
+            this.PanelCreerTheme.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelCreerTheme.HorizontalScrollbarSize = 10;
+            this.PanelCreerTheme.Location = new System.Drawing.Point(3, 77);
+            this.PanelCreerTheme.Name = "PanelCreerTheme";
+            this.PanelCreerTheme.Size = new System.Drawing.Size(332, 125);
+            this.PanelCreerTheme.TabIndex = 13;
+            this.PanelCreerTheme.VerticalScrollbarBarColor = true;
+            this.PanelCreerTheme.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelCreerTheme.VerticalScrollbarSize = 10;
+            this.PanelCreerTheme.Visible = false;
+            // 
+            // BtnCreerTheme
+            // 
+            this.BtnCreerTheme.Enabled = false;
+            this.BtnCreerTheme.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.BtnCreerTheme.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.BtnCreerTheme.Highlight = true;
+            this.BtnCreerTheme.Location = new System.Drawing.Point(93, 97);
+            this.BtnCreerTheme.Name = "BtnCreerTheme";
+            this.BtnCreerTheme.Size = new System.Drawing.Size(144, 23);
+            this.BtnCreerTheme.Style = MetroFramework.MetroColorStyle.Red;
+            this.BtnCreerTheme.TabIndex = 13;
+            this.BtnCreerTheme.Text = "Enregistrer ce thème";
+            this.BtnCreerTheme.UseSelectable = true;
+            this.BtnCreerTheme.Click += new System.EventHandler(this.BtnCreerTheme_Click);
+            // 
+            // CbbCreerThemeAtelier
+            // 
+            this.CbbCreerThemeAtelier.FormattingEnabled = true;
+            this.CbbCreerThemeAtelier.ItemHeight = 23;
+            this.CbbCreerThemeAtelier.Location = new System.Drawing.Point(143, 50);
+            this.CbbCreerThemeAtelier.Name = "CbbCreerThemeAtelier";
+            this.CbbCreerThemeAtelier.Size = new System.Drawing.Size(173, 29);
+            this.CbbCreerThemeAtelier.TabIndex = 5;
+            this.CbbCreerThemeAtelier.UseSelectable = true;
+            this.CbbCreerThemeAtelier.SelectedIndexChanged += new System.EventHandler(this.CbbCreerThemeAtelier_SelectedIndexChanged);
+            // 
+            // TxtCreerThemeNom
+            // 
+            this.TxtCreerThemeNom.Lines = new string[0];
+            this.TxtCreerThemeNom.Location = new System.Drawing.Point(143, 12);
+            this.TxtCreerThemeNom.MaxLength = 32767;
+            this.TxtCreerThemeNom.Name = "TxtCreerThemeNom";
+            this.TxtCreerThemeNom.PasswordChar = '\0';
+            this.TxtCreerThemeNom.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtCreerThemeNom.SelectedText = "";
+            this.TxtCreerThemeNom.Size = new System.Drawing.Size(173, 23);
+            this.TxtCreerThemeNom.TabIndex = 4;
+            this.TxtCreerThemeNom.UseSelectable = true;
+            this.TxtCreerThemeNom.TextChanged += new System.EventHandler(this.TxtCreerThemeNom_TextChanged);
+            // 
+            // metroLabel35
+            // 
+            this.metroLabel35.AutoSize = true;
+            this.metroLabel35.Location = new System.Drawing.Point(21, 53);
+            this.metroLabel35.Name = "metroLabel35";
+            this.metroLabel35.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel35.TabIndex = 3;
+            this.metroLabel35.Text = "Atelier concerné :";
+            // 
+            // metroLabel36
+            // 
+            this.metroLabel36.AutoSize = true;
+            this.metroLabel36.Location = new System.Drawing.Point(26, 12);
+            this.metroLabel36.Name = "metroLabel36";
+            this.metroLabel36.Size = new System.Drawing.Size(106, 19);
+            this.metroLabel36.TabIndex = 2;
+            this.metroLabel36.Text = "Nom du thème :";
+            // 
+            // PanelCreerVacationSuite
+            // 
+            this.PanelCreerVacationSuite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelCreerVacationSuite.Controls.Add(this.metroLabel37);
+            this.PanelCreerVacationSuite.HorizontalScrollbarBarColor = true;
+            this.PanelCreerVacationSuite.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelCreerVacationSuite.HorizontalScrollbarSize = 10;
+            this.PanelCreerVacationSuite.Location = new System.Drawing.Point(3, 185);
+            this.PanelCreerVacationSuite.Name = "PanelCreerVacationSuite";
+            this.PanelCreerVacationSuite.Size = new System.Drawing.Size(1112, 327);
+            this.PanelCreerVacationSuite.TabIndex = 14;
+            this.PanelCreerVacationSuite.VerticalScrollbarBarColor = true;
+            this.PanelCreerVacationSuite.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelCreerVacationSuite.VerticalScrollbarSize = 10;
+            this.PanelCreerVacationSuite.Visible = false;
+            // 
+            // metroLabel37
+            // 
+            this.metroLabel37.AutoSize = true;
+            this.metroLabel37.Location = new System.Drawing.Point(14, 9);
+            this.metroLabel37.Name = "metroLabel37";
+            this.metroLabel37.Size = new System.Drawing.Size(235, 19);
+            this.metroLabel37.TabIndex = 10;
+            this.metroLabel37.Text = "Modifier les vacations pour cet atelier :";
+            // 
+            // PanelCreerAtelier
+            // 
+            this.PanelCreerAtelier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelCreerAtelier.Controls.Add(this.NumCreerAtelierNbPlaces);
+            this.PanelCreerAtelier.Controls.Add(this.TxtCreerAtelierNom);
+            this.PanelCreerAtelier.Controls.Add(this.metroLabel17);
+            this.PanelCreerAtelier.Controls.Add(this.metroLabel16);
+            this.PanelCreerAtelier.HorizontalScrollbarBarColor = true;
+            this.PanelCreerAtelier.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelCreerAtelier.HorizontalScrollbarSize = 10;
+            this.PanelCreerAtelier.Location = new System.Drawing.Point(3, 77);
+            this.PanelCreerAtelier.Name = "PanelCreerAtelier";
+            this.PanelCreerAtelier.Size = new System.Drawing.Size(332, 91);
+            this.PanelCreerAtelier.TabIndex = 4;
+            this.PanelCreerAtelier.VerticalScrollbarBarColor = true;
+            this.PanelCreerAtelier.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelCreerAtelier.VerticalScrollbarSize = 10;
+            this.PanelCreerAtelier.Visible = false;
+            // 
+            // NumCreerAtelierNbPlaces
+            // 
+            this.NumCreerAtelierNbPlaces.BackColor = System.Drawing.SystemColors.Control;
+            this.NumCreerAtelierNbPlaces.Location = new System.Drawing.Point(145, 53);
+            this.NumCreerAtelierNbPlaces.Name = "NumCreerAtelierNbPlaces";
+            this.NumCreerAtelierNbPlaces.Size = new System.Drawing.Size(75, 20);
+            this.NumCreerAtelierNbPlaces.TabIndex = 5;
+            this.NumCreerAtelierNbPlaces.ValueChanged += new System.EventHandler(this.NumCreerAtelierNbPlaces_ValueChanged);
+            // 
+            // TxtCreerAtelierNom
+            // 
+            this.TxtCreerAtelierNom.Lines = new string[0];
+            this.TxtCreerAtelierNom.Location = new System.Drawing.Point(143, 12);
+            this.TxtCreerAtelierNom.MaxLength = 32767;
+            this.TxtCreerAtelierNom.Name = "TxtCreerAtelierNom";
+            this.TxtCreerAtelierNom.PasswordChar = '\0';
+            this.TxtCreerAtelierNom.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtCreerAtelierNom.SelectedText = "";
+            this.TxtCreerAtelierNom.Size = new System.Drawing.Size(173, 23);
+            this.TxtCreerAtelierNom.TabIndex = 4;
+            this.TxtCreerAtelierNom.UseSelectable = true;
+            this.TxtCreerAtelierNom.TextChanged += new System.EventHandler(this.TxtCreerAtelierNom_TextChanged);
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(14, 53);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(125, 19);
+            this.metroLabel17.TabIndex = 3;
+            this.metroLabel17.Text = "Nombre de places :";
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.Location = new System.Drawing.Point(26, 12);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel16.TabIndex = 2;
+            this.metroLabel16.Text = "Nom de l\'atelier :";
+            // 
+            // PanelCreerVacation
+            // 
+            this.PanelCreerVacation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelCreerVacation.Controls.Add(this.BtnCreerVacationEnregistrer);
+            this.PanelCreerVacation.Controls.Add(this.CbbCreerVacationAtelier);
+            this.PanelCreerVacation.Controls.Add(this.metroLabel54);
+            this.PanelCreerVacation.HorizontalScrollbarBarColor = true;
+            this.PanelCreerVacation.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelCreerVacation.HorizontalScrollbarSize = 10;
+            this.PanelCreerVacation.Location = new System.Drawing.Point(3, 77);
+            this.PanelCreerVacation.Name = "PanelCreerVacation";
+            this.PanelCreerVacation.Size = new System.Drawing.Size(405, 55);
+            this.PanelCreerVacation.TabIndex = 15;
+            this.PanelCreerVacation.VerticalScrollbarBarColor = true;
+            this.PanelCreerVacation.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelCreerVacation.VerticalScrollbarSize = 10;
+            this.PanelCreerVacation.Visible = false;
+            // 
+            // BtnCreerVacationEnregistrer
+            // 
+            this.BtnCreerVacationEnregistrer.Enabled = false;
+            this.BtnCreerVacationEnregistrer.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.BtnCreerVacationEnregistrer.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.BtnCreerVacationEnregistrer.Highlight = true;
+            this.BtnCreerVacationEnregistrer.Location = new System.Drawing.Point(319, 18);
+            this.BtnCreerVacationEnregistrer.Name = "BtnCreerVacationEnregistrer";
+            this.BtnCreerVacationEnregistrer.Size = new System.Drawing.Size(77, 23);
+            this.BtnCreerVacationEnregistrer.Style = MetroFramework.MetroColorStyle.Red;
+            this.BtnCreerVacationEnregistrer.TabIndex = 13;
+            this.BtnCreerVacationEnregistrer.Text = "Enregistrer";
+            this.BtnCreerVacationEnregistrer.UseSelectable = true;
+            this.BtnCreerVacationEnregistrer.Click += new System.EventHandler(this.BtnCreerVacationEnregistrer_Click);
+            // 
+            // CbbCreerVacationAtelier
+            // 
+            this.CbbCreerVacationAtelier.FormattingEnabled = true;
+            this.CbbCreerVacationAtelier.ItemHeight = 23;
+            this.CbbCreerVacationAtelier.Location = new System.Drawing.Point(135, 14);
+            this.CbbCreerVacationAtelier.Name = "CbbCreerVacationAtelier";
+            this.CbbCreerVacationAtelier.Size = new System.Drawing.Size(167, 29);
+            this.CbbCreerVacationAtelier.TabIndex = 3;
+            this.CbbCreerVacationAtelier.UseSelectable = true;
+            this.CbbCreerVacationAtelier.SelectedIndexChanged += new System.EventHandler(this.CbbCreerVacationAtelier_SelectedIndexChanged);
+            // 
+            // metroLabel54
+            // 
+            this.metroLabel54.AutoSize = true;
+            this.metroLabel54.Location = new System.Drawing.Point(18, 16);
+            this.metroLabel54.Name = "metroLabel54";
+            this.metroLabel54.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel54.TabIndex = 2;
+            this.metroLabel54.Text = "Atelier concerné :";
+            // 
             // AideVacationAtelier
             // 
             this.AideVacationAtelier.AutoPopDelay = 5000;
@@ -1208,21 +1208,21 @@
             this.PanelIntervenant.ResumeLayout(false);
             this.PanelIntervenant.PerformLayout();
             this.TabGestionAtelierThemeVacation.ResumeLayout(false);
-            this.PanelCreerVacation.ResumeLayout(false);
-            this.PanelCreerVacation.PerformLayout();
-            this.PanelCreerTheme.ResumeLayout(false);
-            this.PanelCreerTheme.PerformLayout();
             this.PanelRadAtelierThemeVacation.ResumeLayout(false);
             this.PanelRadAtelierThemeVacation.PerformLayout();
+            this.PanelCreerAtelierVacation.ResumeLayout(false);
+            this.PanelCreerAtelierVacation.PerformLayout();
+            this.PanelCreerAtelierTheme.ResumeLayout(false);
+            this.PanelCreerAtelierTheme.PerformLayout();
+            this.PanelCreerTheme.ResumeLayout(false);
+            this.PanelCreerTheme.PerformLayout();
             this.PanelCreerVacationSuite.ResumeLayout(false);
             this.PanelCreerVacationSuite.PerformLayout();
             this.PanelCreerAtelier.ResumeLayout(false);
             this.PanelCreerAtelier.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreerAtelierNbPlaces)).EndInit();
-            this.PanelCreerAtelierVacation.ResumeLayout(false);
-            this.PanelCreerAtelierVacation.PerformLayout();
-            this.PanelCreerAtelierTheme.ResumeLayout(false);
-            this.PanelCreerAtelierTheme.PerformLayout();
+            this.PanelCreerVacation.ResumeLayout(false);
+            this.PanelCreerVacation.PerformLayout();
             this.ResumeLayout(false);
 
         }

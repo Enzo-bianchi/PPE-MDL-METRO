@@ -786,6 +786,10 @@ namespace MDLMetro
             {
                 PanelNuiteIntervenant.Controls.RemoveAt(PanelNuiteIntervenant.Controls.Count - 1);
             }
+            while (PanelFonctionIntervenant.Controls.Count > 0)
+            {
+                PanelFonctionIntervenant.Controls.RemoveAt(PanelFonctionIntervenant.Controls.Count - 1);
+            }
             BtnEnregistrerIntervenant.Enabled = false;
             PanelIntervenant.Visible = false;
         }
