@@ -37,6 +37,8 @@ namespace MDLMetro
         byte[] photoByte;
         private string ChainePropre;
 
+        Dictionary<Int16, String> LesNuites;
+
         /// <summary>
         /// Initialise la fenetre principale.
         /// </summary>
@@ -119,9 +121,6 @@ namespace MDLMetro
             PanelFonctionIntervenant.Visible = true;
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanelFonctionIntervenant, "MetroRadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, CmbAtelierIntervenant, "VATELIER01");
-
- 
-
         }
         /// <summary>
         /// permet d'appeler la méthode VerifBtnEnregistreIntervenant qui déterminera le statu du bouton BtnEnregistrerIntervenant
@@ -168,6 +167,8 @@ namespace MDLMetro
             PanelCreerVacation.Enabled = false;
             PanelCreerVacationSuite.Visible = false;
             PanelCreerVacationSuite.Enabled = false;
+
+            ViderChampsGestionAtelierThemeVacation();
         }
 
         /// <summary>
@@ -290,6 +291,7 @@ namespace MDLMetro
                 }
 
                 UneConnexion.AjoutAtelier(TxtCreerAtelierNom.Text, Convert.ToInt32(NumCreerAtelierNbPlaces.Text), Themes, VacationsDebut, VacationsFin);
+                ViderChampsGestionAtelierThemeVacation();
             }
             catch (Exception ex)
             {
@@ -342,6 +344,8 @@ namespace MDLMetro
                 CbbCreerThemeAtelier.DataSource = UneDataTable;
                 CbbCreerThemeAtelier.DisplayMember = "LIBELLE";
                 CbbCreerThemeAtelier.ValueMember = "ID";
+
+                ViderChampsGestionAtelierThemeVacation();
             }
         }
 
@@ -385,6 +389,7 @@ namespace MDLMetro
                 //l'événement SelectedIndexChanged s'active lors d'un changement dans la combo-box mais aussi lors du REMPLISSAGE de la combo-box.
                 //Ce qui pose problème car le premier objet est un type datarowview et il faut donc le traiter autrement que les autres.
                 //Donc en désactivant l'événement lors du remplissage, il ne se passera rien. Une fois la combo-box remplie, on réactive l'événement.
+                ViderChampsGestionAtelierThemeVacation();
             }
         }
 
@@ -488,6 +493,7 @@ namespace MDLMetro
                     }
                 }
                 UneConnexion.ModificationVacation(VacationsDebut, VacationsFin, Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
+                ViderChampsGestionAtelierThemeVacation();
             }
             catch (Exception ex)
             {
@@ -504,6 +510,7 @@ namespace MDLMetro
         private void BtnCreerTheme_Click(object sender, EventArgs e)
         {
             UneConnexion.AjoutTheme(Convert.ToInt32(CbbCreerThemeAtelier.SelectedValue), TxtCreerThemeNom.Text);
+            ViderChampsGestionAtelierThemeVacation();
         }
 
         private void BtnEnregistrerBenevole_Click(object sender, EventArgs e)
@@ -533,6 +540,7 @@ namespace MDLMetro
                 }
             }
             UneConnexion.InscrireBenevole(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToDateTime(TxtDateNaissance.Text), NumeroLicence, IdDatesSelectionnees, photoByte);
+            ViderChampsBenevole();
         }
 
         private void FrmPrincipale_FormClosing(object sender, FormClosingEventArgs e)
@@ -549,7 +557,7 @@ namespace MDLMetro
                 {
                     //DataTable LesDateNuites = UneConnexion.ObtenirDonnesOracle("VDATENUITE01");
                     //foreach(Dat
-                    Dictionary<Int16, String> LesNuites = UneConnexion.ObtenirDatesNuites();
+                    LesNuites = UneConnexion.ObtenirDatesNuites();
                     int i = 0;
                     foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
                     {
@@ -595,13 +603,14 @@ namespace MDLMetro
                     {
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes, photoByte);
                         MetroMessageBox.Show(this, "Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ViderChampsIntervenant();
                     }
                 }
                 else
                 { // inscription sans les nuitées
                     UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
                     MetroMessageBox.Show(this,"Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    ViderChampsIntervenant();
                 }
 
 
@@ -755,6 +764,87 @@ namespace MDLMetro
         private void CbbCreerThemeAtelier_SelectedIndexChanged(object sender, EventArgs e)
         {
             CheckCreerTheme();
+        }
+
+        private void ViderChampsIntervenant()
+        {
+            TxtNom.Text = null;
+            TxtPrenom.Text = null;
+            TxtAdr1.Text = null;
+            TxtAdr2.Text = null;
+            TxtCp.Text = null;
+            TxtVille.Text = null;
+            TxtTel.Text = null;
+            TxtMail.Text = null;
+            IdStatutSelectionne = null;
+            photoByte = null;
+            PanelIntervenant.Visible = false;
+            RadIntervenant.Checked = false;
+            RdbNuiteIntervenantOui.Checked = false;
+            RdbNuiteIntervenantNon.Checked = true;
+            foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+            {
+                PanelNuiteIntervenant.Controls.RemoveAt(PanelNuiteIntervenant.Controls.Count - 1);
+            }
+            BtnEnregistrerIntervenant.Enabled = false;
+            PanelIntervenant.Visible = false;
+        }
+
+        private void ViderChampsBenevole()
+        {
+            TxtNom.Text = null;
+            TxtPrenom.Text = null;
+            TxtAdr1.Text = null;
+            TxtAdr2.Text = null;
+            TxtCp.Text = null;
+            TxtVille.Text = null;
+            TxtTel.Text = null;
+            TxtMail.Text = null;
+            TxtDateNaissance.Text = null;
+            TxtLicenceBenevole.Text = null;
+            photoByte = null;
+            RadBenevole.Checked = false;
+            while (PanelDispoBenevole.Controls.Count > 0)
+            {
+                PanelDispoBenevole.Controls.RemoveAt(PanelDispoBenevole.Controls.Count - 1);
+            }
+            BtnEnregistrerBenevole.Enabled = false;
+            PanelBenevole.Visible = false;
+        }
+
+        private void TxtLicenceBenevole_TextChanged(object sender, EventArgs e)
+        {
+            BtnEnregistrerBenevole.Enabled = (TxtLicenceBenevole.Text == "" || TxtLicenceBenevole.MaskCompleted) && TxtDateNaissance.MaskCompleted && Utilitaire.CompteChecked(PanelDispoBenevole) > 0;
+        }
+
+        private void TxtDateNaissance_TextChanged(object sender, EventArgs e)
+        {
+            BtnEnregistrerBenevole.Enabled = (TxtLicenceBenevole.Text == "" || TxtLicenceBenevole.MaskCompleted) && TxtDateNaissance.MaskCompleted && Utilitaire.CompteChecked(PanelDispoBenevole) > 0;
+        }
+
+        private void ViderChampsGestionAtelierThemeVacation()
+        {
+            TxtCreerAtelierNom.Text = null;
+            NumCreerAtelierNbPlaces.Text = null;
+            TxtCreerAtelierCreerTheme.Text = null;
+            BtnCreerAtelierEnregistrer.Enabled = false;
+            foreach (Control UnControle in PanelCreerAtelierVacation.Controls)
+            {
+                if (PanelCreerAtelierVacation.Controls.Count > 5)
+                {
+                    NombreVacationCreerAtelier--;
+                    if (NombreVacationCreerAtelier % 2 == 0)
+                    {
+                        YVacationCreerAtelier -= 64;
+                    }
+                    PanelCreerAtelierVacation.Controls.RemoveAt(PanelCreerAtelierVacation.Controls.Count - 1);
+                }
+            }
+            for (int i = this.ListeCreerAtelierCreerTheme.Items.Count - 1; this.ListeCreerAtelierCreerTheme.Items.Count > 0; i--)
+            {
+                this.ListeCreerAtelierCreerTheme.Items.RemoveAt(i);
+            }
+            TxtCreerThemeNom.Text = null;
         }
     }
 }
