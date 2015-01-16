@@ -151,24 +151,34 @@ namespace MDLMetro
         /// <param name="e"></param>
         private void RadGestionAtelier_CheckedChanged(object sender, EventArgs e)
         {
-            PanelCreerAtelier.Visible = true;
-            PanelCreerAtelierTheme.Visible = true;
-            PanelCreerAtelierVacation.Visible = true;
-            PanelCreerAtelier.Enabled = true;
-            PanelCreerAtelierTheme.Enabled = true;
-            PanelCreerAtelierVacation.Enabled = true;
-            BtnCreerAtelierEnregistrer.Visible = true;
-            BtnCreerAtelierEnregistrer.Enabled = false;
+            if (RadGestionAtelier.Checked)
+            {
+                NombreLigne = 0;
+                NombreVacationCreerAtelier = 0;
+                NombreVacationModifier = 0;
+                XVacationCreerAtelier = 14;
+                YVacationCreerAtelier = 0;
+                X2VacationCreerAtelier = 630;
 
-            PanelCreerTheme.Visible = false;
-            PanelCreerTheme.Enabled = false;
+                PanelCreerAtelier.Visible = true;
+                PanelCreerAtelierTheme.Visible = true;
+                PanelCreerAtelierVacation.Visible = true;
+                PanelCreerAtelier.Enabled = true;
+                PanelCreerAtelierTheme.Enabled = true;
+                PanelCreerAtelierVacation.Enabled = true;
+                BtnCreerAtelierEnregistrer.Visible = true;
+                BtnCreerAtelierEnregistrer.Enabled = false;
 
-            PanelCreerVacation.Visible = false;
-            PanelCreerVacation.Enabled = false;
-            PanelCreerVacationSuite.Visible = false;
-            PanelCreerVacationSuite.Enabled = false;
+                PanelCreerTheme.Visible = false;
+                PanelCreerTheme.Enabled = false;
 
-            ViderChampsGestionAtelierThemeVacation();
+                PanelCreerVacation.Visible = false;
+                PanelCreerVacation.Enabled = false;
+                PanelCreerVacationSuite.Visible = false;
+                PanelCreerVacationSuite.Enabled = false;
+
+                ViderChampsGestionAtelierThemeVacation();
+            }
         }
 
         /// <summary>
@@ -361,6 +371,13 @@ namespace MDLMetro
             DataTable UneDataTable = new DataTable();
             if (RadGestionVacation.Checked)
             {
+                NombreLigne = 0;
+                NombreVacationCreerAtelier = 0;
+                NombreVacationModifier = 0;
+                XVacationCreerAtelier = 14;
+                YVacationCreerAtelier = 0;
+                X2VacationCreerAtelier = 630;
+
                 PanelCreerAtelier.Enabled = false;
                 PanelCreerAtelier.Visible = false;
                 PanelCreerAtelierTheme.Visible = false;
@@ -410,9 +427,6 @@ namespace MDLMetro
                 BtnCreerVacationEnregistrer.Enabled = false;
             }
 
-            XVacationCreerAtelier = 14;
-            YVacationCreerAtelier = 0; //Actualisation des positions initiales pour éviter les décalages
-            X2VacationCreerAtelier = 630;
             DataTable UneDataTable = new DataTable();
             //tant qu'il y a des composant dynamique pour la modification de vacation, on supprime.
             while (PanelCreerVacationSuite.Controls.Count != 3) // 3 correspond au nombre de controls avec aucun composant.
@@ -424,6 +438,12 @@ namespace MDLMetro
                 }
                 PanelCreerVacationSuite.Controls.RemoveAt(PanelCreerVacationSuite.Controls.Count - 1);
             }
+            NombreLigne = 0;
+            NombreVacationCreerAtelier = 0;
+            NombreVacationModifier = 0;
+            XVacationCreerAtelier = 14;
+            YVacationCreerAtelier = 0;
+            X2VacationCreerAtelier = 630;
             //On récupere les vacations éxistantes pour l'atelier.
             UneDataTable = UneConnexion.ObtenirVacationAtelier(Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
             //On compte le nombre de vacations.
@@ -603,17 +623,14 @@ namespace MDLMetro
                     {
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes, photoByte);
                         MetroMessageBox.Show(this, "Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ViderChampsIntervenant();
                     }
                 }
                 else
                 { // inscription sans les nuitées
                     UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
                     MetroMessageBox.Show(this,"Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ViderChampsIntervenant();
                 }
-
-
+                ViderChampsIntervenant();
             }
             catch (Exception Ex)
             {
@@ -782,9 +799,12 @@ namespace MDLMetro
             RadIntervenant.Checked = false;
             RdbNuiteIntervenantOui.Checked = false;
             RdbNuiteIntervenantNon.Checked = true;
-            foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+            if (LesNuites != null)
             {
-                PanelNuiteIntervenant.Controls.RemoveAt(PanelNuiteIntervenant.Controls.Count - 1);
+                foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+                {
+                    PanelNuiteIntervenant.Controls.RemoveAt(PanelNuiteIntervenant.Controls.Count - 1);
+                }
             }
             while (PanelFonctionIntervenant.Controls.Count > 0)
             {
