@@ -613,6 +613,15 @@ namespace MDLMetro
                     ViderChampsIntervenant();
                 }
 
+                try
+                {
+                    Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
+                    MetroMessageBox.Show(this, "Un email de confirmation vient de vous être envoyé", "Envoyé");
+                }
+                catch (Exception ex)
+                {
+                    MetroMessageBox.Show(this, ex.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
             catch (Exception Ex)

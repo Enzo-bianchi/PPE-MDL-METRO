@@ -8,11 +8,20 @@ using System.Data;
 using BaseDeDonnees;
 using System.Reflection;
 using MetroFramework.Controls;
+using MetroFramework;
+using System.Net.Mail;
+using System.Net;
+using System.Configuration;
 
 namespace MDLMetro
 {
     internal abstract class Utilitaire
     {
+
+        private static MailMessage Mail;
+        private static SmtpClient SmtpServer;
+
+
 
         /// <summary>
         /// Cette méthode permet de renseigner les propriétés des contrôles à créer. C'est une partie commune aux 
@@ -132,6 +141,67 @@ namespace MDLMetro
             }
             return i;
         }
+
+
+
+        /// <summary>
+        /// La fonction EnvoieMail permet d'envoyer un mail de confirmation à l'adresse email entrée dans TxtMail.
+        /// </summary>
+        /// 
+        //TxtNom.Text,TxtPrenom.Text,TxtTel.Text,TxtVille.Text
+        public static void EnvoieMail(string LeMail, string LeNom, string LePrenom, string LeTel, string LaVille)
+        {
+
+            string Expediteur = ConfigurationManager.AppSettings["Expediteur"];
+            string Motdepasse = ConfigurationManager.AppSettings["Motdepasse"];
+            string Host = ConfigurationManager.AppSettings["Host"];
+            string Port = ConfigurationManager.AppSettings["Port"];
+
+            try
+            {
+                Mail = new MailMessage();
+                SmtpServer = new SmtpClient();
+
+                Mail.From = new MailAddress(LeMail);
+                Mail.To.Add(LeMail);
+                Mail.Subject = "Inscription à Maison des Ligues";
+                Mail.IsBodyHtml = true;
+                Mail.Body = "Bonjour " + LePrenom + "" + LeNom + "," + "<p>Nous avons le plaisir de vous confirmer votre inscription </p>";
+
+                NetworkCredential basicCredential = new NetworkCredential(Expediteur, Motdepasse);
+
+                SmtpServer.Host = Host;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = basicCredential;
+                SmtpServer.Port = Convert.ToInt16(Port);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(Mail);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Une erreur est survenue lors de l'envoi de votre email de confirmation. Veuillez réessayer ultérieurement.");
+            }
+        }
+
+        //    public void ControlMail(string LeMail, string TxtNom,string TxtPrenom,string TxtTel,string TxtVille){
+
+        //        Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        //        Match match = regex.Match(email);
+
+        //        if (match.Success)
+        //        {
+        //            Response.Write(email + " is correct");
+
+        //        }                    
+        //        else
+        //        {
+        //            Response.Write(email + " is incorrect");
+        //        }                    
+
+        //    }
+
+        //public void Mail 
 
     }
 }
