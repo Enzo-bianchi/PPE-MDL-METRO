@@ -48,6 +48,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\Oracle.DataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder">
+      <HintPath>..\..\..\dlls\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />

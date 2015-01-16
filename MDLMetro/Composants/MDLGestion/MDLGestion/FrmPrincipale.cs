@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using BaseDeDonnees;
 using System.Security.Cryptography;
+using QRCoder;
 
 namespace MDLGestion
 {
@@ -31,7 +32,7 @@ namespace MDLGestion
         private void FrmPrincipale_Load(object sender, EventArgs e)
         {
             UneConnexion = ((FrmLogin)Owner).UneConnexion;
-            DataTable Participants = UneConnexion.ObtenirDonnesOracle("vparticipant");
+            DataTable Participants = UneConnexion.ObtenirDonnesOracle("vparticipant01");
             GridArrivants.DataSource = Participants;
             GridArrivants.Columns[0].DefaultCellStyle.BackColor = Color.Red;
         }
@@ -39,13 +40,26 @@ namespace MDLGestion
         {
             if (e.ColumnIndex == 0)
             {
-                byte[] wpa2 = new byte[12];
-                RandomNumberGenerator.Create().GetNonZeroBytes(wpa2);
-                String clefinal = Convert.ToBase64String(wpa2).Substring(1);
 
-                UneConnexion.ValiderInscription(int.Parse(GridArrivants[1, e.RowIndex].Value.ToString()), clefinal);
-                GridArrivants[0,e.RowIndex].Style.BackColor = Color.Green;
+                string clewifi = GenererWPA("ABCDEFabcdef0123456789", 12);
+
+                UneConnexion.ValiderInscription(int.Parse(GridArrivants[1, e.RowIndex].Value.ToString()), clewifi);
+                GridArrivants[0, e.RowIndex].Style.BackColor = Color.Green;
+                string prenom = GridArrivants[3, e.RowIndex].Value.ToString();
+                string nom = GridArrivants[2, e.RowIndex].Value.ToString();
+                string mail = GridArrivants[4, e.RowIndex].Value.ToString();
+                (new FrmDetail(clewifi, nom, prenom, mail)).Show();
             }
+        }
+        public static string GenererWPA(string chars, int length)
+        {
+            var randomString = new StringBuilder();
+            var random = new Random();
+
+            for (int i = 0; i < length; i++)
+                randomString.Append(chars[random.Next(chars.Length)]);
+
+            return randomString.ToString();
         }
     }
 }
