@@ -782,9 +782,12 @@ namespace MDLMetro
             RadIntervenant.Checked = false;
             RdbNuiteIntervenantOui.Checked = false;
             RdbNuiteIntervenantNon.Checked = true;
-            foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+            if (LesNuites != null)
             {
-                PanelNuiteIntervenant.Controls.RemoveAt(PanelNuiteIntervenant.Controls.Count - 1);
+                foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+                {
+                    PanelNuiteIntervenant.Controls.RemoveAt(PanelNuiteIntervenant.Controls.Count - 1);
+                }
             }
             while (PanelFonctionIntervenant.Controls.Count > 0)
             {
