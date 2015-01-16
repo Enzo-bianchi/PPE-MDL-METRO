@@ -12,6 +12,7 @@ using MetroFramework;
 using System.Net.Mail;
 using System.Net;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace MDLMetro
 {
@@ -184,24 +185,21 @@ namespace MDLMetro
             }
         }
 
-        //    public void ControlMail(string LeMail, string TxtNom,string TxtPrenom,string TxtTel,string TxtVille){
+        public void ControleMail(ref MetroTextBox LeMail)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(LeMail);
+            if (match.Success)
+            {
+                TxtMail.ba
+                Response.Write(LeMail + " is correct");
+            }                    
+            else
+            {
+                Response.Write(LeMail + " is incorrect");
+            }                    
 
-        //        Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-        //        Match match = regex.Match(email);
-
-        //        if (match.Success)
-        //        {
-        //            Response.Write(email + " is correct");
-
-        //        }                    
-        //        else
-        //        {
-        //            Response.Write(email + " is incorrect");
-        //        }                    
-
-        //    }
-
-        //public void Mail 
+        }
 
     }
 }

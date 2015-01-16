@@ -633,8 +633,9 @@ namespace MDLMetro
 
                 try
                 {
+                    Utilitaire.ControleMail();
                     Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
-                    MetroMessageBox.Show(this, "Un email de confirmation vient de vous être envoyé", "Envoyé");
+                    MetroMessageBox.Show(this, "Un email de confirmation vient de vous être envoyé", "Envoyé",MessageBoxButtons.OK,MessageBoxIcon.Question);
                 }
                 catch (Exception ex)
                 {
@@ -881,5 +882,24 @@ namespace MDLMetro
             }
             TxtCreerThemeNom.Text = null;
         }
+
+                 public void ControleMail()
+                {
+
+                    Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                    Match match = regex.Match(LeMail);
+
+                    if (match.Success)
+                    {
+                        TxtMail.ba
+                        Response.Write(LeMail + " is correct");
+
+                    }                    
+                    else
+                    {
+                        Response.Write(LeMail + " is incorrect");
+                    }                    
+
+                }
     }
 }
