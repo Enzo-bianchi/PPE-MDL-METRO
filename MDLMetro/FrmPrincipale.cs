@@ -630,10 +630,10 @@ namespace MDLMetro
                     UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
                     MetroMessageBox.Show(this,"Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+                
                 try
                 {
-                    Utilitaire.ControleMail();
+                    ControleMail(TxtMail.Text);
                     Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
                     MetroMessageBox.Show(this, "Un email de confirmation vient de vous être envoyé", "Envoyé",MessageBoxButtons.OK,MessageBoxIcon.Question);
                 }
@@ -883,23 +883,26 @@ namespace MDLMetro
             TxtCreerThemeNom.Text = null;
         }
 
-                 public void ControleMail()
-                {
+        /// <summary>
+        /// Controle le format de l'email en utilisant une expression régulière.
+        /// Si le mail est au bon format, le TxtMail devient vert
+        /// Sinon il devient rouge.
+        /// </summary>
+        /// <param name="LeMail">L'email entré dans TxtMail</param>
 
-                    Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-                    Match match = regex.Match(LeMail);
+        public void ControleMail(string LeMail)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(LeMail);
 
-                    if (match.Success)
-                    {
-                        TxtMail.ba
-                        Response.Write(LeMail + " is correct");
-
-                    }                    
-                    else
-                    {
-                        Response.Write(LeMail + " is incorrect");
-                    }                    
-
-                }
+            if (match.Success)
+            {
+                TxtMail.BackColor = Color.Green;
+            }
+            else
+            {
+                TxtMail.BackColor = Color.Red;
+            }
+        }
     }
 }

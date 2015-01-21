@@ -18,7 +18,6 @@ namespace MDLMetro
 {
     internal abstract class Utilitaire
     {
-
         private static MailMessage Mail;
         private static SmtpClient SmtpServer;
 
@@ -119,7 +118,6 @@ namespace MDLMetro
         /// VXXXXOn ou XXXX représente le nom de la tabl à partir de laquelle la vue est créée. n représente un numéro de séquence</param>
         public static void RemplirComboBox(Bdd UneConnexion, ComboBox UneCombo, String UneSource)
         {
-
             UneCombo.DataSource = UneConnexion.ObtenirDonnesOracle(UneSource);
             UneCombo.DisplayMember = "libelle";
             UneCombo.ValueMember = "id";
@@ -167,7 +165,7 @@ namespace MDLMetro
                 Mail.To.Add(LeMail);
                 Mail.Subject = "Inscription à Maison des Ligues";
                 Mail.IsBodyHtml = true;
-                Mail.Body = "Bonjour " + LePrenom + "" + LeNom + "," + "<p>Nous avons le plaisir de vous confirmer votre inscription </p>";
+                Mail.Body = "Bonjour " + LePrenom + "" + LeNom + "," + "<p>Nous avons le plaisir de vous confirmer votre inscription aux Assises de l'Escrime 2015. </p>";
 
                 NetworkCredential basicCredential = new NetworkCredential(Expediteur, Motdepasse);
 
@@ -185,21 +183,10 @@ namespace MDLMetro
             }
         }
 
-        public void ControleMail(ref MetroTextBox LeMail)
-        {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match match = regex.Match(LeMail);
-            if (match.Success)
-            {
-                TxtMail.ba
-                Response.Write(LeMail + " is correct");
-            }                    
-            else
-            {
-                Response.Write(LeMail + " is incorrect");
-            }                    
-
-        }
+        //public static void EmailIntervenant(int id) 
+        //{
+        //    return Bdd.ObtenirIdParticipant(UneDataTable);
+        //}
 
     }
 }

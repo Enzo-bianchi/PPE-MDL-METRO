@@ -7,7 +7,7 @@ using Oracle.DataAccess.Client;
 using System.Configuration;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;  // bibliothèque pour les expressions régulières
+using System.Text.RegularExpressions; 
 using MDLMetro;
 
 
@@ -526,6 +526,18 @@ namespace BaseDeDonnees
             string Sql = "select * from vvacation01 where idatelier= :pidatelier order by numero";
             this.UneOracleCommand = new OracleCommand(Sql, CnOracle);
             UneOracleCommand.Parameters.Add("pidatelier", OracleDbType.Int32, ParameterDirection.Input).Value = pIdAtelier;
+            UnOracleDataAdapter = new OracleDataAdapter();
+            UnOracleDataAdapter.SelectCommand = this.UneOracleCommand;
+            UnOracleDataAdapter.Fill(UneDataTable);
+            return UneDataTable;
+        }
+
+        public DataTable ObtenirIdParticipant(string pNomemp)
+        {
+            UneDataTable = new DataTable();
+            string Sql = "select id from ... where nomemp= :pnomemp";
+            this.UneOracleCommand = new OracleCommand(Sql, CnOracle);
+            UneOracleCommand.Parameters.Add("pnomemp", OracleDbType.Int32, ParameterDirection.Input).Value = pNomemp;
             UnOracleDataAdapter = new OracleDataAdapter();
             UnOracleDataAdapter.SelectCommand = this.UneOracleCommand;
             UnOracleDataAdapter.Fill(UneDataTable);
