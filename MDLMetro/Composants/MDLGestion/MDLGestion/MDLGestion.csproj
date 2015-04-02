@@ -44,9 +44,9 @@
     <Reference Include="MetroFramework.Design">
       <HintPath>..\..\..\dlls\MetroFramework.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+    <Reference Include="Oracle.DataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\dlls\Oracle.DataAccess.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\app\client\Enzo\product\12.1.0\client_1\odp.net\bin\2.x\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="QRCoder">
       <HintPath>..\..\..\dlls\QRCoder.dll</HintPath>
