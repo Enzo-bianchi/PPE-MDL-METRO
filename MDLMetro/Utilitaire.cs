@@ -183,10 +183,5 @@ namespace MDLMetro
             }
         }
 
-        //public static void EmailIntervenant(int id) 
-        //{
-        //    return Bdd.ObtenirIdParticipant(UneDataTable);
-        //}
-
     }
 }

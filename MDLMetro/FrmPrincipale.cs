@@ -633,9 +633,12 @@ namespace MDLMetro
                 
                 try
                 {
-                    ControleMail(TxtMail.Text);
-                    Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
-                    MetroMessageBox.Show(this, "Un email de confirmation vient de vous être envoyé", "Envoyé",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                    if (TxtMail.Text != null)
+                    {
+                        ControleMail(TxtMail.Text);
+                        Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
+                        MetroMessageBox.Show(this, "Un email de confirmation vient de vous être envoyé", "Envoyé", MessageBoxButtons.OK, MessageBoxIcon.Question);               
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -532,12 +532,13 @@ namespace BaseDeDonnees
             return UneDataTable;
         }
 
-        public DataTable ObtenirIdParticipant(string pNomemp)
+        public DataTable ObtenirIdParticipant(string pNom, string pPrenom)
         {
             UneDataTable = new DataTable();
-            string Sql = "select id from ... where nomemp= :pnomemp";
+            string Sql = "select id from participant where nomparticipant= :pNom and prenomparticipant = :pPrenom";
             this.UneOracleCommand = new OracleCommand(Sql, CnOracle);
-            UneOracleCommand.Parameters.Add("pnomemp", OracleDbType.Int32, ParameterDirection.Input).Value = pNomemp;
+            UneOracleCommand.Parameters.Add("pNom", OracleDbType.Char, ParameterDirection.Input).Value = pNom;
+            UneOracleCommand.Parameters.Add("pPrenom", OracleDbType.Char, ParameterDirection.Input).Value = pPrenom;
             UnOracleDataAdapter = new OracleDataAdapter();
             UnOracleDataAdapter.SelectCommand = this.UneOracleCommand;
             UnOracleDataAdapter.Fill(UneDataTable);
