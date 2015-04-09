@@ -393,11 +393,11 @@ namespace BaseDeDonnees
         /// <param name="PidAtelier">Correspond à l'id de l'atelier</param>
         /// <param name="PheureDebut">Correspond à l'heure de début de l'atelier</param>
         /// <param name="PheureFin">Correspond à l'heure de fint de l'atelier</param>
-        public void AjoutVacation(int PidAtelier, DateTime PheureDebut, DateTime PheureFin)
+        public void AjoutVacations(Collection<string> pVacationsHeureDebut, Collection<string> pVacationsHeureFin, int pIdAtelier)
         {
             try
             {
-                UneOracleCommand = new OracleCommand("pckatelier.ajoutvacation", CnOracle);
+                /*UneOracleCommand = new OracleCommand("pckatelier.ajoutvacation", CnOracle);
                 UneOracleCommand.CommandType = CommandType.StoredProcedure;
                 UneOracleCommand.Parameters.Add("pidAtelier", OracleDbType.Int32, ParameterDirection.Input).Value = PidAtelier;
                 UneOracleCommand.Parameters.Add("pheuredebut", OracleDbType.Date, ParameterDirection.Input).Value = PheureDebut;
@@ -405,6 +405,30 @@ namespace BaseDeDonnees
 
                 UneOracleCommand.ExecuteNonQuery();
                 MessageBox.Show("Ajout vacation effectuée.");
+                 */
+                UneOracleCommand = new OracleCommand("pckatelier.ajoutvacations", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter pLesDatesDebut = new OracleParameter();
+                pLesDatesDebut.ParameterName = "pheuredebut";
+                pLesDatesDebut.OracleDbType = OracleDbType.Varchar2;
+                pLesDatesDebut.CollectionType = OracleCollectionType.PLSQLAssociativeArray;
+                pLesDatesDebut.Value = pVacationsHeureDebut.ToArray();
+                pLesDatesDebut.Size = pVacationsHeureDebut.Count;
+                UneOracleCommand.Parameters.Add(pLesDatesDebut);
+
+                OracleParameter pLesDatesFin = new OracleParameter();
+                pLesDatesFin.ParameterName = "pheurefin";
+                pLesDatesFin.OracleDbType = OracleDbType.Varchar2;
+                pLesDatesFin.CollectionType = OracleCollectionType.PLSQLAssociativeArray;
+                pLesDatesFin.Value = pVacationsHeureFin.ToArray();
+                pLesDatesFin.Size = pVacationsHeureFin.Count;
+                UneOracleCommand.Parameters.Add(pLesDatesFin);
+
+                UneOracleCommand.Parameters.Add("pidatelier", OracleDbType.Int32, ParameterDirection.Input).Value = pIdAtelier;
+
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("Modification vacation effectuée.");
             }
             catch (OracleException Oex)
             {

@@ -24,6 +24,7 @@ namespace MDLMetro
         private int NombreLigne = 0;
         private int NombreVacationCreerAtelier = 0;
         private int NombreVacationModifier = 0;
+        private int NombreVacationModifierAjouter = 0;
         //Colone des composants de gauche.
         private int XVacationCreerAtelier = 14;
         //Ligne des composants.
@@ -170,6 +171,8 @@ namespace MDLMetro
         {
             if (RadGestionAtelier.Checked)
             {
+                ViderChampsGestionAtelierThemeVacation();
+
                 NombreLigne = 0;
                 NombreVacationCreerAtelier = 0;
                 NombreVacationModifier = 0;
@@ -194,7 +197,6 @@ namespace MDLMetro
                 PanelCreerVacationSuite.Visible = false;
                 PanelCreerVacationSuite.Enabled = false;
 
-                ViderChampsGestionAtelierThemeVacation();
             }
         }
 
@@ -351,6 +353,8 @@ namespace MDLMetro
             DataTable UneDataTable = new DataTable();
             if (RadGestionTheme.Checked)
             {
+                ViderChampsGestionAtelierThemeVacation();
+
                 PanelCreerAtelier.Enabled = false;
                 PanelCreerAtelier.Visible = false;
                 PanelCreerAtelierTheme.Visible = false;
@@ -372,7 +376,6 @@ namespace MDLMetro
                 CbbCreerThemeAtelier.DisplayMember = "LIBELLE";
                 CbbCreerThemeAtelier.ValueMember = "ID";
 
-                ViderChampsGestionAtelierThemeVacation();
             }
         }
 
@@ -388,6 +391,8 @@ namespace MDLMetro
             DataTable UneDataTable = new DataTable();
             if (RadGestionVacation.Checked)
             {
+                ViderChampsGestionAtelierThemeVacation();
+
                 NombreLigne = 0;
                 NombreVacationCreerAtelier = 0;
                 NombreVacationModifier = 0;
@@ -423,7 +428,7 @@ namespace MDLMetro
                 //l'événement SelectedIndexChanged s'active lors d'un changement dans la combo-box mais aussi lors du REMPLISSAGE de la combo-box.
                 //Ce qui pose problème car le premier objet est un type datarowview et il faut donc le traiter autrement que les autres.
                 //Donc en désactivant l'événement lors du remplissage, il ne se passera rien. Une fois la combo-box remplie, on réactive l'événement.
-                ViderChampsGestionAtelierThemeVacation();
+                //ViderChampsGestionAtelierThemeVacation();
             }
         }
 
@@ -446,18 +451,15 @@ namespace MDLMetro
 
             DataTable UneDataTable = new DataTable();
             //tant qu'il y a des composant dynamique pour la modification de vacation, on supprime.
-            while (PanelCreerVacationSuite.Controls.Count != 3) // 3 correspond au nombre de controls avec aucun composant.
+            while (PanelCreerVacationSuite.Controls.Count != 5) // 5 correspond au nombre de controls avec aucun composant.
             {
-                NombreVacationModifier--;
-                if (NombreVacationModifier % 2 == 0)
-                {
-                    NombreVacationModifier -= 64;
-                }
-                PanelCreerVacationSuite.Controls.RemoveAt(PanelCreerVacationSuite.Controls.Count - 1);
+                PanelCreerVacationSuite.Controls.RemoveAt(PanelCreerVacationSuite.Controls.Count - 1);//4 pour ne pas supprimer le label et les boutons + et -
             }
+
             NombreLigne = 0;
             NombreVacationCreerAtelier = 0;
             NombreVacationModifier = 0;
+            NombreVacationModifierAjouter = 0;
             XVacationCreerAtelier = 14;
             YVacationCreerAtelier = 0;
             X2VacationCreerAtelier = 630;
@@ -510,11 +512,14 @@ namespace MDLMetro
         {
             try
             {
+                int NombreModifier = NombreVacationModifier - NombreVacationModifierAjouter;//permet de compter le nombre de vacation modifiée et non ajoutée
                 Collection<String> VacationsDebut = new Collection<String>();
                 Collection<String> VacationsFin = new Collection<String>();
+                Collection<String> VacationsDebutAjouter = new Collection<String>();
+                Collection<String> VacationsFinAjouter = new Collection<String>();
                 foreach (Control UnControle in PanelCreerVacationSuite.Controls)
                 {
-                    if (UnControle is ComposantVacation.ComposantVacation)
+                    if (UnControle is ComposantVacation.ComposantVacation && NombreModifier > 0)
                     {
                         if (UnControle.Controls[3].BackColor == Color.Green)
                         {
@@ -522,6 +527,21 @@ namespace MDLMetro
                             string UneFin = UnControle.Controls[5].Text + " " + UnControle.Controls[1].Text;
                             VacationsDebut.Add(UnDebut);
                             VacationsFin.Add(UneFin);
+                            NombreModifier--;
+                        }
+                        else
+                        {
+                            throw new Exception("Une des heures ne respecte pas le bon format.");
+                        }
+                    }
+                    else if (UnControle is ComposantVacation.ComposantVacation && NombreModifier == 0)
+                    {
+                        if (UnControle.Controls[3].BackColor == Color.Green)
+                        {
+                            string UnDebut = UnControle.Controls[5].Text + " " + UnControle.Controls[3].Text;
+                            string UneFin = UnControle.Controls[5].Text + " " + UnControle.Controls[1].Text;
+                            VacationsDebutAjouter.Add(UnDebut);
+                            VacationsFinAjouter.Add(UneFin);
                         }
                         else
                         {
@@ -530,6 +550,7 @@ namespace MDLMetro
                     }
                 }
                 UneConnexion.ModificationVacation(VacationsDebut, VacationsFin, Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
+                UneConnexion.AjoutVacations(VacationsDebutAjouter, VacationsFinAjouter, Convert.ToInt32(CbbCreerVacationAtelier.SelectedValue));
                 ViderChampsGestionAtelierThemeVacation();
             }
             catch (Exception ex)
@@ -872,6 +893,7 @@ namespace MDLMetro
                     PanelCreerAtelierVacation.Controls.RemoveAt(PanelCreerAtelierVacation.Controls.Count - 1);
                 }
             }
+
             for (int i = this.ListeCreerAtelierCreerTheme.Items.Count - 1; this.ListeCreerAtelierCreerTheme.Items.Count > 0; i--)
             {
                 this.ListeCreerAtelierCreerTheme.Items.RemoveAt(i);
@@ -1098,6 +1120,49 @@ namespace MDLMetro
              {
                  MetroMessageBox.Show(this, Ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
              }
+        }
+
+        private void BtnCreerVacationAjouter_Click(object sender, EventArgs e)
+        {
+            //5 vacations maximum.
+            if (NombreVacationModifier < 5)
+            {
+                //Si le nombre de vacation est pair la prochaine sera du coté gauche.
+                if (NombreVacationModifier % 2 == 0)
+                {
+                    YVacationCreerAtelier += 64;
+                    ComposantVacation.ComposantVacation ModifierUneVacation = new ComposantVacation.ComposantVacation();
+                    ModifierUneVacation.Location = new Point(XVacationCreerAtelier, YVacationCreerAtelier);
+                    PanelCreerVacationSuite.Controls.Add(ModifierUneVacation);
+                    NombreVacationModifier++;
+                    NombreVacationModifierAjouter++;
+                }
+                //Sinon du coté droit.
+                else
+                {
+                    ComposantVacation.ComposantVacation ModifierUneVacation = new ComposantVacation.ComposantVacation();
+                    ModifierUneVacation.Location = new Point(X2VacationCreerAtelier, YVacationCreerAtelier);
+                    PanelCreerVacationSuite.Controls.Add(ModifierUneVacation);
+                    NombreVacationModifier++;
+                    NombreVacationModifierAjouter++;
+                }
+            }
+
+        }
+
+        private void BtnCreerVacationRetirer_Click(object sender, EventArgs e)
+        {
+            if (NombreVacationModifierAjouter > 0)
+            {
+                NombreVacationModifier--;
+                NombreVacationModifierAjouter--;
+                if (NombreVacationModifier % 2 == 0)
+                {
+                    YVacationCreerAtelier -= 64;
+                }
+                PanelCreerVacationSuite.Controls.RemoveAt(PanelCreerVacationSuite.Controls.Count - 1);
+            }
+
         }
     }
 }
