@@ -39,7 +39,7 @@ namespace BaseDeDonnees
                 /// <remarks>on commence par récupérer dans CnString les informations contenues dans le fichier app.config
                 /// pour la connectionString de nom StrConnMdl
                 /// </remarks>
-                ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdlLocal"];
+                ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdlLocal2"];
                 ///<remarks>
                 /// on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
                 ///dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
