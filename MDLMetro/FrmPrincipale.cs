@@ -965,7 +965,7 @@ namespace MDLMetro
                     {
                         switch (TypeChambreSelectionne) // IBIS
                         {
-                            case "Simple":
+                            case "Single":
                                 totalnuite1 = 61.20F; // F pour float
                                 break;
                             case "Double":
@@ -979,7 +979,7 @@ namespace MDLMetro
                     {
                         switch (TypeChambreSelectionne) // NOVO
                         {
-                            case "Simple":
+                            case "Single":
                                 totalnuite1 = 112;
                                 break;
                             case "Double":
@@ -996,7 +996,7 @@ namespace MDLMetro
                     {
                         switch (TypeChambreSelectionne) // IBIS
                         {
-                            case "Simple":
+                            case "Single":
                                 totalnuite2 = 61.20F; // F pour float
                                 break;
                             case "Double":
@@ -1010,7 +1010,7 @@ namespace MDLMetro
                     {
                         switch (TypeChambreSelectionne) // NOVO
                         {
-                            case "Simple":
+                            case "Single":
                                 totalnuite2 = 112;
                                 break;
                             case "Double":
