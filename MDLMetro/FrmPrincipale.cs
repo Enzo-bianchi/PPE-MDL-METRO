@@ -11,12 +11,14 @@ using ComposantNuite;
 using System.IO;
 using System.Text.RegularExpressions;
 
+
 namespace MDLMetro
 {
     public partial class FrmPrincipale : MetroFramework.Forms.MetroForm
     {
         private String IdStatutSelectionne = "";
         private Bdd UneConnexion;
+        
 
         
         //Variables correspondant a la création dynamique des composants pour la gestion des vacations.
@@ -598,6 +600,7 @@ namespace MDLMetro
                 }
             }
             UneConnexion.InscrireBenevole(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToDateTime(TxtDateNaissance.Text), NumeroLicence, IdDatesSelectionnees, photoByte);
+            Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
             ViderChampsBenevole();
         }
 
@@ -668,6 +671,7 @@ namespace MDLMetro
                     UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
                     MetroMessageBox.Show(this,"Inscription intervenant effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
                 ViderChampsIntervenant();
             }
             catch (Exception Ex)
@@ -1115,6 +1119,7 @@ namespace MDLMetro
                     //UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, TxtTel.MaskCompleted ? TxtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, photoByte);
                     MetroMessageBox.Show(this,"Inscription licencié effectuée", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Utilitaire.EnvoieMail(TxtMail.Text, TxtNom.Text, TxtPrenom.Text, TxtTel.Text, TxtVille.Text);
             }
              catch (Exception Ex)
              {
