@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using BaseDeDonnees;
 using System.Security.Cryptography;
 using QRCoder;
+using System.Configuration;
+using System.Net.Mail;
+using System.Net;
 
 namespace MDLGestion
 {
@@ -63,6 +66,7 @@ namespace MDLGestion
                     string nom = GridArrivants[2, e.RowIndex].Value.ToString();
                     string mail = GridArrivants[4, e.RowIndex].Value.ToString();
                     GridArrivants[0, e.RowIndex].Tag = "I"; // On le passe en inscrit
+                    EnvoieMail(mail, nom, prenom);
                     (new FrmDetail(clewifi, nom, prenom, mail)).Show();
                 }
                 else
@@ -80,6 +84,47 @@ namespace MDLGestion
                 randomString.Append(chars[random.Next(chars.Length)]);
 
             return randomString.ToString();
+        }
+
+        /// <summary>
+        /// La fonction EnvoieMail permet d'envoyer un mail de confirmation à l'adresse email entrée dans TxtMail.
+        /// </summary>
+        /// 
+        //TxtNom.Text,TxtPrenom.Text,TxtTel.Text,TxtVille.Text
+        public static void EnvoieMail(string LeMail, string LeNom, string LePrenom)
+        {
+            MailMessage Mail;
+            SmtpClient SmtpServer;
+            string Expediteur = ConfigurationManager.AppSettings["Expediteur"];
+            string Motdepasse = ConfigurationManager.AppSettings["Motdepasse"];
+            string Host = ConfigurationManager.AppSettings["Host"];
+            string Port = ConfigurationManager.AppSettings["Port"];
+            
+            try
+            {
+                Mail = new MailMessage();
+                SmtpServer = new SmtpClient();
+
+                Mail.From = new MailAddress(LeMail);
+                Mail.To.Add(LeMail);
+                Mail.Subject = "Comfirmation arrivée Maison des ligues";
+                Mail.IsBodyHtml = true;
+                Mail.Body = "Bonjour " + LePrenom + "" + LeNom + "," + "<p>Nous avons le plaisir de vous confirmer votre arrivée aux Assises de l'Escrime 2015. </p>";
+
+                NetworkCredential basicCredential = new NetworkCredential(Expediteur, Motdepasse);
+
+                SmtpServer.Host = Host;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = basicCredential;
+                SmtpServer.Port = Convert.ToInt16(Port);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(Mail);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Une erreur est survenue lors de l'envoi de votre email de confirmation. Veuillez réessayer ultérieurement.");
+            }
         }
     }
 }

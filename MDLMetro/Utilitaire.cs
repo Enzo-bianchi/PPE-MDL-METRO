@@ -176,10 +176,12 @@ namespace MDLMetro
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(Mail);
+
             }
             catch (Exception ex)
             {
-                throw new Exception("Une erreur est survenue lors de l'envoi de votre email de confirmation. Veuillez réessayer ultérieurement.");
+                MessageBox.Show(ex.Message);
+                //throw new Exception("Une erreur est survenue lors de l'envoi de votre email de confirmation. Veuillez réessayer ultérieurement.");
             }
         }
 
