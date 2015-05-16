@@ -1025,7 +1025,7 @@ namespace MDLMetro
                             case "Single":
                                 totalnuite2 = 61.20F; // F pour float
                                 break;
-                            case "Single":
+                            case "Double":
                                 totalnuite2 = 62.20F; // F pour float
                                 break;
                             default:
@@ -1039,7 +1039,7 @@ namespace MDLMetro
                             case "Single":
                                 totalnuite2 = 112;
                                 break;
-                            case "Single":
+                            case "Double":
                                 totalnuite2 = 122;
                                 break;
                             default:
