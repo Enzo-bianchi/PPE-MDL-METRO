@@ -165,7 +165,7 @@ namespace MDLMetro
                 Mail.To.Add(LeMail);
                 Mail.Subject = "Inscription à Maison des Ligues";
                 Mail.IsBodyHtml = true;
-                Mail.Body = "Bonjour " + LePrenom + "" + LeNom + "," + "<p>Nous avons le plaisir de vous confirmer votre inscription aux Assises de l'Escrime 2015. </p>";
+                Mail.Body = "Bonjour " + LePrenom + " " + LeNom + "," + "<p>Nous avons le plaisir de vous confirmer votre inscription aux Assises de l'Escrime 2015. </p>";
 
                 NetworkCredential basicCredential = new NetworkCredential(Expediteur, Motdepasse);
 
